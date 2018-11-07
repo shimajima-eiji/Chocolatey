@@ -1,0 +1,4 @@
+/TablacusExplorer/config/*
+!addons.xml
+!autoupdate.txt
+/TablacusExplorer/lang/*
