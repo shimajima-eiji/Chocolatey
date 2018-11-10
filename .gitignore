@@ -1,8 +1,7 @@
+/TablacusExplorer/*
+!README.md
+!addons
+!config
 /TablacusExplorer/config/*
 !addons.xml
 !autoupdate.txt
-/TablacusExplorer/lang/*
-/TablacusExplorer/init/*
-/TablacusExplorer/layout/*
-/TablacusExplorer/script/*
-/TablacusExplorer/script/*.exe
