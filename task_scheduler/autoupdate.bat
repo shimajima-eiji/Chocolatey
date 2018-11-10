@@ -1,7 +1,8 @@
 git add -A
-git commit "Auto Update for Backup"
+git commit -m "Auto Update for Backup"
 
+git branch -d tmp
 git branch tmp
 git checkout master
 git merge tmp
-git push origin master
+git push https master
