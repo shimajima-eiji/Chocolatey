@@ -8,5 +8,3 @@ git branch tmp
 git checkout master
 git merge tmp
 git push https master
-
-pause
