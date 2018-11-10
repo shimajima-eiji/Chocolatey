@@ -2,4 +2,7 @@
 !addons.xml
 !autoupdate.txt
 /TablacusExplorer/lang/*
-/Tablacus Explorer
+/TablacusExplorer/init/*
+/TablacusExplorer/layout/*
+/TablacusExplorer/script/*
+/TablacusExplorer/script/*.exe
