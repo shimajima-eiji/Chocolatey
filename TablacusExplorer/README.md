@@ -1,2 +1,2 @@
-[Official](https://tablacus.github.io/explorer.html)
-
+- [Official](https://tablacus.github.io/explorer.html)
+- [Description](http://tablacus.hatenablog.com)
