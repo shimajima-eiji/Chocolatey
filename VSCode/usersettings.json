@@ -1,0 +1,34 @@
+{
+    "window.zoomLevel": 0,
+    "files.associations": {
+      "*.gs": "javascript",
+      "*.tsv": "tsv"
+    },
+    "extensions.ignoreRecommendations": false,
+    "workbench.sideBar.location": "right",
+    "saveAndRun": {
+        "commands": [
+          {
+            "match": "\\.py$",
+            "cmd": "python $(wslpath '${file}'); echo '\nEND OF COMMAND'",
+            "useShortcut": false
+          },
+          {
+            "match": "\\.sh$",
+            "cmd": "sh $(wslpath '${file}'); echo '\nEND OF COMMAND'",
+            "useShortcut": false
+          }
+        ]
+    },
+    "sync.gist": "(gist ID)",
+    "files.trimTrailingWhitespace": true,
+    "sync.askGistName": true,
+    "sync.autoDownload": true,
+    "sync.quietSync": true,
+    "git.confirmSync": false,
+    "sync.autoUpload": true,
+    "git.autofetch": true,
+    "terminal.integrated.shell.windows": "C:\\Windows\\System32\\wsl.exe",
+    "files.autoSave": "off",
+    "editor.tabSize": 2
+  }
