@@ -4,7 +4,6 @@
 !config
 /TablacusExplorer/config/*
 !addons.xml
-!autoupdate.txt
 /installer/*
 !README.md
 /vivaldi/*
