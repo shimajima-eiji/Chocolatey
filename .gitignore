@@ -1,6 +1,7 @@
 /TablacusExplorer/*
 !README.md
 !addons
+!addons_lib
 !config
 /TablacusExplorer/config/*
 !addons.xml
