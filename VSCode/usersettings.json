@@ -30,5 +30,5 @@
     "git.autofetch": true,
     "terminal.integrated.shell.windows": "C:\\Windows\\System32\\wsl.exe",
     "files.autoSave": "off",
-    "editor.tabSize": 2,
+    "editor.tabSize": 4,
   }
