@@ -10,7 +10,7 @@
         "commands": [
           {
             "match": "\\.py$",
-            "cmd": "python $(wslpath '${file}'); echo '\nEND OF COMMAND'",
+            "cmd": "pyformat -i $(wslpath '${file}'); isort $(wslpath '${file}'); python3 $(wslpath '${file}'); echo '\nEND OF COMMAND'",
             "useShortcut": false
           },
           {
@@ -20,7 +20,7 @@
           }
         ]
     },
-    "sync.gist": "(gist ID)",
+    "sync.gist": "9cc25bb1fe6d83818599ce00ea1977d5",
     "files.trimTrailingWhitespace": true,
     "sync.askGistName": true,
     "sync.autoDownload": true,
@@ -30,5 +30,5 @@
     "git.autofetch": true,
     "terminal.integrated.shell.windows": "C:\\Windows\\System32\\wsl.exe",
     "files.autoSave": "off",
-    "editor.tabSize": 2
+    "editor.tabSize": 2,
   }
