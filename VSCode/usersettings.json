@@ -1,34 +1,34 @@
 {
-    "window.zoomLevel": 0,
-    "files.associations": {
-      "*.gs": "javascript",
-      "*.tsv": "tsv"
-    },
-    "extensions.ignoreRecommendations": false,
-    "workbench.sideBar.location": "right",
-    "saveAndRun": {
-        "commands": [
-          {
-            "match": "\\.py$",
-            "cmd": "pyformat -i $(wslpath '${file}'); isort $(wslpath '${file}'); python3 $(wslpath '${file}'); echo '\nEND OF COMMAND'",
-            "useShortcut": false
-          },
-          {
-            "match": "\\.sh$",
-            "cmd": "sh $(wslpath '${file}'); echo '\nEND OF COMMAND'",
-            "useShortcut": false
-          }
-        ]
-    },
-    "sync.gist": "9cc25bb1fe6d83818599ce00ea1977d5",
-    "files.trimTrailingWhitespace": true,
-    "sync.askGistName": true,
-    "sync.autoDownload": true,
-    "sync.quietSync": true,
-    "git.confirmSync": false,
-    "sync.autoUpload": true,
-    "git.autofetch": true,
-    "terminal.integrated.shell.windows": "C:\\Windows\\System32\\wsl.exe",
-    "files.autoSave": "off",
-    "editor.tabSize": 4,
-  }
+  "window.zoomLevel": 0,
+  "files.associations": {
+    "*.gs": "javascript",
+    "*.tsv": "tsv"
+  },
+  "extensions.ignoreRecommendations": false,
+  "workbench.sideBar.location": "right",
+  "saveAndRun": {
+      "commands": [
+        {
+          "match": "\\.py$",
+          "cmd": "pyformat -i $(wslpath '${file}'); isort $(wslpath '${file}'); python3 /opt/VSCode.py $(wslpath '${file}'); python3 $(wslpath '${file}')",
+//            "cmd": "python3 /opt/VSCode.py $(wslpath '${file}'); python3 $(wslpath '${file}')",
+          "useShortcut": false
+        },
+        {
+          "match": "\\.sh$",
+          "cmd": "sh $(wslpath '${file}'); echo '\nEND OF COMMAND'",
+          "useShortcut": false
+        }
+      ]
+  },
+  "sync.gist": "(gist id)",
+  "files.trimTrailingWhitespace": true,
+  "sync.askGistName": true,
+  "sync.autoDownload": true,
+  "sync.quietSync": true,
+  "git.confirmSync": false,
+  "sync.autoUpload": true,
+  "git.autofetch": true,
+  "terminal.integrated.shell.windows": "C:\\Windows\\System32\\wsl.exe",
+  "files.autoSave": "off",
+}
