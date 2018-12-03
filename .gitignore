@@ -6,9 +6,16 @@
 /TablacusExplorer/config/*
 !addons.xml
 /installer/*
+!index.md
 !README.md
 /vivaldi/*
+!index.md
 !README.md
 /tools/*
+!index.md
 !README.md
 /VSCode/*
+!index.md
+!README.md
+!SaveandRun.sh
+!SaveandRun.py
