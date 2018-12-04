@@ -1,34 +1,41 @@
 {
-  "window.zoomLevel": 0,
+  "window.zoomLevel"  : 0,
   "files.associations": {
-    "*.gs": "javascript",
+    "*.gs" : "javascript",
     "*.tsv": "tsv"
   },
   "extensions.ignoreRecommendations": false,
-  "workbench.sideBar.location": "right",
-  "saveAndRun": {
+  "workbench.sideBar.location"      : "right",
+  "saveAndRun"                      : {
       "commands": [
         {
-          "match": "\\.py$",
-          "cmd": "pyformat -i $(wslpath '${file}'); isort $(wslpath '${file}'); python3 /opt/VSCode.py $(wslpath '${file}'); python3 $(wslpath '${file}')",
-//            "cmd": "python3 /opt/VSCode.py $(wslpath '${file}'); python3 $(wslpath '${file}')",
+          "match"      : "\\.py$",
+          "cmd"        : "sh (path)/winsettings/VSCode/SaveandRun.sh $(wslpath '${file}')",
           "useShortcut": false
         },
         {
-          "match": "\\.sh$",
-          "cmd": "sh $(wslpath '${file}'); echo '\nEND OF COMMAND'",
+          "match"      : "\\.sh$",
+          "cmd"        : "sh (path)/winsettings/VSCode/SaveandRun.sh $(wslpath '${file}')",
           "useShortcut": false
         }
       ]
   },
-  "sync.gist": "(gist id)",
-  "files.trimTrailingWhitespace": true,
-  "sync.askGistName": true,
-  "sync.autoDownload": true,
-  "sync.quietSync": true,
-  "git.confirmSync": false,
-  "sync.autoUpload": true,
-  "git.autofetch": true,
+  "sync.gist"                        : "(gist id)",
+  "files.trimTrailingWhitespace"     : true,
+  "sync.askGistName"                 : true,
+  "sync.autoDownload"                : true,
+  "sync.quietSync"                   : true,
+  "git.confirmSync"                  : false,
+  "sync.autoUpload"                  : true,
+  "git.autofetch"                    : true,
   "terminal.integrated.shell.windows": "C:\\Windows\\System32\\wsl.exe",
-  "files.autoSave": "off",
+  "files.autoSave"                   : "off",
+  "todo-tree.defaultHighlight"       : {
+    "foreground": "green",
+    "type"      : "none"
+  },
+  "todo-tree.customHighlight": {
+    "TODO" : {},
+    "FIXME": {}
+  }
 }
