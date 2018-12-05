@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
-### TODO use wssh.py for .py
+### TODO #3 use wssh.py for .py
 fromfile=$1
 if [ "$(basename ${fromfile})" = 'SaveandRun.sh' ];then
   exit 0
