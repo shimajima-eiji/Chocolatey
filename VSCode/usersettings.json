@@ -1,4 +1,5 @@
 {
+
   "window.zoomLevel"  : 0,
   "files.associations": {
     "*.gs" : "javascript",
@@ -15,6 +16,76 @@
         },
         {
           "match"      : "\\.sh$",
+          "cmd"        : "sh (path)/winsettings/VSCode/SaveandRun.sh $(wslpath '${file}')",
+          "useShortcut": false
+        },
+        {  // ansible
+          "match"      : "hosts$",
+          "cmd"        : "sh (path)/winsettings/VSCode/SaveandRun.sh $(wslpath '${file}')",
+          "useShortcut": false
+        },
+        {  // ansible
+          "match"      : "inventory$",
+          "cmd"        : "sh (path)/winsettings/VSCode/SaveandRun.sh $(wslpath '${file}')",
+          "useShortcut": false
+        },
+        {  // ansible
+          "match"      : "ssh_config$",
+          "cmd"        : "sh (path)/winsettings/VSCode/SaveandRun.sh $(wslpath '${file}')",
+          "useShortcut": false
+        },
+        {  // ansible
+          "match"      : "\\.cnf$",
+          "cmd"        : "sh (path)/winsettings/VSCode/SaveandRun.sh $(wslpath '${file}')",
+          "useShortcut": false
+        },
+        {
+          "match"      : "\\.ini$",
+          "cmd"        : "sh (path)/winsettings/VSCode/SaveandRun.sh $(wslpath '${file}')",
+          "useShortcut": false
+        },
+        {
+          "match"      : "\\.conf$",
+          "cmd"        : "sh (path)/winsettings/VSCode/SaveandRun.sh $(wslpath '${file}')",
+          "useShortcut": false
+        },
+        {
+          "match"      : "\\.csv$",
+          "cmd"        : "sh (path)/winsettings/VSCode/SaveandRun.sh $(wslpath '${file}')",
+          "useShortcut": false
+        },
+        {
+          "match"      : "\\.tsv$",
+          "cmd"        : "sh (path)/winsettings/VSCode/SaveandRun.sh $(wslpath '${file}')",
+          "useShortcut": false
+        },
+        {
+          "match"      : "\\.xml$",
+          "cmd"        : "sh (path)/winsettings/VSCode/SaveandRun.sh $(wslpath '${file}')",
+          "useShortcut": false
+        },
+        {
+          "match"      : "\\.json$",
+          "cmd"        : "sh (path)/winsettings/VSCode/SaveandRun.sh $(wslpath '${file}')",
+          "useShortcut": false
+        },
+        {
+          "match"      : "\\.yml$",
+          "cmd"        : "sh (path)/winsettings/VSCode/SaveandRun.sh $(wslpath '${file}')",
+          "useShortcut": false
+        },
+        {
+          "match"      : "\\.yaml$",
+          "cmd"        : "sh (path)/winsettings/VSCode/SaveandRun.sh $(wslpath '${file}')",
+          "useShortcut": false
+        },
+        {
+          "match"      : "\\.tml$",
+          "cmd"        : "sh (path)/winsettings/VSCode/SaveandRun.sh $(wslpath '${file}')",
+          "useShortcut": false
+        },
+        {
+          "match"      : "\\.toml$",
           "cmd"        : "sh (path)/winsettings/VSCode/SaveandRun.sh $(wslpath '${file}')",
           "useShortcut": false
         }
@@ -37,5 +108,5 @@
   "todo-tree.customHighlight": {
     "TODO" : {},
     "FIXME": {}
-  }
+  },
 }

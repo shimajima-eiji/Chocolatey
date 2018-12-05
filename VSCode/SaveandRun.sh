@@ -3,7 +3,7 @@
 cd $(dirname $0)
 
 fromfile=$1  # wslpath '${file}'
-if [ "$(basename ${fromfile})" = 'SaveandRun.sh' ];then
+if [ "$(basename ${fromfile})" = 'SaveandRun.sh' -o ! "$(echo ${fromfile} | grep AppData/Roaming/Code/User/settings.json)" = '' ];then
   exit 0
 fi
 
@@ -15,6 +15,8 @@ if [ ! "$(echo ${fromfile} | grep .py$)" = '' ]; then
   cmd='python3'
 elif  [ ! "$(echo ${fromfile} | grep .sh$)" = '' ]; then
   cmd='bash'
+else
+  cmd=''
 fi
 
 ### convert from -> to
@@ -39,4 +41,8 @@ fi
 
 ${sshpass} ssh ${host} "mkdir -p $(dirname ${tofile})"
 ${sshpass} scp ${fromfile} ${host}:${tofile}
-${sshpass} ssh ${host} "${cmd} ${tofile}"
+echo "[complete] ${fromfile} -> ${host}:${tofile}"
+
+if [ ! "${cmd}" = '' ]; then
+  ${sshpass} ssh ${host} "${cmd} ${tofile}"
+fi
