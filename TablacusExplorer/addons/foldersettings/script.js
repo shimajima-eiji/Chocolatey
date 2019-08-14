@@ -1,4 +1,4 @@
-﻿if (window.Addon == 1) {
+if (window.Addon == 1) {
 	te.Data.xmlFolderSettings = OpenXml("foldersettings.xml", false, true);
 	Addons.FolderSettings =
 	{
@@ -11,16 +11,9 @@
 				path2 = "";
 			}
 			for (var i = items.length; i-- > 0;) {
-				var item = items[i];
-				var filter = item.getAttribute("Filter");
-				var res = /\/(.*)\/(.*)/.exec(filter);
-				if (res) {
-					var re = new RegExp(res[1], res[2]);
-					if (re.test(path) || (path2 && re.test(path2))) {
-						return item;
-					}
-				} else if (api.PathMatchSpec(path, filter) || api.PathMatchSpec(path2, filter)) {
-					return item;
+				var filter = items[i].getAttribute("Filter");
+				if (PathMatchEx(path, filter) || (path2 && PathMatchEx(path2, filter))) {
+					return items[i];
 				}
 			}
 		}
@@ -32,12 +25,12 @@
 		if (Ctrl.Data && !Ctrl.Data.Setting) {
 			var item = Addons.FolderSettings.Get(Ctrl);
 			if (item) {
-				var res = /CurrentViewMode\(\s*(\d+)\s*,\s*(\d+)/i.exec(item.text);
+				var res = /CurrentViewMode\(\s*(\-?\d)\s*,\s*(\d+)/i.exec(item.text);
 				if (res) {
 					fs.ViewMode = res[1];
 					fs.ImageSize = res[2];
 				}
-				res = /CurrentViewMode\s*=\s*(\d+)/i.exec(item.text);
+				res = /CurrentViewMode\s*=\s*(\-?\d)/i.exec(item.text);
 				if (res) {
 					fs.ViewMode = res[1];
 				}

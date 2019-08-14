@@ -1,4 +1,4 @@
-﻿var Addon_Id = "tabplus";
+var Addon_Id = "tabplus";
 
 var item = GetAddonElement(Addon_Id);
 if (!item.getAttribute("Set")) {
@@ -132,7 +132,7 @@ if (window.Addon == 1) {
 				var s = ['<table style="width: 100%"><tr style="width: 100%">'];
 				try {
 					var w = FV.Data.Lock || this.opt.Close ? -13 : 0;
-					if (FV.Data.Lock) {
+					if (FV.Data.Lock && !this.opt.NoLock) {
 						s.push('<td style="padding-right: 2px; vertical-align: middle; width: 13px"><img src="', this.ImgLock, '" style="width: 13px"></td>');
 						w -= 2;
 					}
@@ -412,7 +412,9 @@ if (window.Addon == 1) {
 					res = /^tabplus_(\d+)_(\d+)/.exec(Addons.TabPlus.Drag5);
 					if (res) {
 						if (res[1] != Id || res[2] != nDrop) {
-							te.Ctrl(CTRL_TC, res[1]).Move(res[2], nDrop, TC);
+							var TC1 = te.Ctrl(CTRL_TC, res[1]);
+							TC1.Move(res[2], nDrop, TC);
+							TC1.SelectedIndex = nDrop;
 							this.Drop = [];
 						}
 					}
@@ -618,12 +620,12 @@ if (window.Addon == 1) {
 					if (TC.Count + (Addons.TabPlus.opt.New ? 1 : 0) != tabs.length) {
 						o = null;
 					}
-				}		
+				}
 			}
 			if (!o) {
 				Addons.TabPlus.SelectionChanged(TC, TC.Id);
 			}
-11		}
+		}
 	});
 
 	AddEvent("Create", function (Ctrl)
