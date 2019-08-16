@@ -9,7 +9,7 @@
 /installer/*
 !index.md
 !README.md
-!files.sh
+!files.txt
 /vivaldi/*
 !index.md
 !README.md
