@@ -1,4 +1,4 @@
-﻿var item = GetAddonElement("clipfolder");
+var item = GetAddonElement("clipfolder");
 if (!item.getAttribute("Set")) {
 	item.setAttribute("Filter", "*.cfu");
 	item.setAttribute("MenuExec", 1);
@@ -36,6 +36,19 @@ if (window.Addon == 1) {
 			return /string/i.test(typeof Ctrl) ? api.PathUnquoteSpaces(ExtractMacro(te, Ctrl)) : api.GetDisplayNameOf(Ctrl, SHGDN_FORADDRESSBAR | SHGDN_FORPARSING);
 		},
 
+		IsWritable: function (Ctrl)
+		{
+			var path = Addons.ClipFolder.GetPath(Ctrl);
+			if (path) {
+				var h = api.CreateFile(path, 0xc0000000, 7, null, 3, 0x02000000, null);
+				if (h != INVALID_HANDLE_VALUE) {
+					api.CloseHandle(h);
+					return true;
+				}
+				return false;
+			}
+		},
+
 		Enum: function (pid, Ctrl, fncb, SessionId)
 		{
 			var Items = te.FolderItems();
@@ -56,6 +69,9 @@ if (window.Addon == 1) {
 			}
 			if (Items.Count == 0 || !Addons.ClipFolder.IsHandle(Ctrl)) {
 				return;
+			}
+			if (!Addons.ClipFolder.IsWritable(Ctrl)) {
+				return S_OK;
 			}
 			var db = {};
 			Addons.ClipFolder.Open(Ctrl, null, db);
@@ -92,8 +108,11 @@ if (window.Addon == 1) {
 
 		Remove: function (Ctrl, pt)
 		{
-			if (!Addons.ClipFolder.IsHandle(Ctrl) || !confirmOk("Are you sure?")) {
+			if (!Addons.ClipFolder.IsHandle(Ctrl)) {
 				return;
+			}
+			if (!Addons.ClipFolder.IsWritable(Ctrl) || !confirmOk("Are you sure?")) {
+				return S_OK;
 			}
 			var ar = GetSelectedArray(Ctrl, pt, true);
 			var Selected = ar[0];
@@ -118,6 +137,23 @@ if (window.Addon == 1) {
 			}
 			if (bSave) {
 				Addons.ClipFolder.Save(FV, db);
+			}
+			return S_OK;
+		},
+
+		Paste: function (Ctrl, pt)
+		{
+			var FV = GetFolderView(Ctrl, pt);
+			Addons.ClipFolder.Add(FV, api.OleGetClipboard());
+			return S_OK;
+		},
+
+		PasteEx: function (Ctrl, pt)
+		{
+			var FV = GetFolderView(Ctrl, pt);
+			var Selected = FV.SelectedItems();
+			if (!Selected.Count || !Selected.Item(0).IsFolder) {
+				return Addons.ClipFolder.Paste(FV);
 			}
 		},
 
@@ -144,16 +180,13 @@ if (window.Addon == 1) {
 				return;
 			}
 			var path = Addons.ClipFolder.GetPath(Ctrl);
-			var ado = te.CreateObject(api.ADBSTRM);
+			var ado = api.CreateObject("ads");
 			ado.CharSet = "utf-8";
 			ado.Open();
 			ado.LoadFromFile(path);
 			while (!ado.EOS) {
 				var s = ado.ReadText(adReadLine);
 				if (s && !/^\s*#/.test(s)) {
-					if (!/^[A-Z]:\\|^\\/i.test(s) && !/:/.test(s)) {
-						s = fso.BuildPath(fso.GetParentFolderName(path), s);
-					}
 					if (Items) {
 						Items.AddItem(s);
 					}
@@ -171,13 +204,17 @@ if (window.Addon == 1) {
 				return;
 			}
 			var path = Addons.ClipFolder.GetPath(Ctrl);
-			var ado = te.CreateObject(api.ADBSTRM);
+			var ado = api.CreateObject("ads");
 			ado.CharSet = "utf-8";
 			ado.Open();
 			for (var i in db) {
 				ado.WriteText(i, adWriteLine);
 			}
-			ado.SaveToFile(path, adSaveCreateOverWrite);
+			try {
+				ado.SaveToFile(path, adSaveCreateOverWrite);
+			} catch (e) {
+				ShowError(e, [GetText("Save"), path].join(": "));
+			}
 			ado.Close();
 		},
 
@@ -206,16 +243,15 @@ if (window.Addon == 1) {
 			return S_OK;
 		},
 
-		Command: function (Ctrl, Verb)
+		Command: function (Ctrl, Verb, Paste)
 		{
 			if (Ctrl && Ctrl.Type <= CTRL_EB && Addons.ClipFolder.IsHandle(Ctrl)) {
 				switch (Verb + 1) {
 					case CommandID_PASTE:
-						Addons.ClipFolder.Add(Ctrl, api.OleGetClipboard());
-						return S_OK;
+						return Paste(Ctrl);
+						break;
 					case CommandID_DELETE:
-						Addons.ClipFolder.Remove(Ctrl);
-						return S_OK;
+						return Addons.ClipFolder.Remove(Ctrl);
 				}
 			}
 		}
@@ -233,6 +269,8 @@ if (window.Addon == 1) {
 	{
 		if (Ctrl.Type <= CTRL_EB || Ctrl.Type == CTRL_DT) {
 			if (Addons.ClipFolder.IsHandle(Ctrl)) {
+				Addons.ClipFolder.dwEffect = Addons.ClipFolder.IsWritable(Ctrl) ? DROPEFFECT_LINK : DROPEFFECT_NONE;
+				pdwEffect[0] = Addons.ClipFolder.dwEffect;
 				return S_OK;
 			}
 		}
@@ -243,14 +281,14 @@ if (window.Addon == 1) {
 		if (Ctrl.Type <= CTRL_EB) {
 			if (Addons.ClipFolder.IsHandle(Ctrl)) {
 				if (Ctrl.HitTest(pt, LVHT_ONITEM) < 0) {
-					pdwEffect[0] = DROPEFFECT_LINK;
+					pdwEffect[0] = Addons.ClipFolder.dwEffect;
 					return S_OK;
 				}
 			}
 		}
 		if (Ctrl.Type == CTRL_DT) {
 			if (Addons.ClipFolder.IsHandle(Ctrl)) {
-				pdwEffect[0] = DROPEFFECT_LINK;
+				pdwEffect[0] = Addons.ClipFolder.dwEffect;
 				return S_OK;
 			}
 		}
@@ -279,18 +317,12 @@ if (window.Addon == 1) {
 
 	AddEvent("Command", function (Ctrl, hwnd, msg, wParam, lParam)
 	{
-		var hr = Addons.ClipFolder.Command(Ctrl, wParam & 0xfff);
-		if (isFinite(hr)) {
-			return hr;
-		}
+		return Addons.ClipFolder.Command(Ctrl, wParam & 0xfff, Addons.ClipFolder.Paste);
 	}, true);
 
 	AddEvent("InvokeCommand", function (ContextMenu, fMask, hwnd, Verb, Parameters, Directory, nShow, dwHotKey, hIcon)
 	{
-		var hr = Addons.ClipFolder.Command(ContextMenu.FolderView, Verb);
-		if (isFinite(hr)) {
-			return hr;
-		}
+		return Addons.ClipFolder.Command(ContextMenu.FolderView, Verb, Addons.ClipFolder.PasteEx);
 	}, true);
 
 	AddEvent("DefaultCommand", function (Ctrl, Selected)
@@ -312,10 +344,10 @@ if (window.Addon == 1) {
 		}
 	});
 
-	AddEvent("GetIconImage", function (Ctrl, BGColor)
+	AddEvent("GetIconImage", function (Ctrl, BGColor, bSimple)
 	{
 		if (Addons.ClipFolder.IsHandle(Ctrl)) {
-			return MakeImgSrc("bitmap:ieframe.dll,699,16,15", 0, false, 16);
+			return MakeImgDataEx("bitmap:ieframe.dll,699,16,15", bSimple, 16);
 		}
 	});
 
@@ -325,8 +357,10 @@ if (window.Addon == 1) {
 			RemoveCommand(hMenu, ContextMenu, "delete;rename");
 			api.InsertMenu(hMenu, -1, MF_BYPOSITION | MF_STRING, ++nPos, api.LoadString(hShell32, 31368));
 			ExtraMenuCommand[nPos] = OpenContains;
-			api.InsertMenu(hMenu, -1, MF_BYPOSITION | MF_STRING, ++nPos, GetText('Remove'));
-			ExtraMenuCommand[nPos] = Addons.ClipFolder.Remove;
+			if (Addons.ClipFolder.IsWritable(Ctrl)) {
+				api.InsertMenu(hMenu, -1, MF_BYPOSITION | MF_STRING, ++nPos, GetText('Remove'));
+				ExtraMenuCommand[nPos] = Addons.ClipFolder.Remove;
+			}
 		}
 		return nPos;
 	});
@@ -355,9 +389,36 @@ if (window.Addon == 1) {
 		return nPos;
 	});
 
+	AddEvent("Menus", function (Ctrl, hMenu, nPos, Selected, SelItem, ContextMenu, Name, pt)
+	{
+		if (/Background|Edit/i.test(Name)) {
+			var FV = GetFolderView(Ctrl, pt);
+			if (Addons.ClipFolder.IsHandle(FV) && Addons.ClipFolder.IsWritable(FV)) {
+				var Items = api.OleGetClipboard();
+				if (Items && Items.Count) {
+					var mii = api.Memory("MENUITEMINFO");
+					mii.cbSize = mii.Size;
+					mii.fMask = MIIM_ID | MIIM_STATE;
+					var paste = api.LoadString(hShell32, 33562) || "&Paste";
+					for (var i = api.GetMenuItemCount(hMenu); i-- > 0;) {
+						api.GetMenuItemInfo(hMenu, i, true, mii);
+						if (mii.fState & MFS_DISABLED) {
+							var s = api.GetMenuString(hMenu, i, MF_BYPOSITION);
+							if (s && s.indexOf(paste) == 0) {
+								api.EnableMenuItem(hMenu, i, MF_ENABLED | MF_BYPOSITION);
+								ExtraMenuCommand[mii.wID] = Addons.ClipFolder.Paste;
+							}
+						}
+					}
+				}
+			}
+		}
+		return nPos;
+	});
+
 	Addons.ClipFolder.Spec = item.getAttribute("Filter") || "*.cfu";
-	Addons.ClipFolder.strName = GetText(item.getAttribute("MenuName") || "Create clip folder...");
-	Addons.ClipFolder.strName2 = GetText(item.getAttribute("MenuName2") || "Save clip folder");
+	Addons.ClipFolder.strName = item.getAttribute("MenuName") || GetText("Create clip folder...");
+	Addons.ClipFolder.strName2 = item.getAttribute("MenuName2") || GetText("Save clip folder");
 	//Menu
 	if (item.getAttribute("MenuExec")) {
 		Addons.ClipFolder.nPos = api.LowPart(item.getAttribute("MenuPos"));
@@ -365,8 +426,10 @@ if (window.Addon == 1) {
 		{
 			var path = api.GetDisplayNameOf(item, SHGDN_FORPARSING | SHGDN_FORADDRESSBAR | SHGDN_ORIGINAL);
 			if (/^[A-Z]:\\|^\\/i.test(path)) {
-				api.InsertMenu(hMenu, Addons.ClipFolder.nPos, MF_BYPOSITION | MF_STRING, ++nPos, api.PathMatchSpec(path, Addons.ClipFolder.Spec) ? Addons.ClipFolder.strName2 : Addons.ClipFolder.strName);
-				ExtraMenuCommand[nPos] = Addons.ClipFolder.Exec;
+				if (Addons.ClipFolder.IsWritable(Ctrl)) {
+					api.InsertMenu(hMenu, Addons.ClipFolder.nPos, MF_BYPOSITION | MF_STRING, ++nPos, api.PathMatchSpec(path, Addons.ClipFolder.Spec) ? Addons.ClipFolder.strName2 : Addons.ClipFolder.strName);
+					ExtraMenuCommand[nPos] = Addons.ClipFolder.Exec;
+				}
 			}
 			return nPos;
 		});

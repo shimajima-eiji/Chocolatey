@@ -1,4 +1,5 @@
 /TablacusExplorer/*
+!index.md
 !README.md
 !addons
 !addons_lib
@@ -8,6 +9,7 @@
 /installer/*
 !index.md
 !README.md
+!files.txt
 /vivaldi/*
 !index.md
 !README.md
