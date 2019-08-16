@@ -19,15 +19,15 @@ VS Code know-how
 # 2. Topics
 <!-- TOC -->
 
-* [1. purpose](#1-purpose)
+- [1. purpose](#1-purpose)
     - [1.1. For Japanese](#11-for-japanese)
-* [2. Topics](#2-topics)
-* [3. Attention](#3-attention)
+- [2. Topics](#2-topics)
+- [3. Attention](#3-attention)
     - [3.1. For Japanese](#31-for-japanese)
-* [4. Origin of settings.json](#4-origin-of-settingsjson)
+- [4. Origin of settings.json](#4-origin-of-settingsjson)
     - [4.1. Remove white space at end of line](#41-remove-white-space-at-end-of-line)
         - [4.1.1. 行末の空白を削除する【For Japanese】](#411-行末の空白を削除するfor-japanese)
-* [5. Extensions](#5-extensions)
+- [5. Extensions](#5-extensions)
     - [5.1. Markdown](#51-markdown)
         - [5.1.1. Auto Markdown TOC](#511-auto-markdown-toc)
             - [5.1.1.1. For Japanese](#5111-for-japanese)
@@ -46,8 +46,6 @@ VS Code know-how
         - [5.3.1. Japanese Language Pack for Visual Studio Code](#531-japanese-language-pack-for-visual-studio-code)
             - [5.3.1.1. For Japanese](#5311-for-japanese)
 
-    
-
 <!-- /TOC -->
 
 # 3. Attention
@@ -65,7 +63,7 @@ It may become very heavy and unusable for use.
 
 To delete the blank at the end of the line, add the above sentence.
 
-``` 
+```
 {
     "files.trimTrailingWhitespace": true
 }
@@ -88,7 +86,7 @@ ID: huntertran.auto-markdown-toc
 説明: Markdown TOC (Table Of Contents) Plugin for Visual Studio Code.
 バージョン: 2.1.1
 パブリッシャー: Hunter Tran
-VS Marketplace リンク: https://marketplace.visualstudio.com/items?itemName=huntertran.auto-markdown-toc
+VS Marketplace:リンク: https://marketplace.visualstudio.com/items?itemName=huntertran.auto-markdown-toc
 
 Markdownの目次を右クリックで手軽に作成・更新できる。
 一度置いたらファイルを保存するたびに最新の状態に適用してくれる。
@@ -103,7 +101,7 @@ ID: legendmohe.markdown-index
 説明: add index automatically to your titie
 バージョン: 0.0.8
 パブリッシャー: legendmohe
-VS Marketplace リンク: https://marketplace.visualstudio.com/items?itemName=legendmohe.markdown-index
+VS Marketplace:リンク: https://marketplace.visualstudio.com/items?itemName=legendmohe.markdown-index
 
 Auto Markdown TOCの作者が「Markdown TOC」という、見出しに番号をつけてもバグらないものを用意しているが、こちらは更新するたびにautoauto... というバグが出てくる。
 これを回避するために別作者による、まったく同じ機能をもつ拡張機能を使う必要がある。
@@ -119,7 +117,7 @@ ID: mervin.markdown-formatter
 説明:  A Markdown Plugin for code artist
 バージョン: 0.6.4
 パブリッシャー: mervin
-VS Marketplace リンク: https://marketplace.visualstudio.com/items?itemName=mervin.markdown-formatter
+VS Marketplace:リンク: https://marketplace.visualstudio.com/items?itemName=mervin.markdown-formatter
 
 Markdownのフォーマッタは数多くあるが、入れた瞬間に使えるのはこれだけ（執筆時点）
 推奨に「markdownlint」が出てくるが、あくまでlinterなのでいい感じにやってくれない。
@@ -134,7 +132,7 @@ ID: tomashubelbauer.vscode-markdown-table-format
 説明: Formats MarkDown tables so that all columns have the same width
 バージョン: 1.0.1
 パブリッシャー: Tomas Hubelbauer
-VS Marketplace リンク: https://marketplace.visualstudio.com/items?itemName=TomasHubelbauer.vscode-markdown-table-format
+VS Marketplace:リンク: https://marketplace.visualstudio.com/items?itemName=TomasHubelbauer.vscode-markdown-table-format
 
 なんとなくテーブルを作って右クリック→ドキュメントのフォーマット→Markdown Table Formatとすると、テーブルフォーマットをいい感じに作ってくれる。
 
@@ -160,7 +158,7 @@ ID: hnw.vscode-auto-open-markdown-preview
 説明: Open Markdown preview automatically when opening a Markdown file
 バージョン: 0.0.4
 パブリッシャー: hnw
-VS Marketplace リンク: https://marketplace.visualstudio.com/items?itemName=hnw.vscode-auto-open-markdown-preview
+VS Marketplace:リンク: https://marketplace.visualstudio.com/items?itemName=hnw.vscode-auto-open-markdown-preview
 
 ショートカットキーでMarkdownプレビュー(Ctrl + Shift + V)を出す必要がないので、より初心者向き。
 中身はVS Code標準のMarkdownプレビューと思われる。
@@ -176,7 +174,7 @@ ID: raiscui.save-and-run-wsl
 説明: Run commands when a file is saved in Terminal (add wsl path)
 バージョン: 0.0.182
 パブリッシャー: raiscui
-VS Marketplace リンク: https://marketplace.visualstudio.com/items?itemName=raiscui.save-and-run-wsl
+VS Marketplace:リンク: https://marketplace.visualstudio.com/items?itemName=raiscui.save-and-run-wsl
 
 WSLで使わない場合は無印（withではない）を入れよう。
 settings.jsonにsaveAndRunを入れてmatchするルールを書けば、保存するたびに指定したcmdに従い実行してくれるもの。&&でつなげば複数可能。
@@ -196,7 +194,7 @@ ID: ms-ceintl.vscode-language-pack-ja
 説明: Language pack extension for Japanese
 バージョン: 1.37.5
 パブリッシャー: Microsoft
-VS Marketplace リンク: https://marketplace.visualstudio.com/items?itemName=MS-CEINTL.vscode-language-pack-ja
+VS Marketplace:リンク: https://marketplace.visualstudio.com/items?itemName=MS-CEINTL.vscode-language-pack-ja
 
 とりあえず画面の表示を日本語にしたいならすぐに入れておくもの。
 これがないとVS Codeに慣れるまでは大変。
