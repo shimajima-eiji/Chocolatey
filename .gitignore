@@ -19,6 +19,6 @@
 /VSCode/*
 !index.md
 !README.md
-!SaveandRun.sh
-!path_convert.sh
-!SaveandRun.py
+/WSL/*
+!index.md
+!README.md
