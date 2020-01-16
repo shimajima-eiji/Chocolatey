@@ -1,0 +1,22 @@
+cinst --yes ccleaner
+cinst chocolatey
+cinst chocolatey-core.extension
+cinst chocolatey-fastanswers.extension
+cinst chocolatey-windowsupdate.extension
+cinst chocolateygui
+cinst docker-cli
+cinst docker-for-windows
+cinst DotNet4.5.2
+cinst Firefox
+cinst gdrive
+cinst git.install
+cinst GoogleChrome
+cinst GoogleJapaneseInput
+cinst ngrok
+cinst nodist
+cinst postman
+cinst slack
+cinst tablacus
+cinst vivaldi
+cinst vscode.install
+cinst winscp.install
