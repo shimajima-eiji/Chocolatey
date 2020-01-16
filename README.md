@@ -1,15 +1,105 @@
-# ChocolateyでWindowsの環境を引っ越ししやすくする
-旧WinSettings、
-開発環境を統一するための設定テンプレート。すべての開発者のために。
+﻿# setup-for-chocolatey
+cinstで入れたパッケージ自体をバージョン管理するためのリポジトリ。<br>
+[chocolateyの手引は解説サイト](https://shimajima-eiji.github.io/resume/chocolatey)で見てもらうとして、ここではインストールしたパッケージ自体を対象にする。
 
-Windowsに限らず、開発環境構築をDockerではできないのでGithubで連携してみようという思想で始めたリポジトリ。  
-Windows10 Pro 64bit Windows Sub-system LinuxとHyper-Vを併用する前提で作っています。  
-エディタやターミナルはVSCode + WSLを推奨しています。
+# ディレクトリ解説
+管理者権限(ユーザーアカウント制御)が必要なので上書きして保存する運用にする。<br>
 
-# 同じようなことをやってるWindows用パッケージ管理があった
-それがChocolateyです。  
-細かい解説は後日やろうと思いますが、非常に便利で使いやすい！
+## cinst
+パッケージを入れたあとに、それぞれのパッケージで追加設定が必要なもの。内容は任意
+VSCodeやchromium系、ストレージ系はクラウド連携が使えるのでここでは考慮しない。
 
-# 解説ページ
-- [github pages](https://shimajima-eiji.io/resume/tech/chocolatey)
-- [github](https://github.shimajima-eiji/Chocolatey)
+## installer
+cinstでは入らないものをインストーラーとしておいておく。バイナリなので取り扱い注意
+
+## primitive
+Windows自体のプログラムと追加なりで対応するもの。だいたいWSLやタスクスケジューラー関連
+
+## tool
+もしchocolatey.packageがインポートできない場合の予備案。動作未確認。
+
+# インストール手引き
+作業としては1. と 2. だけ順番があり、3. はどの順番でやってもよい。
+
+## 1. chocolatey
+まっさらなWindows環境にchocolateyを入れる手順。
+powershellを管理者権限で開き
+
+```
+Get-ExecutionPolicy
+# 初期だとRestrictedとなっているはず
+Set-ExecutionPolicy AllSigned
+# 何か言われたらうざったいのでA
+iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+# ちまちまRしてたらうざったいのでA
+
+# お好みでどうぞ
+cinst (package-name or config-file)
+
+## 途中、【Do you want to run the script?([Y]es/[A]ll - yes to all/[N]o/[P]rint):】と聞かれる事があるのでAとしておこう。
+
+# やらなくても直ちに影響はないが、忘れずに戻しておこう
+Set-ExecutionPolicy Restricted
+```
+
+を実施。
+公式の手順だが情報が煩雑なため、このリポジトリの推奨手順として残す。
+ほかのやり方でも出来れば何でもよい。
+
+一応、`setup.ps1`を作ったが、これをそのまま実行できるかは微妙なところ。
+
+## 2. package.config
+あらかじめ作成しておいたxmlファイルを`choco install (package.config)`とする。
+xmlの作成はchocolateyGUIなどを使うと楽ちん。
+
+## 3. cinstディレクトリ：インストールしたアプリの各設定
+管理者権限が必要になるので、実行時は要注意。<br>
+詳細は後述。
+
+## 3. primitiveディレクトリ：WSLやVSCodeなど各設定
+これはどうにもならないので、primitiveディレクトリに助けとなりそうなものを入れてある。<br>
+詳細は後述。
+
+## 3. その他
+cinstで入らないサードパーティは自分で落としてくる、通常の工程が必要。<br>
+詳細は後述。
+
+# トラブルシューティング
+## エラーになる
+管理者権限が必要だったり、choco系のコマンドにパスが通ってなかったりする。
+パス設定が面倒なら同梱の.bash_profileを使うとよい。上書き注意。
+
+## configファイルが読み込めない
+文字コードなどが問題になることもある？ような気がするので、念の為【tools/config2bat.py】を作った。
+chocolatey(GUI)でexportしたconfigファイルをbatで実行できるようにしたもの。
+手動でpython(3)環境を作る必要はあるが、使うことはないはず。
+
+生成したchocolatey.bat（変更可）は管理者権限で実行しよう。
+
+## どうしてもうまくいかない
+PowerShellとコマンドプロンプトの双方を使って、どちらかがうまく行けば良い。
+いっそのこと乗り換えるという手も考えよう。
+
+# chocolateyで入れたものを使う
+主に愛用しているツールの解説。自分用の備忘録として。
+
+## tablacus explorer
+「C:\ProgramData\chocolatey\lib\tablacus」に設定が入っているので、この中を弄る。
+tablacus以下のディレクトリをなんとなくそれっぽい場所に置けば設定が自動的に適用されていることがわかるはず。
+インストール時点で入れたアドオンは消しているので、手間ならこのタイミングで削除してしまうとよい。
+
+## WSL.sh
+Ubuntuを想定している。
+docker wslみたいなものがあれば楽だが、今の所見つからないのでWSL.shを実行する。
+
+## VSCode
+Settings Syncを入れてgithubログイン、Shift+P「sync」でダウンロードしたら環境構築が自動的に完了する。
+
+## GoogleIME
+宗教上の理由によりキー設定をATOKに。
+
+# chocolateyで入らない便利なものを使う
+## [tortoisegit](https://tortoisegit.org/download/)
+[ダウンロード](https://tortoisegit.org/download/)
+
+本体を入れてから日本語化パッチを当てよう。
