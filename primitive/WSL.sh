@@ -1,4 +1,5 @@
 # windows: %HomePath%\AppData\Local\Packages\CanonicalGroupLimited.UbuntuonWindows_*************\LocalState\rootfs
+# VSCode: Remote WSL
 
 sudo apt update
 sudo apt upgrade -y
