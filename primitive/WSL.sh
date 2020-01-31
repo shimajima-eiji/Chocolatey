@@ -1,3 +1,5 @@
+# windows: %HomePath%\AppData\Local\Packages\CanonicalGroupLimited.UbuntuonWindows_*************\LocalState\rootfs
+
 sudo apt update
 sudo apt upgrade -y
 
