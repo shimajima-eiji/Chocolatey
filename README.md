@@ -1,12 +1,13 @@
 ﻿# setup-for-chocolatey
 cinstで入れたパッケージ自体をバージョン管理するためのリポジトリ。<br>
-[chocolateyの手引は解説サイト](https://shimajima-eiji.github.io/resume/chocolatey)で見てもらうとして、ここではインストールしたパッケージ自体を対象にする。
+[chocolateyの手引は解説サイトで見てもらうとして、](https://shimajima-eiji.github.io/resume/tech/chocolatey)ここではインストールしたパッケージ自体を対象にする。
 
 # ディレクトリ解説
 管理者権限(ユーザーアカウント制御)が必要なので上書きして保存する運用にする。<br>
+インストール先のディレクトリは「C:\ProgramData\chocolatey\lib\」
 
 ## cinst
-パッケージを入れたあとに、それぞれのパッケージで追加設定が必要なもの。内容は任意
+パッケージを入れたあとに、それぞれのパッケージで追加設定が必要なもの。内容は任意<br>
 VSCodeやchromium系、ストレージ系はクラウド連携が使えるのでここでは考慮しない。
 
 ## installer
