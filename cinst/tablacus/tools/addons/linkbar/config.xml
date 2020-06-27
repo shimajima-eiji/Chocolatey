@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TablacusExplorer>
+  <General>
+    <Version>1.22</Version>
+    <MinVersion>2019.2.23</MinVersion>
+    <pubDate>Sun, 24 Feb 2019 00:00:00 GMT</pubDate>
+    <Options>Default</Options>
+    <Creator>Gaku</Creator>
+    <URL>http://tablacus.github.io/TablacusExplorerAddons/</URL>
+    <License>MIT License</License>
+  </General>
+  <en>
+    <Name>Link bar</Name>
+    <Description>Link bar</Description>
+  </en>
+  <ja>
+    <Name>リンク バー</Name>
+    <Description>リンク バー</Description>
+  </ja>
+</TablacusExplorer>

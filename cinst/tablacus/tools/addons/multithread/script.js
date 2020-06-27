@@ -1,4 +1,4 @@
-﻿var Addon_Id = "multithread";
+var Addon_Id = "multithread";
 var item = GetAddonElement(Addon_Id);
 if (!item.getAttribute("Set")) {
 	item.setAttribute("Copy", 1);
@@ -12,15 +12,12 @@ if (window.Addon == 1) {
 		Copy: api.LowPart(item.getAttribute("Copy")),
 		Move: api.LowPart(item.getAttribute("Move")),
 		Delete: api.LowPart(item.getAttribute("Delete")),
+		NoTemp: item.getAttribute("NoTemp"),
 
 		FO: function (Ctrl, Items, Dest, grfKeyState, pt, pdwEffect, bOver, bDelete)
 		{
 			var path;
 			if (!(grfKeyState & MK_LBUTTON) || Items.Count == 0) {
-				return false;
-			}
-			var Parent = Items.Item(-1);
-			if (!bDelete && api.ILIsParent(wsh.ExpandEnvironmentStrings("%TEMP%"), Parent, false)) {
 				return false;
 			}
 			try {
@@ -30,9 +27,33 @@ if (window.Addon == 1) {
 			}
 			if (bDelete || (path && fso.FolderExists(path))) {
 				var arFrom = [];
-				for (i = Items.Count - 1; i >= 0; i--) {
+				var pidTemp = api.ILCreateFromPath(fso.GetSpecialFolder(2).Path);
+				pidTemp.IsFolder;
+				var strTemp = pidTemp.Path + "\\";
+				var strTemp2;
+				var wfd = api.Memory("WIN32_FIND_DATA");
+				for (var i = Items.Count; i-- > 0;) {
 					var path1 = Items.Item(i).Path;
-					if (IsExists(path1)) {
+					var hFind = api.FindFirstFile(path1, wfd);
+					api.FindClose(hFind);
+					if (hFind != INVALID_HANDLE_VALUE) {
+						if (!bDelete && !api.StrCmpNI(path1, strTemp, strTemp.length)) {
+							if (!strTemp2) {
+								if (Addons.MultiThread.NoTemp) {
+									return false;
+								}
+								do {
+									strTemp2 = strTemp + "tablacus\\" + fso.GetTempName() + "\\";
+								} while (IsExists(strTemp2));
+								CreateFolder(strTemp2);
+							}
+							if (wfd.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY) {
+								fso.MoveFolder(path1, strTemp2);
+							} else {
+								fso.MoveFile(path1, strTemp2);
+							}
+							path1 = strTemp2 + fso.GetFileName(path1);
+						}
 						arFrom.unshift(path1);
 					} else {
 						pdwEffect[0] = DROPEFFECT_NONE;
@@ -69,7 +90,7 @@ if (window.Addon == 1) {
 							if (api.GetKeyState(VK_SHIFT) < 0) {
 								fFlags = 0;
 							}
-						} else if (api.ILIsEqual(path, Parent)) {
+						} else if (api.ILIsEqual(path, Items.Item(-1))) {
 							fFlags |= FOF_RENAMEONCOLLISION;
 						}
 						api.SHFileOperation(wFunc, arFrom.join("\0"), path, fFlags, true);
@@ -151,5 +172,5 @@ if (window.Addon == 1) {
 		}
 	});
 } else {
-	SetTabContents(0, "General", '<input type="checkbox" id="Copy" /><label for="Copy">Copy</label><br /><input type="checkbox" id="Move" /><label for="Move">Move</label><br /><input type="checkbox" id="Delete" /><label for="Delete">Delete</label><br />');
+	SetTabContents(0, "", '<label><input type="checkbox" id="Copy">Copy</label><br><label><input type="checkbox" id="Move">Move</label><br><label><input type="checkbox" id="Delete">Delete</label><br><label><input type="checkbox" id="!NoTemp">@shell32.dll,-21815[Temporary Burn Folder]</label><br>');
 }

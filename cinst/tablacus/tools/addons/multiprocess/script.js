@@ -14,6 +14,7 @@ Addons.MultiProcess =
 	Paste: api.LowPart(item.getAttribute("Paste")),
 	Drop: api.LowPart(item.getAttribute("Drop")),
 	RDrop: api.LowPart(item.getAttribute("RDrop")),
+	NoTemp: item.getAttribute("NoTemp"),
 
 	FO: function (Ctrl, Items, Dest, grfKeyState, pt, pdwEffect, nMode)
 	{
@@ -22,9 +23,6 @@ Addons.MultiProcess =
 		}
 		var dwEffect = pdwEffect[0];
 		if (Dest !== null) {
-			if (api.ILIsParent(wsh.ExpandEnvironmentStrings("%TEMP%"), Items.Item(-1), false)) {
-				return false;
-			}
 			var path = api.GetDisplayNameOf(Dest, SHGDN_FORPARSING);
 			if (/^::{/.test(path) || (/^[A-Z]:\\|^\\/i.test(path) && !fso.FolderExists(path))) {
 				return false;
@@ -36,8 +34,43 @@ Addons.MultiProcess =
 				var DropTarget = api.DropTarget(Dest);
 				DropTarget.DragOver(Items, grfKeyState, pt, pdwEffect);
 			}
-		} else if (/^::{/.test(api.GetDisplayNameOf(Items.Item(-1), SHGDN_FORPARSING))) {
-			return false;
+			var pidTemp = api.ILCreateFromPath(fso.GetSpecialFolder(2).Path);
+			pidTemp.IsFolder;
+			var strTemp = pidTemp.Path + "\\";
+			var strTemp2;
+			var wfd = api.Memory("WIN32_FIND_DATA");
+			var Items2 = api.CreateObject("FolderItems");
+			for (var i = Items.Count; i-- > 0;) {
+				var path1 = Items.Item(i).Path;
+				var hFind = api.FindFirstFile(path1, wfd);
+				api.FindClose(hFind);
+				if (hFind != INVALID_HANDLE_VALUE) {
+					if (!api.StrCmpNI(path1, strTemp, strTemp.length)) {
+						if (!strTemp2) {
+							if (Addons.MultiProcess.NoTemp) {
+								return false;
+							}
+							do {
+								strTemp2 = strTemp + "tablacus\\" + fso.GetTempName() + "\\";
+							} while (IsExists(strTemp2));
+							CreateFolder(strTemp2);
+						}
+						if (wfd.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY) {
+							fso.MoveFolder(path1, strTemp2);
+						} else {
+							fso.MoveFile(path1, strTemp2);
+						}
+						path1 = strTemp2 + fso.GetFileName(path1);
+					}
+					Items2.AddItem(path1);
+				} else {
+					delete strTemp2;
+					break;
+				}
+			}
+			if (strTemp2) {
+				Items = Items2;
+			}
 		}
 		if (nMode == 0) {
 			if (grfKeyState & MK_RBUTTON) {
@@ -73,6 +106,12 @@ Addons.MultiProcess =
 			}
 		}, 5000);
 
+		var State = [VK_SHIFT, VK_CONTROL, VK_MENU];
+		for (var i = State.length; i--;) {
+			if (api.GetKeyState(State[i]) >= 0) {
+				State.splice(i, 1);
+			}
+		}
 		OpenNewProcess("addons\\multiprocess\\worker.js",
 		{
 			Items: Items,
@@ -83,6 +122,7 @@ Addons.MultiProcess =
 			dwEffect: dwEffect,
 			TimeOver: item.getAttribute("TimeOver"),
 			Sec: item.getAttribute("Sec"),
+			State: State,
 			Callback: Addons.MultiProcess.Player
 		});
 		return true;
@@ -100,7 +140,7 @@ Addons.MultiProcess =
 			api.PlaySound(src, null, 1);
 			return;
 		}
-		if (document.documentMode >= 11 && api.PathMatchSpec(src, "*.mp3;*.m4a;*.webm;*.mp4")) {
+		if (g_.IEVer >= 11 && api.PathMatchSpec(src, "*.mp3;*.m4a;*.webm;*.mp4")) {
 			el = document.createElement('audio');
 			if (autoplay === true) {
 				el.setAttribute("autoplay", "true");
@@ -199,12 +239,11 @@ if (window.Addon == 1) {
 	});
 	document.getElementById('None').insertAdjacentHTML("BeforeEnd", '<div id="multiprocess_player"></div>');
 } else {
-	SetTabContents(0, "General", '<input type="checkbox" id="Delete"><label for="Delete">Delete</label><br>\
-	<input type="checkbox" id="Paste"><label for="Paste">@shell32.dll,-33562</label><br>\
-	<input type="checkbox" id="Drop"><label for="Drop">Drop</label><br>\
-	<input type="checkbox" id="RDrop"><label for="RDrop">Right</label> <label for="RDrop">Drop</label><hr>\
-	<table><tr><td><input type="checkbox" name="TimeOver" id="TimeOver"><label for="TimeOver">Time over</label>\
-	<input type="text" name="Sec" style="width: 3em">s</td></tr><tr><td style="width: 100%"><label>Audio file</label></td></tr><tr><td><input type="text" name="File" style="width: 100%" onchange="Addons.MultiProcess.Player()"></td><td><input type="button" value="Browse..." onclick="RefX(\'File\',0,0,1)"></td><td><input type="button" value="Portable" onclick="PortableX(\'File\')"></td></tr></table><div id="multiprocess_player" style="width: 100%"></div>');
+	var ado = OpenAdodbFromTextFile("addons\\" + Addon_Id + "\\options.html");
+	if (ado) {
+		SetTabContents(0, "", ado.ReadText(adReadAll));
+		ado.Close();
+	}
 
 	AddEventEx(window, "load", Addons.MultiProcess.Player);
 }

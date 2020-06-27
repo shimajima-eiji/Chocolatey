@@ -1,6 +1,9 @@
 ## Change Log
 
-### upcoming (2020/02/14 09:58 +09:00)
+### upcoming (2020/06/27 03:00 +00:00)
+- [a4701d6](https://github.com/shimajima-eiji/Chocolatey/commit/a4701d6d221d4e531ce390070a8ef0f8facbe434) Update WSL.sh (@shimajima-eiji)
+- [#10](https://github.com/shimajima-eiji/Chocolatey/pull/10) Merge pull request #10 from shimajima-eiji/WIP_CHANGELOG (@shimajima-eiji)
+- [5be8b99](https://github.com/shimajima-eiji/Chocolatey/commit/5be8b99b7563defb200ba53c604ff78d41d8c42f) [WIP] TortoiseGitでCHANGELOGをタグ管理させたい、試験的に導入。ついでに最新版に (@shimajima-eiji)
 - [34a6249](https://github.com/shimajima-eiji/Chocolatey/commit/34a6249997c5d71cac0903c57c6ef05bf14c9310) Update README.md (@shimajima-eiji)
 - [c341c78](https://github.com/shimajima-eiji/Chocolatey/commit/c341c78e1787f0585516318db558bb39e087d871) Update WSL.sh (@shimajima-eiji)
 - [a348f6c](https://github.com/shimajima-eiji/Chocolatey/commit/a348f6cfd82cef7adb20e9117fd5befb02739651) Update WSL.sh (@shimajima-eiji)
@@ -12,10 +15,10 @@
 - [c2bb1b7](https://github.com/shimajima-eiji/Chocolatey/commit/c2bb1b7231eb249521b5251e9c7369768de11f80) [TablacusExplorer] update the current date (@shimajima-eiji)
 - [d9d8ad1](https://github.com/shimajima-eiji/Chocolatey/commit/d9d8ad18f1c39dc50daa0b46adaeee08bcbfe663) Merge branch 'master' of https://github.com/shimajima-eiji/WinSettings (@shimajima-eiji)
 - [f57b405](https://github.com/shimajima-eiji/Chocolatey/commit/f57b4052fd998c2a182e3df17a5cb5f8e34815aa) [TablacusExplorer] (@shimajima-eiji)
-- [#7](https://github.com/shimajima-eiji/Chocolatey/pull/7) fix #6 (@shimajima-eiji)
+- [#7](https://github.com/shimajima-eiji/Chocolatey/pull/7) Merge pull request #7 from shimajima-eiji/future (@shimajima-eiji)
 - [7c82dd6](https://github.com/shimajima-eiji/Chocolatey/commit/7c82dd6be8f866a7d3df34271d81f23375f3d952) add WSL (@shimajima-eiji)
 - [1ed51f3](https://github.com/shimajima-eiji/Chocolatey/commit/1ed51f3c524e5dd39906c0cd22d8ff9843c99eaa) [nowork] changed by update for 'settings sync' (@shimajima-eiji)
-- [#5](https://github.com/shimajima-eiji/Chocolatey/pull/5) #3, #4 and add config for divert windows environment (@shimajima-eiji)
+- [#5](https://github.com/shimajima-eiji/Chocolatey/pull/5) Merge pull request #5 from shimajima-eiji/future (@shimajima-eiji)
 - [c08ef29](https://github.com/shimajima-eiji/Chocolatey/commit/c08ef2959882a72223273e2397361a2c96c77489) [update] add chocoletey, delete files for VSCode is no longer needed. (@shimajima-eiji)
 - [64a4570](https://github.com/shimajima-eiji/Chocolatey/commit/64a4570b802331fda2822316c28c143919415c57) [add] index.md, gitignore (@shimajima-eiji)
 - [0e51a23](https://github.com/shimajima-eiji/Chocolatey/commit/0e51a234eb50b5a12c2cb97f5a158fe79a6b8b5b) [update] saving to addons for TE (@shimajima-eiji)

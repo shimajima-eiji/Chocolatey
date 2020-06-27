@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TablacusExplorer>
+  <General>
+    <Version>1.25</Version>
+    <MinVersion>2020.6.22</MinVersion>
+    <pubDate>Mon, 22 Jun 2020 00:00:00 GMT</pubDate>
+    <Options>Common:0:0</Options>
+    <Creator>Gaku</Creator>
+    <URL>http://tablacus.github.io/TablacusExplorerAddons/</URL>
+    <License>MIT License</License>
+  </General>
+  <en>
+    <Name>Multi process</Name>
+    <Description>Multi-process file operations.</Description>
+  </en>
+  <ja>
+    <Name>マルチプロセス</Name>
+    <Description>マルチプロセスでファイル操作</Description>
+  </ja>
+  <zh>
+    <Name>多程序檔案操作</Name>
+  </zh>
+</TablacusExplorer>
