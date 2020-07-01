@@ -1,6 +1,10 @@
 ## Change Log
 
-### upcoming (2020/06/27 03:00 +00:00)
+### upcoming (2020/07/01 15:54 +00:00)
+- [ebd03d0](https://github.com/shimajima-eiji/Chocolatey/commit/ebd03d06861a6caaa1ecc1747987e2c88874f494) Update chocolatey.config (@shimajima-eiji)
+- [b9ad918](https://github.com/shimajima-eiji/Chocolatey/commit/b9ad91856314392464f983b5d7e096df40b66599) Update README.md (@shimajima-eiji)
+- [484478b](https://github.com/shimajima-eiji/Chocolatey/commit/484478b12632d75bc7886fd2933ea30ce8826ecd) Create トラブルシューティング.md (@shimajima-eiji)
+- [ecb6a49](https://github.com/shimajima-eiji/Chocolatey/commit/ecb6a492c2f1073611d89689e2f1016cf15952f4) update to latest (@shimajima-eiji)
 - [a4701d6](https://github.com/shimajima-eiji/Chocolatey/commit/a4701d6d221d4e531ce390070a8ef0f8facbe434) Update WSL.sh (@shimajima-eiji)
 - [#10](https://github.com/shimajima-eiji/Chocolatey/pull/10) Merge pull request #10 from shimajima-eiji/WIP_CHANGELOG (@shimajima-eiji)
 - [5be8b99](https://github.com/shimajima-eiji/Chocolatey/commit/5be8b99b7563defb200ba53c604ff78d41d8c42f) [WIP] TortoiseGitでCHANGELOGをタグ管理させたい、試験的に導入。ついでに最新版に (@shimajima-eiji)
