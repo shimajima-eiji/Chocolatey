@@ -1,4 +1,4 @@
-﻿# setup-for-chocolatey
+# Chocolatey
 cinstで入れたパッケージ自体をバージョン管理するためのリポジトリ。<br>
 [chocolateyの手引は解説サイトで見てもらうとして、](https://shimajima-eiji.github.io/resume/tech/chocolatey)ここではインストールしたパッケージ自体を対象にする。
 
@@ -6,17 +6,17 @@ cinstで入れたパッケージ自体をバージョン管理するためのリ
 管理者権限(ユーザーアカウント制御)が必要なので上書きして保存する運用にする。<br>
 インストール先のディレクトリは「C:\ProgramData\chocolatey\lib\」
 
-## cinst
+## [cinst/tablacus/tools](https://github.com/shimajima-eiji/Chocolatey/tree/master/cinst/tablacus/tools)
 パッケージを入れたあとに、それぞれのパッケージで追加設定が必要なもの。内容は任意<br>
 VSCodeやchromium系、ストレージ系はクラウド連携が使えるのでここでは考慮しない。
 
-## installer
+## [installer](https://github.com/shimajima-eiji/Chocolatey/tree/master/installer)
 cinstでは入らないものをインストーラーとしておいておく。バイナリなので取り扱い注意
 
-## primitive
+## [primitive](https://github.com/shimajima-eiji/Chocolatey/tree/master/tool)
 Windows自体のプログラムと追加なりで対応するもの。だいたいWSLやタスクスケジューラー関連
 
-## tool
+## [tool](https://github.com/shimajima-eiji/Chocolatey/tree/master/primitive)
 もしchocolatey.packageがインポートできない場合の予備案。動作未確認。
 
 # インストール手引き
