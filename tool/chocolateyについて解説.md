@@ -1,14 +1,15 @@
-# 1. Agenda
+# Agenda
 <!-- TOC -->
 
-- [1. Agenda](#1-agenda)
-- [2. chocolateyとは？](#2-chocolateyとは)
-- [3. chocolateyで入れられるもの 【2019/08/16時点】](#3-chocolateyで入れられるもの-20190816時点)
-- [4. オススメ](#4-オススメ)
+- [Agenda](#agenda)
+- [chocolateyとは？](#chocolatey%E3%81%A8%E3%81%AF)
+- [chocolateyで入れられるもの 【2019/08/16時点】](#chocolatey%E3%81%A7%E5%85%A5%E3%82%8C%E3%82%89%E3%82%8C%E3%82%8B%E3%82%82%E3%81%AE-20190816%E6%99%82%E7%82%B9)
+  - [オススメ](#%E3%82%AA%E3%82%B9%E3%82%B9%E3%83%A1)
+  - [choco list全容](#choco-list%E5%85%A8%E5%AE%B9)
 
 <!-- /TOC -->
 
-# 2. chocolateyとは？
+# chocolateyとは？
 
 [公開情報](https://qiita.com/nomurasan/items/a85555f4c6964c69cb9c)
 
@@ -21,7 +22,7 @@ chocolateyがどういうものかは[他の方の記事](https://qiita.com/kang
 ものです。
 これで、新しい端末を使うたびにいちいちダウンロードサイトまで行ってほげほげする必要がなくなります。
 
-# 3. chocolateyで入れられるもの 【2019/08/16時点】
+# chocolateyで入れられるもの 【2019/08/16時点】
 どれができて、どれがだめなん？って情報は重要ですよね。
 
 ``` cmd
@@ -30,7 +31,19 @@ choco list (なんとか)
 
 で、それっぽいものは引けるんですが、何となく眺めたくなったので。
 「これも入れられるんだ！」っていう気付きにどうぞ。
-（探しやすいようにasciiコード順にソートしています）
+
+## オススメ
+とりあえずChocolateyGUI入れて画面から管理できるようにすると捗ります。
+
+```
+cinst ChocolateyGUI
+```
+
+そちらだと1ページずつ更新するたびに時間がかかってどうしようもないので、choco listで見た方が楽かもしれません。
+なお、choco installとGUI間できちんと連携されていました。
+
+## choco list全容
+探しやすいようにasciiコード順にソートしています。
 
 ``` cmd.bat(for Administrator)
 @choco list
@@ -6899,9 +6912,4 @@ zulu9 9.0.7.1 [Approved] Downloads cached for licensed users
 zvirtualdesktop 1.0.92.8 [Approved]
 6863 packages found.
 ```
-
-# 4. オススメ
-とりあえずChocolateyGUI入れて画面から管理できるようにすると捗ります。
-そちらだと1ページずつ更新するたびに時間がかかってどうしようもないので、choco listで見た方が楽かもしれません。
-なお、choco installとGUI間できちんと連携されていました。
 

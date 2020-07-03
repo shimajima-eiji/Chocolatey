@@ -1,30 +1,34 @@
 # Chocolatey
-cinstで入れたパッケージ自体をバージョン管理するためのリポジトリ。<br>
-[chocolateyの手引は解説サイトで見てもらうとして、](https://shimajima-eiji.github.io/resume/tech/chocolatey)ここではインストールしたパッケージ自体を対象にする。
+cinstで入れたパッケージ自体をバージョン管理するためのリポジトリ。
+<br>[chocolateyの手引は解説サイトを参照](https://shimajima-eiji.github.io/resume/tech/chocolatey)していただいて、
+<br>ここではインストールしたパッケージ自体を対象にする。
 
 # ディレクトリ解説
-管理者権限(ユーザーアカウント制御)が必要なので上書きして保存する運用にする。<br>
-インストール先のディレクトリは「C:\ProgramData\chocolatey\lib\」
+管理者権限(ユーザーアカウント制御)が必要なので上書きして保存する運用にする。
+<br>インストール先のディレクトリは「C:\ProgramData\chocolatey\lib\」
 
-## [cinst/tablacus/tools](https://github.com/shimajima-eiji/Chocolatey/tree/master/cinst/tablacus/tools)
-パッケージを入れたあとに、それぞれのパッケージで追加設定が必要なもの。内容は任意<br>
-VSCodeやchromium系、ストレージ系はクラウド連携が使えるのでここでは考慮しない。
-
-## [installer](https://github.com/shimajima-eiji/Chocolatey/tree/master/installer)
-cinstでは入らないものをインストーラーとしておいておく。バイナリなので取り扱い注意
-
-## [primitive](https://github.com/shimajima-eiji/Chocolatey/tree/master/tool)
-Windows自体のプログラムと追加なりで対応するもの。だいたいWSLやタスクスケジューラー関連
-
-## [tool](https://github.com/shimajima-eiji/Chocolatey/tree/master/primitive)
-もしchocolatey.packageがインポートできない場合の予備案。動作未確認。
+- [cinst/tablacus/tools](https://github.com/shimajima-eiji/Chocolatey/tree/master/cinst/tablacus/tools)
+  - パッケージを入れたあとに、それぞれのパッケージで追加設定が必要なもの。ここではTablacus Explorerを想定。なお、VSCodeやchromium系、ストレージ系はクラウド連携が使えるのでここでは考慮しない。
+- [primitive](https://github.com/shimajima-eiji/Chocolatey/tree/master/tool)
+  - Windows自体のプログラムと追加なりで対応するもの。だいたいWSLやタスクスケジューラー関連
+- [ThirdParty.md](https://github.com/shimajima-eiji/Chocolatey/tree/master/ThirdParty.md)
+  - cinst(chocolatey.configをinstall)では入らないもの。ダウンロードパスやMSストアを列挙
+- [tool](https://github.com/shimajima-eiji/Chocolatey/tree/master/primitive)
+  - もしchocolatey.packageがインポートできない場合の予備案。動作未確認。
 
 # インストール手引き
-作業としては1. と 2. だけ順番があり、3. はどの順番でやってもよい。
+作業としては
 
-## 1. chocolatey
+1. chocolatey本体のインストール
+1. chocolatey.configのインストール
+1. cinstディレクトリ：インストールしたアプリの各設定
+1. primitive
+
+だけ順番があり、以降は順不同で実施できる。解説は後述の通り。
+
+## 1. chocolatey本体のインストール
 まっさらなWindows環境にchocolateyを入れる手順。
-powershellを管理者権限で開き
+powershellを管理者権限で開き、
 
 ```
 Get-ExecutionPolicy
@@ -35,7 +39,7 @@ iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/in
 # ちまちまRしてたらうざったいのでA
 
 # お好みでどうぞ
-cinst (package-name or config-file)
+cinst (package-name or config-file)  # 初期値： chocolatey.config
 
 ## 途中、【Do you want to run the script?([Y]es/[A]ll - yes to all/[N]o/[P]rint):】と聞かれる事があるのでAとしておこう。
 
@@ -49,21 +53,15 @@ Set-ExecutionPolicy Restricted
 
 一応、`setup.ps1`を作ったが、これをそのまま実行できるかは微妙なところ。
 
-## 2. package.config
-あらかじめ作成しておいたxmlファイルを`choco install (package.config)`とする。
+## 2. chocolatey.configのインストール
+あらかじめ作成しておいたxmlファイルを`choco install (chocolatey.config)`とする。
 xmlの作成はchocolateyGUIなどを使うと楽ちん。
 
 ## 3. cinstディレクトリ：インストールしたアプリの各設定
-管理者権限が必要になるので、実行時は要注意。<br>
-詳細は後述。
+管理者権限が必要になるので、実行時は要注意。
 
-## 3. primitiveディレクトリ：WSLやVSCodeなど各設定
-これはどうにもならないので、primitiveディレクトリに助けとなりそうなものを入れてある。<br>
-詳細は後述。
-
-## 3. その他
-cinstで入らないサードパーティは自分で落としてくる、通常の工程が必要。<br>
-詳細は後述。
+## 4. primitiveディレクトリ：WSLやVSCodeなど各設定
+これはどうにもならないので、primitiveディレクトリに助けとなりそうなものを入れてある。
 
 # トラブルシューティング
 ## エラーになる
