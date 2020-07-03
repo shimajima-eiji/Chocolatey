@@ -12,6 +12,7 @@
   - Chocolateyに存在するが、うまく動かない。(なお、[保存先を変えたい場合は設定が必要。](https://lovemac.jp/3696)
     ![image](https://user-images.githubusercontent.com/15845907/86483486-2069d080-bd8f-11ea-9c60-e202bbfb4e56.png)
   - 同様に、icloudフォトも、`mklink /J "C:Users\username\Pictures\iCloud Photos" "D:\iCloud Photos"`とする必要がある。こちらは半角スペースが必要。
+    - Googleフォトと違い、ICloudフォトもPCローカルにダウンロードはできるが削除などはWebから行うため、撮影したものをすぐに使わないなら必要性を感じない。
 
 ## サードパーティー
 - [Google Drive](https://www.google.com/intl/ja_ALL/drive/download/)
