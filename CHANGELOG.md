@@ -1,6 +1,8 @@
 ## Change Log
 
-### upcoming (2020/07/01 15:54 +00:00)
+### upcoming (2020/07/03 15:52 +00:00)
+- [db52260](https://github.com/shimajima-eiji/Chocolatey/commit/db522607f1b560da6411106cc51425abe8f30cec) rename installer->ThirdParty (@shimajima-eiji)
+- [0767010](https://github.com/shimajima-eiji/Chocolatey/commit/076701026d6ce6fb2ddb43016c52d52ba3a0289b) Update CHANGELOG.md (@shimajima-eiji)
 - [ebd03d0](https://github.com/shimajima-eiji/Chocolatey/commit/ebd03d06861a6caaa1ecc1747987e2c88874f494) Update chocolatey.config (@shimajima-eiji)
 - [b9ad918](https://github.com/shimajima-eiji/Chocolatey/commit/b9ad91856314392464f983b5d7e096df40b66599) Update README.md (@shimajima-eiji)
 - [484478b](https://github.com/shimajima-eiji/Chocolatey/commit/484478b12632d75bc7886fd2933ea30ce8826ecd) Create トラブルシューティング.md (@shimajima-eiji)
