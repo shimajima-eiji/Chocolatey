@@ -19,3 +19,5 @@
   - いつのまにかGoogleフォトが使えなくなっているが今も現役。Chocolateyに存在するが、うまく動かない。
 - [tortoisegit](https://tortoisegit.org/)
   - GitをExplorerで使いたいなら必須。言語パックが別途必要なことも。
+- [heicファイルをjpgファイルに変換](https://imagemagick.org/)
+  - 詳細は[heic2jpg](https://github.com/shimajima-eiji/Chocolatey/blob/master/tool/heic2jpg.bsh)を参照。
