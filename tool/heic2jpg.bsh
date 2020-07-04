@@ -1,0 +1,41 @@
+#!/bin/bash
+
+: <<__COMMENT
+実行するだけなら`magick.exe *.heic -set filename:x "%t" "%[filename:x].jpg"`が手っ取り早い。
+これを一括処理をさせる時に色々と危ないので安全ピンを追加。
+マルチプロセスで実施したいのでbashを強制しているが、上記であればshでも実施できる。
+
+# 参考
+- [Windows10で画像を一括処理したいときに便利なコマンドラインツール（ImageMagick）](https://4thsight.xyz/8342)
+- [「さようなら ImageMagick」の考察](https://qiita.com/yoya/items/2076c1f5137d4041e3aa)
+__COMMENT
+
+# bashを強制する
+if [ -z "$BASH_VERSION" ] || [ "${BASH##*/}" != "bash" ]; then
+  echo "$0: ERROR: Use bash" >&2
+  exit 1
+fi
+
+# 変更をユーザー側の設定に合わせて適宜変更する
+processor=1
+dir_path="./"
+export expansion_input='HEIC'
+export expansion_output='jpg'
+export magick_path='magick'  # magickのパスを再設定できる。WSLならmagick.exeか
+
+# 以下は高度な変更不可
+function execute {
+  input=$1
+  output="${input%.$expansion_input}.${expansion_output}"
+  echo "Run [${input}]"
+
+  if [ -e "${output}" ] ;then
+    echo "Skip"
+
+  else
+    ${magick_path} ${input} ${output} && echo "Complete!" # && rm ${input}  # 変換後削除する場合は、&&の前の#のコメントアウトを外す
+  fi
+}
+export -f execute
+
+find $dir_path -type f -name "*.${expansion_input}" | xargs -P ${processor} -I@ bash -c 'execute "@"'
