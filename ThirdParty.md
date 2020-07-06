@@ -22,4 +22,4 @@
 - [heicファイルをjpgファイルに変換](https://imagemagick.org/)
   - 詳細は[heic2jpg](https://github.com/shimajima-eiji/Chocolatey/blob/master/tool/heic2jpg.bsh)を参照。
 - [RPGツクールRTP](https://tkool.jp/products/rtp.html)
-  - MV以前のものは全て必要。dllファイルも含まれる。
+  - MV以前のものは全て必要だが、`chocolatey.config`に  `rpgtkoolvx-rtp`と`rpgtkoolvxace-rtp`が含まれているので、XP以前が対象。
