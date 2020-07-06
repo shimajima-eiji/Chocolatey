@@ -21,3 +21,5 @@
   - GitをExplorerで使いたいなら必須。言語パックが別途必要なことも。
 - [heicファイルをjpgファイルに変換](https://imagemagick.org/)
   - 詳細は[heic2jpg](https://github.com/shimajima-eiji/Chocolatey/blob/master/tool/heic2jpg.bsh)を参照。
+- [RPGツクールRTP](https://tkool.jp/products/rtp.html)
+  - MV以前のものは全て必要。dllファイルも含まれる。
