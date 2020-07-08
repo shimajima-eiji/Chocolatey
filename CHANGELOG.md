@@ -1,6 +1,16 @@
 ## Change Log
 
-### upcoming (2020/07/03 15:52 +00:00)
+### upcoming (2020/07/08 04:09 +00:00)
+- [7a61b06](https://github.com/shimajima-eiji/Chocolatey/commit/7a61b06ee1ff92c1abb4f9a64ad8242b79a40f7f) Update ThirdParty.md (@shimajima-eiji)
+- [5c55249](https://github.com/shimajima-eiji/Chocolatey/commit/5c552492470c20bc12cb8f67c90a6fd8a5aee729) Update ThirdParty.md (@shimajima-eiji)
+- [60b90a7](https://github.com/shimajima-eiji/Chocolatey/commit/60b90a72b1fbb697ead3839719105fd9c5e4e08a) Update ThirdParty.md (@shimajima-eiji)
+- [539b554](https://github.com/shimajima-eiji/Chocolatey/commit/539b5546f856ebe2f0d1d088c512a476e7c65c7e) Update heic2jpg.bsh (@shimajima-eiji)
+- [c0b26e1](https://github.com/shimajima-eiji/Chocolatey/commit/c0b26e128eebd42432f6282902a15d6ef0d579d9) Update ThirdParty.md (@shimajima-eiji)
+- [f17a35d](https://github.com/shimajima-eiji/Chocolatey/commit/f17a35d606162cfa264b3f1899006841e331f176) Create heic2jpg.bsh (@shimajima-eiji)
+- [f98d507](https://github.com/shimajima-eiji/Chocolatey/commit/f98d507200fff1d3f1a7ac0f7b7a44335b80199a) Update ThirdParty.md (@shimajima-eiji)
+- [8d28c32](https://github.com/shimajima-eiji/Chocolatey/commit/8d28c32e284653e6b5334d653653460f98564ff3) Create WebService.md (@shimajima-eiji)
+- [3ff8ec4](https://github.com/shimajima-eiji/Chocolatey/commit/3ff8ec44d10a78144b69cbcf9b3fb1ba937855f3) Update ThirdParty.md (@shimajima-eiji)
+- [ed5415c](https://github.com/shimajima-eiji/Chocolatey/commit/ed5415c6c91230e75c69f886648cb0f4e7e3a756) Update CHANGELOG.md (@shimajima-eiji)
 - [db52260](https://github.com/shimajima-eiji/Chocolatey/commit/db522607f1b560da6411106cc51425abe8f30cec) rename installer->ThirdParty (@shimajima-eiji)
 - [0767010](https://github.com/shimajima-eiji/Chocolatey/commit/076701026d6ce6fb2ddb43016c52d52ba3a0289b) Update CHANGELOG.md (@shimajima-eiji)
 - [ebd03d0](https://github.com/shimajima-eiji/Chocolatey/commit/ebd03d06861a6caaa1ecc1747987e2c88874f494) Update chocolatey.config (@shimajima-eiji)
