@@ -1,6 +1,8 @@
 ## Change Log
 
-### upcoming (2020/07/08 04:09 +00:00)
+### upcoming (2020/07/13 15:10 +00:00)
+- [995300d](https://github.com/shimajima-eiji/Chocolatey/commit/995300d53e90cfe430e8453aad6d1d181289678c) Merge branch 'master' of https://github.com/shimajima-eiji/Chocolatey (@shimajima-eiji)
+- [9d798c4](https://github.com/shimajima-eiji/Chocolatey/commit/9d798c4f3f905a9b84e8bf6debce96f80f38d71f) [2020/07/08] 最新版を適用 (@shimajima-eiji)
 - [7a61b06](https://github.com/shimajima-eiji/Chocolatey/commit/7a61b06ee1ff92c1abb4f9a64ad8242b79a40f7f) Update ThirdParty.md (@shimajima-eiji)
 - [5c55249](https://github.com/shimajima-eiji/Chocolatey/commit/5c552492470c20bc12cb8f67c90a6fd8a5aee729) Update ThirdParty.md (@shimajima-eiji)
 - [60b90a7](https://github.com/shimajima-eiji/Chocolatey/commit/60b90a72b1fbb697ead3839719105fd9c5e4e08a) Update ThirdParty.md (@shimajima-eiji)
