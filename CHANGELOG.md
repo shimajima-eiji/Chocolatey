@@ -1,6 +1,9 @@
 ## Change Log
 
-### upcoming (2020/07/13 15:10 +00:00)
+### upcoming (2020/07/23 03:20 +00:00)
+- [5f6e5ba](https://github.com/shimajima-eiji/Chocolatey/commit/5f6e5ba3d14b51412800fbf3587ea33f3baf7196) [2020/07/19][chocolatey] 最新版を適用 (@shimajima-eiji)
+- [8ede809](https://github.com/shimajima-eiji/Chocolatey/commit/8ede8094c02690e64c874f5e1f1260da0913fd73) [2020/07/14] gitignoreにaddons.xmlだけ除外するように修正 (@shimajima-eiji)
+- [3ca5fdd](https://github.com/shimajima-eiji/Chocolatey/commit/3ca5fddbba9afb6a93e83e3f48662b73ac704dbd) [2020/07/14] tablacusを最新に (@shimajima-eiji)
 - [995300d](https://github.com/shimajima-eiji/Chocolatey/commit/995300d53e90cfe430e8453aad6d1d181289678c) Merge branch 'master' of https://github.com/shimajima-eiji/Chocolatey (@shimajima-eiji)
 - [9d798c4](https://github.com/shimajima-eiji/Chocolatey/commit/9d798c4f3f905a9b84e8bf6debce96f80f38d71f) [2020/07/08] 最新版を適用 (@shimajima-eiji)
 - [7a61b06](https://github.com/shimajima-eiji/Chocolatey/commit/7a61b06ee1ff92c1abb4f9a64ad8242b79a40f7f) Update ThirdParty.md (@shimajima-eiji)
