@@ -1,6 +1,7 @@
 ## Change Log
 
-### upcoming (2020/07/23 03:20 +00:00)
+### upcoming (2020/07/26 22:18 +00:00)
+- [faa2313](https://github.com/shimajima-eiji/Chocolatey/commit/faa231357c64934eaee98f4e90a0997a44d34bee) [2020/07/23][chocolatey] 最新版を適用 (@shimajima-eiji)
 - [5f6e5ba](https://github.com/shimajima-eiji/Chocolatey/commit/5f6e5ba3d14b51412800fbf3587ea33f3baf7196) [2020/07/19][chocolatey] 最新版を適用 (@shimajima-eiji)
 - [8ede809](https://github.com/shimajima-eiji/Chocolatey/commit/8ede8094c02690e64c874f5e1f1260da0913fd73) [2020/07/14] gitignoreにaddons.xmlだけ除外するように修正 (@shimajima-eiji)
 - [3ca5fdd](https://github.com/shimajima-eiji/Chocolatey/commit/3ca5fddbba9afb6a93e83e3f48662b73ac704dbd) [2020/07/14] tablacusを最新に (@shimajima-eiji)
