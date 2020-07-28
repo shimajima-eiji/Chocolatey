@@ -1,6 +1,9 @@
-## Change Log
+## 更新履歴
 
-### upcoming (2020/07/26 22:18 +00:00)
+### 最終更新 2020年7月28日
+- [a82113a](https://github.com/shimajima-eiji/Chocolatey/commit/a82113a1e94afa75b2d879312aad5b2cd1a165ff) Update and rename primitive/WSL.sh to wsl/ubuntu/pre-install.sh (@shimajima-eiji)
+- [d162c5f](https://github.com/shimajima-eiji/Chocolatey/commit/d162c5fd74eb26ec807096a6a732e85cb02ea96c) Rename primitive/.bash_profile to wsl/ubuntu/.bash_profile (@shimajima-eiji)
+- [f7016e2](https://github.com/shimajima-eiji/Chocolatey/commit/f7016e2415d08a01e5fbcf09bd330784e59859f6) [2020/07/27][chocolatey] 最新版を適用 (@shimajima-eiji)
 - [faa2313](https://github.com/shimajima-eiji/Chocolatey/commit/faa231357c64934eaee98f4e90a0997a44d34bee) [2020/07/23][chocolatey] 最新版を適用 (@shimajima-eiji)
 - [5f6e5ba](https://github.com/shimajima-eiji/Chocolatey/commit/5f6e5ba3d14b51412800fbf3587ea33f3baf7196) [2020/07/19][chocolatey] 最新版を適用 (@shimajima-eiji)
 - [8ede809](https://github.com/shimajima-eiji/Chocolatey/commit/8ede8094c02690e64c874f5e1f1260da0913fd73) [2020/07/14] gitignoreにaddons.xmlだけ除外するように修正 (@shimajima-eiji)
@@ -24,7 +27,7 @@
 - [484478b](https://github.com/shimajima-eiji/Chocolatey/commit/484478b12632d75bc7886fd2933ea30ce8826ecd) Create トラブルシューティング.md (@shimajima-eiji)
 - [ecb6a49](https://github.com/shimajima-eiji/Chocolatey/commit/ecb6a492c2f1073611d89689e2f1016cf15952f4) update to latest (@shimajima-eiji)
 - [a4701d6](https://github.com/shimajima-eiji/Chocolatey/commit/a4701d6d221d4e531ce390070a8ef0f8facbe434) Update WSL.sh (@shimajima-eiji)
-- [#10](https://github.com/shimajima-eiji/Chocolatey/pull/10) Merge pull request #10 from shimajima-eiji/WIP_CHANGELOG (@shimajima-eiji)
+- [#10](https://github.com/shimajima-eiji/Chocolatey/pull/10) [WIP] TortoiseGitでCHANGELOGをタグ管理させたい、試験的に導入。ついでに最新版に (@shimajima-eiji)
 - [5be8b99](https://github.com/shimajima-eiji/Chocolatey/commit/5be8b99b7563defb200ba53c604ff78d41d8c42f) [WIP] TortoiseGitでCHANGELOGをタグ管理させたい、試験的に導入。ついでに最新版に (@shimajima-eiji)
 - [34a6249](https://github.com/shimajima-eiji/Chocolatey/commit/34a6249997c5d71cac0903c57c6ef05bf14c9310) Update README.md (@shimajima-eiji)
 - [c341c78](https://github.com/shimajima-eiji/Chocolatey/commit/c341c78e1787f0585516318db558bb39e087d871) Update WSL.sh (@shimajima-eiji)
@@ -37,10 +40,10 @@
 - [c2bb1b7](https://github.com/shimajima-eiji/Chocolatey/commit/c2bb1b7231eb249521b5251e9c7369768de11f80) [TablacusExplorer] update the current date (@shimajima-eiji)
 - [d9d8ad1](https://github.com/shimajima-eiji/Chocolatey/commit/d9d8ad18f1c39dc50daa0b46adaeee08bcbfe663) Merge branch 'master' of https://github.com/shimajima-eiji/WinSettings (@shimajima-eiji)
 - [f57b405](https://github.com/shimajima-eiji/Chocolatey/commit/f57b4052fd998c2a182e3df17a5cb5f8e34815aa) [TablacusExplorer] (@shimajima-eiji)
-- [#7](https://github.com/shimajima-eiji/Chocolatey/pull/7) Merge pull request #7 from shimajima-eiji/future (@shimajima-eiji)
+- [#7](https://github.com/shimajima-eiji/Chocolatey/pull/7) fix #6 (@shimajima-eiji)
 - [7c82dd6](https://github.com/shimajima-eiji/Chocolatey/commit/7c82dd6be8f866a7d3df34271d81f23375f3d952) add WSL (@shimajima-eiji)
 - [1ed51f3](https://github.com/shimajima-eiji/Chocolatey/commit/1ed51f3c524e5dd39906c0cd22d8ff9843c99eaa) [nowork] changed by update for 'settings sync' (@shimajima-eiji)
-- [#5](https://github.com/shimajima-eiji/Chocolatey/pull/5) Merge pull request #5 from shimajima-eiji/future (@shimajima-eiji)
+- [#5](https://github.com/shimajima-eiji/Chocolatey/pull/5) #3, #4 and add config for divert windows environment (@shimajima-eiji)
 - [c08ef29](https://github.com/shimajima-eiji/Chocolatey/commit/c08ef2959882a72223273e2397361a2c96c77489) [update] add chocoletey, delete files for VSCode is no longer needed. (@shimajima-eiji)
 - [64a4570](https://github.com/shimajima-eiji/Chocolatey/commit/64a4570b802331fda2822316c28c143919415c57) [add] index.md, gitignore (@shimajima-eiji)
 - [0e51a23](https://github.com/shimajima-eiji/Chocolatey/commit/0e51a234eb50b5a12c2cb97f5a158fe79a6b8b5b) [update] saving to addons for TE (@shimajima-eiji)
