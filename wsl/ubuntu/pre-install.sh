@@ -1,8 +1,14 @@
-# windows: %HomePath%\AppData\Local\Packages\CanonicalGroupLimited.UbuntuonWindows_*************\LocalState\rootfs
-# VSCode: Remote WSL
+<<__COMMENT
+# Configs
+windows: %HomePath%\AppData\Local\Packages\CanonicalGroupLimited.UbuntuonWindows_*************\LocalState\rootfs
+VSCode: Remote WSL
 
-sudo apt update
-sudo apt upgrade -y
+##npm
+[github-changes](https://github.com/lalitkapoor/github-changes)
+__COMMENT
+
+apt update
+apt upgrade -y
 
 # for anyenv
 git clone https://github.com/riywo/anyenv ~/.anyenv
@@ -26,3 +32,5 @@ sudo apt install -y build-essential libbz2-dev libdb-dev libreadline-dev libffi-
 anyenv install pyenv
 pyenv install ()  # (pyenv install --list)
 
+# for github-changes
+npm install -g github-changes
