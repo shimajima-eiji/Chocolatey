@@ -15,6 +15,10 @@ apt install -y language-pack-ja manpages-ja
 update-locale LANG=ja_JP.UTF8
 dpkg-reconfigure tzdata
 
+# for github-changes
+apt install -y npm
+npm install -g github-changes
+
 # for anyenv
 git clone https://github.com/riywo/anyenv ~/.anyenv
 echo 'export PATH="$HOME/.anyenv/bin:$PATH"' >> ~/.bashrc
