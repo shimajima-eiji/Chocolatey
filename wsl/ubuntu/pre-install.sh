@@ -10,6 +10,11 @@ __COMMENT
 apt update
 apt upgrade -y
 
+# for Japanese
+apt install -y language-pack-ja manpages-ja
+update-locale LANG=ja_JP.UTF8
+dpkg-reconfigure tzdata
+
 # for anyenv
 git clone https://github.com/riywo/anyenv ~/.anyenv
 echo 'export PATH="$HOME/.anyenv/bin:$PATH"' >> ~/.bashrc
