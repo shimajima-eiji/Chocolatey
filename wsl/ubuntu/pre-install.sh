@@ -4,7 +4,8 @@ windows: %HomePath%\AppData\Local\Packages\CanonicalGroupLimited.UbuntuonWindows
 VSCode: Remote WSL
 
 ##npm
-[github-changes](https://github.com/lalitkapoor/github-changes)
+- [github-changes](https://github.com/lalitkapoor/github-changes)
+  - [view](https://github.com/shimajima-eiji/Chocolatey/blob/master/CHANGELOG.md)
 __COMMENT
 
 apt update
