@@ -1,6 +1,8 @@
 ## 更新履歴
 
 ### 最終更新 2020年7月29日
+- [918d980](https://github.com/shimajima-eiji/Chocolatey/commit/918d980a1baffc68c0e10470b624672ede4e7707) Merge branch 'master' of https://github.com/shimajima-eiji/Chocolatey (@shimajima-eiji)
+- [f46e028](https://github.com/shimajima-eiji/Chocolatey/commit/f46e028f8b1738172793a49f7f3d4b34531fa3af) [2020/07/29][cinst][chocolatey] 最新を適用 [wsl] github-changesをcurlで実行させる (@shimajima-eiji)
 - [ee00454](https://github.com/shimajima-eiji/Chocolatey/commit/ee00454e9d9a33cba69dc9340b90c15db6c9b949) Update update_CHANGELOG.sh (@shimajima-eiji)
 - [13528f4](https://github.com/shimajima-eiji/Chocolatey/commit/13528f412b31793ee8e6ec646122fc39d0b62209) Update update_CHANGELOG.sh (@shimajima-eiji)
 - [c5a5ff6](https://github.com/shimajima-eiji/Chocolatey/commit/c5a5ff6f14fc5f40b55a407d1f89c311d48ded34) Update update_CHANGELOG.sh (@shimajima-eiji)
