@@ -1,3 +1,4 @@
 /tablacus/tools/*
 !addons
 !config/addons.xml
+/cinst/tablacus/tools/addons/*/*.[0-9]*

@@ -1,6 +1,19 @@
 ## 更新履歴
 
-### 最終更新 2020年7月28日
+### 最終更新 2020年7月29日
+- [ee00454](https://github.com/shimajima-eiji/Chocolatey/commit/ee00454e9d9a33cba69dc9340b90c15db6c9b949) Update update_CHANGELOG.sh (@shimajima-eiji)
+- [13528f4](https://github.com/shimajima-eiji/Chocolatey/commit/13528f412b31793ee8e6ec646122fc39d0b62209) Update update_CHANGELOG.sh (@shimajima-eiji)
+- [c5a5ff6](https://github.com/shimajima-eiji/Chocolatey/commit/c5a5ff6f14fc5f40b55a407d1f89c311d48ded34) Update update_CHANGELOG.sh (@shimajima-eiji)
+- [afae9f0](https://github.com/shimajima-eiji/Chocolatey/commit/afae9f05f63743b007a40b1568c7dba796e6b0be) Update update_CHANGELOG.sh (@shimajima-eiji)
+- [39d5b79](https://github.com/shimajima-eiji/Chocolatey/commit/39d5b79bb8a1c1c72c56465aee792313bd666c72) Update update_CHANGELOG.sh (@shimajima-eiji)
+- [bb6bfc7](https://github.com/shimajima-eiji/Chocolatey/commit/bb6bfc7f5b533ada0603bc1dd49176881ca73e0a) Update update_CHANGELOG.sh (@shimajima-eiji)
+- [c8040de](https://github.com/shimajima-eiji/Chocolatey/commit/c8040de68e841e2cb76b7ad833e4a858d30889e5) Update update_CHANGELOG.sh (@shimajima-eiji)
+- [1cf7d15](https://github.com/shimajima-eiji/Chocolatey/commit/1cf7d15a305f34f523177d459bae7a09a811ec16) Create update_CHANGELOG.sh (@shimajima-eiji)
+- [0a5377f](https://github.com/shimajima-eiji/Chocolatey/commit/0a5377f1a29ee66ea594e760c05c1284ff567c5b) Create README.md (@shimajima-eiji)
+- [ca1bf0c](https://github.com/shimajima-eiji/Chocolatey/commit/ca1bf0c3e03bcdb34f0f2ca74c984814222e210c) Update pre-install.sh (@shimajima-eiji)
+- [d9a866a](https://github.com/shimajima-eiji/Chocolatey/commit/d9a866ada3e7502216d9f2966f10221c9ff7b7d9) Update pre-install.sh (@shimajima-eiji)
+- [936f9a7](https://github.com/shimajima-eiji/Chocolatey/commit/936f9a7634a07fe11a089f5fb474c585b1cab706) Update pre-install.sh (@shimajima-eiji)
+- [6debf51](https://github.com/shimajima-eiji/Chocolatey/commit/6debf51f76793b597247bd21d87e3c8c6860162f) [2020/07/28] 最新版を適用、フォーマットも日本語向けに (@shimajima-eiji)
 - [a82113a](https://github.com/shimajima-eiji/Chocolatey/commit/a82113a1e94afa75b2d879312aad5b2cd1a165ff) Update and rename primitive/WSL.sh to wsl/ubuntu/pre-install.sh (@shimajima-eiji)
 - [d162c5f](https://github.com/shimajima-eiji/Chocolatey/commit/d162c5fd74eb26ec807096a6a732e85cb02ea96c) Rename primitive/.bash_profile to wsl/ubuntu/.bash_profile (@shimajima-eiji)
 - [f7016e2](https://github.com/shimajima-eiji/Chocolatey/commit/f7016e2415d08a01e5fbcf09bd330784e59859f6) [2020/07/27][chocolatey] 最新版を適用 (@shimajima-eiji)
