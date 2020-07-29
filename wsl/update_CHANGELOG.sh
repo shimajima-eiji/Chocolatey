@@ -3,6 +3,9 @@
 # 使い方
 curl -sf https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/update_CHANGELOG.sh | sh -s -- （ここにオプション）
 
+e.g.:
+curl -sf https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/update_CHANGELOG.sh | sh -s -- -s Chocolatey
+
 引数ごとに異なる振る舞いをします。
 特にsオプションとfオプションです。
 
