@@ -71,5 +71,5 @@ if [ ! "$owner" -o ! "$repository" ]; then
   exit 1
 fi
 
-github-changes -o $owner -r $repository --use-commit-body -t "更新履歴" -z Asia/Tokyo -m "YYYY年M月D日" -n "最終更新"
+github-changes -o $owner -r $repository --use-commit-body -t "更新履歴" -z Asia/Tokyo -m "YYYY年M月D日" -n "最終更新" -a
 echo "script completed!"
