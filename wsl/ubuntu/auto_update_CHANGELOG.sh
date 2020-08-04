@@ -35,7 +35,7 @@ else
   git pull
 fi
 
-curl -sf https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/update_CHANGELOG.sh | sh -s -- -s ${repository}
+curl -sf https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/update_CHANGELOG.sh | sh -s -- -s ${repository} ${account}
 git commit -a -m "${commit_message}"
 git push
 
