@@ -7,6 +7,8 @@ curl https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/ubun
 #sudo curl https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/ubuntu/cron.sh >>/var/spool/cron/crontabs/$USER
 
 # ssh-keygen -t rsaで作成したファイルを https://github.com/settings/keys に登録しておく
+
+sudo service cron start
 ```
 
 crontabの設定は、`sudo (editor) /var/spool/cron/crontabs/$USER`で実施することを推奨。
