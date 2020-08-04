@@ -2,7 +2,7 @@
 
 repository=${1:-Chocolatey}
 account=${2:-shimajima-eiji}
-work_directory=${3:-~/cron}
+work_directory=${3:-~/cron}  # ※cronでロギングしているので、変更時は呼び出し側も対応する
 
 commit_message="[$(date '+%Y/%m/%d')][CHANGELOG] 最新化"
 github_changes_path="/usr/local/bin/github-changes"
