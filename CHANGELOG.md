@@ -1,6 +1,11 @@
 ## 更新履歴
 
 ### 最終更新 2020年8月4日
+- [87deec5](https://github.com/shimajima-eiji/Chocolatey/commit/87deec5e556a21f8f7dc0e691d6a62664d2f6833) Update cron.sh (@shimajima-eiji)
+- [5354cd2](https://github.com/shimajima-eiji/Chocolatey/commit/5354cd2b95612f454607e4a2c4cfbd0555328d05) Update auto_update_CHANGELOG.sh (@shimajima-eiji)
+- [aa73023](https://github.com/shimajima-eiji/Chocolatey/commit/aa73023b8ae529a05e21b1d2022243dff7484f87) [2020/08/04][update_CHANGELOG] cronでcurl実行を想定する (@shimajima-eiji)
+- [41ff119](https://github.com/shimajima-eiji/Chocolatey/commit/41ff1191191b18373c99d9461a80dee8ecbe9bac) Update update_CHANGELOG.sh (@shimajima-eiji)
+- [5f7398b](https://github.com/shimajima-eiji/Chocolatey/commit/5f7398b058af63ed8cd4e280bcfb9db9aa9b0dab) [2020/08/04] auto pushデバッグ中... (@shimajima-eiji)
 - [2ae7b6a](https://github.com/shimajima-eiji/Chocolatey/commit/2ae7b6a1846b669844e046e28e1764338d61385c) [2020/08/04][CHANGELOG] 最新化 (@shimajima-eiji)
 - [c76a62c](https://github.com/shimajima-eiji/Chocolatey/commit/c76a62c2a939b2ebd584a3b3d53ea538efe376f2) [2020/08/04][CHANGELOG] 最新化 (@shimajima-eiji)
 - [3717ea9](https://github.com/shimajima-eiji/Chocolatey/commit/3717ea9797c2ccc76e0ca408f77f27ccd18e56c1) Update README.md (@shimajima-eiji)
