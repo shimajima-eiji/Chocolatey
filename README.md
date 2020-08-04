@@ -26,3 +26,6 @@ cinstで入れたパッケージ自体をバージョン管理するためのリ
 だけ順番があり、以降は順不同で実施できる。解説は後述の通り。
 
 https://github.com/shimajima-eiji/Chocolatey/wiki/Chocolateyのインストール・アップグレード
+
+# インストール後
+https://github.com/shimajima-eiji/Chocolatey/wiki/設定が必要なサードパーティー
