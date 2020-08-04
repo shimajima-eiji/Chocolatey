@@ -1,0 +1,4 @@
+Host github github.com
+  HostName github.com
+  IdentityFile (https://github.com/settings/keys に登録したid_rsa.pubに対応するid_rsa)
+  User git
