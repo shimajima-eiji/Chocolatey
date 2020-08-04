@@ -22,6 +22,8 @@ https://github.com/shimajima-eiji/Github_scout/wiki/【手引】更新履歴（C
 
 README
 
+github_changes_fullpath=/usr/local/bin/github-changes
+
 help() {
   cat <<EOM
 Usage: $(basename "$0") [OPTION]...
@@ -67,9 +69,9 @@ while getopts ":f:o:r:s:h" optKey; do
 done
 
 if [ ! "$owner" -o ! "$repository" ]; then
-  github-changes -h
+  ${github_changes_fullpath} -h
   exit 1
 fi
 
-github-changes -o $owner -r $repository --use-commit-body -t "更新履歴" -z Asia/Tokyo -m "YYYY年M月D日" -n "最終更新" -a
+${github_changes_fullpath} -o $owner -r $repository --use-commit-body -t "更新履歴" -z Asia/Tokyo -m "YYYY年M月D日" -n "最終更新" -a
 echo "script completed!"
