@@ -22,7 +22,7 @@ https://github.com/shimajima-eiji/Github_scout/wiki/【手引】更新履歴（C
 
 README
 
-github_changes_fullpath=/usr/local/bin/github-changes
+github_changes_fullpath=/usr/local/bin/github-changes # うまく行かない場合は、$(which github-changes)を参照する
 
 help() {
   cat <<EOM
