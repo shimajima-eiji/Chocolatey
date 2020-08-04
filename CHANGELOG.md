@@ -1,6 +1,14 @@
 ## 更新履歴
 
-### 最終更新 2020年8月4日
+### 最終更新 2020年8月5日
+- [60251fd](https://github.com/shimajima-eiji/Chocolatey/commit/60251fdbac8a2f906210df613d91108448fc076e) Update auto_update_CHANGELOG.sh (@shimajima-eiji)
+- [5463666](https://github.com/shimajima-eiji/Chocolatey/commit/5463666e4e5ac2bf7015dfdd58e45f987f33955a) Update README.md (@shimajima-eiji)
+- [fd6c4d8](https://github.com/shimajima-eiji/Chocolatey/commit/fd6c4d85471f27f0cbe8b267eb1f1d116def17dd) Update README.md (@shimajima-eiji)
+- [521ce1a](https://github.com/shimajima-eiji/Chocolatey/commit/521ce1a367e2cb86c2ebdfa2fd18e4631b0301c6) Delete ThirdParty.md (@shimajima-eiji)
+- [e2909aa](https://github.com/shimajima-eiji/Chocolatey/commit/e2909aabd6e2d51f045f8ea39c02a8a02e828c6c) Update README.md (@shimajima-eiji)
+- [4b003ce](https://github.com/shimajima-eiji/Chocolatey/commit/4b003cee8675b2d99198b298519df25b06787712) Create home-.ssh-config (@shimajima-eiji)
+- [85342ac](https://github.com/shimajima-eiji/Chocolatey/commit/85342acaec17f76331425d3a5c259ab8d842aedd) Create home-.gitconfig (@shimajima-eiji)
+- [87ff0c1](https://github.com/shimajima-eiji/Chocolatey/commit/87ff0c1c0fb2836d23623d2bcb99651a295c931a) [2020/08/04][CHANGELOG] 最新化 (@shimajima-eiji)
 - [87deec5](https://github.com/shimajima-eiji/Chocolatey/commit/87deec5e556a21f8f7dc0e691d6a62664d2f6833) Update cron.sh (@shimajima-eiji)
 - [5354cd2](https://github.com/shimajima-eiji/Chocolatey/commit/5354cd2b95612f454607e4a2c4cfbd0555328d05) Update auto_update_CHANGELOG.sh (@shimajima-eiji)
 - [aa73023](https://github.com/shimajima-eiji/Chocolatey/commit/aa73023b8ae529a05e21b1d2022243dff7484f87) [2020/08/04][update_CHANGELOG] cronでcurl実行を想定する (@shimajima-eiji)
