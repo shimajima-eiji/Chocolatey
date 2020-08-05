@@ -10,8 +10,6 @@ cinstで入れたパッケージ自体をバージョン管理するためのリ
   - パッケージを入れたあとに、それぞれのパッケージで追加設定が必要なもの。ここではTablacus Explorerを想定。なお、VSCodeやchromium系、ストレージ系はクラウド連携が使えるのでここでは考慮しない。
 - [primitive](https://github.com/shimajima-eiji/Chocolatey/tree/master/tool)
   - Windows自体のプログラムと追加なりで対応するもの。だいたいWSLやタスクスケジューラー関連
-- [ThirdParty.md](https://github.com/shimajima-eiji/Chocolatey/tree/master/ThirdParty.md)
-  - cinst(chocolatey.configをinstall)では入らないもの。ダウンロードパスやMSストアを列挙
 - [tool](https://github.com/shimajima-eiji/Chocolatey/tree/master/primitive)
   - もしchocolatey.packageがインポートできない場合の予備案。動作未確認。
 
