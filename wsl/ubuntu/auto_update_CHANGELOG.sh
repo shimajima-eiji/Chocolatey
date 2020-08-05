@@ -36,7 +36,8 @@ else
 fi
 
 curl -sf https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/update_CHANGELOG.sh | sh -s -- -s ${repository} ${account}
-git commit -A -m "${commit_message}"
+git add -A
+git commit -a -m "${commit_message}"
 git push
 
 # remove temp dir
