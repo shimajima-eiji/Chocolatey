@@ -1,6 +1,7 @@
 ## 更新履歴
 
-### 最終更新 2020年8月7日
+### 最終更新 2020年8月8日
+- [bf7be79](https://github.com/shimajima-eiji/Chocolatey/commit/bf7be79122abf7e3439fd8e61b18248945c13e2b) [2020/08/07][CHANGELOG] 最新化 (@shimajima-eiji)
 - [eb8d873](https://github.com/shimajima-eiji/Chocolatey/commit/eb8d873a17292592dde5a89b2292831c3a5a97b1) Update README.md (@shimajima-eiji)
 - [4fc3245](https://github.com/shimajima-eiji/Chocolatey/commit/4fc32457d500fe1d13d8911d0c7b070bd6c93701) Delete thirdparty.md (@shimajima-eiji)
 - [bac90be](https://github.com/shimajima-eiji/Chocolatey/commit/bac90be4545d53aaadcb19de4a4711460459834b) Update auto_update_CHANGELOG.sh (@shimajima-eiji)
