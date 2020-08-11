@@ -46,7 +46,7 @@ fi
 curl -sf https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/update_CHANGELOG.sh | sh -s -- -s ${repository} ${branch} false ${account}
 git add -A
 git commit -a -m "${commit_message}"
-# git push
+git push
 
 # remove temp dir
 if [ "${clone_flg}" = true ]; then
@@ -70,6 +70,7 @@ if [ "${clone_flg}" = true ]; then
   fi
 
   curl -sf https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/update_CHANGELOG.sh | sh -s -- -s ${repository} ${branch} true ${account}
+  curl -sf https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/update_CHANGELOG.sh | sh -s -- -s ${repository} master false ${account}
   git add -A
   git commit -a -m "${commit_other}"
   git push
