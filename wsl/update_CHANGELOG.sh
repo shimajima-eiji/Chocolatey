@@ -58,6 +58,7 @@ while getopts ":f:o:r:s:h" optKey; do
     repository=$2
     branch=${3:-master}
     owner=${4:-shimajima-eiji}
+    ;;
 
   h | '--help')
     help
