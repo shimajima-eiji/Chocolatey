@@ -6,9 +6,9 @@ README
 
 repository=${1:-Chocolatey}
 branch=${2:-master}
-cpmaster${3:-true}
+cpmaster=${3:-true}
 account=${4:-shimajima-eiji}
-work_directory=${4:-~/cron} # ※cronでロギングしているので、変更時は呼び出し側も対応する
+work_directory=${5:-~/cron} # ※cronでロギングしているので、変更時は呼び出し側も対応する
 
 ### main
 
