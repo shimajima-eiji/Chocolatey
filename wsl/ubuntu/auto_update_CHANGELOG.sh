@@ -6,12 +6,14 @@ README
 
 repository=${1:-Chocolatey}
 branch=${2:-master}
-account=${3:-shimajima-eiji}
+cpmaster${3:-true}
+account=${4:-shimajima-eiji}
 work_directory=${4:-~/cron} # ※cronでロギングしているので、変更時は呼び出し側も対応する
 
 ### main
 
 commit_message="[$(date '+%Y/%m/%d')][CHANGELOG] 最新化"
+commit_other="[$(date '+%Y/%m/%d')][CHANGELOG][${branch}] 最新化"
 github_changes_path="/usr/local/bin/github-changes"
 
 if [ ! "${work_directory}" -o ! "${account}" -o ! "${repository}" ]; then
@@ -30,8 +32,7 @@ fi
 if [ ! "${repository}" = $(basename $(pwd)) ]; then
   echo "create directory for temporary of clone"
   clone_flg=true
-  git clone git@github.com:${account}/${repository}.git
-  #git clone https://github.com/${account}/${repository}.git
+  git clone -b ${branch} git@github.com:${account}/${repository}.git
   cd ${repository}
 
   if [ ! "${repository}" = $(basename $(pwd)) ]; then
@@ -54,4 +55,29 @@ if [ "${clone_flg}" = true ]; then
     cd ../
     rm -rf "${repository}"
   fi
+
+  # cpmaster
+  if [ ! "$cpmaster" -o ! "${branch}" = "master" ]; then
+    exit 0
+  fi
+
+  git clone git@github.com:${account}/${repository}.git
+  cd ${repository}
+
+  if [ ! "${repository}" = $(basename $(pwd)) ]; then
+    echo "[ERROR] can't complete: git clone git@github.com:${account}/${repository}.git / CURRENT: $(pwd)"
+    exit 1
+  fi
+
+  curl -sf https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/update_CHANGELOG.sh | sh -s -- -s ${repository} master ${account}
+  git add -A
+  git commit -a -m "${commit_other}"
+  git push
+
+  if [ "${repository}" = $(basename $(pwd)) ]; then
+    echo "clean directory for temporary of clone"
+    cd ../
+    rm -rf "${repository}"
+  fi
+
 fi
