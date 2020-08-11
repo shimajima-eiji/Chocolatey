@@ -1,8 +1,15 @@
 # !/bin/bash
+<<README
+すぐ使えるように引数に初期値を設定している。
+### main以前までを編集して使うこと。
+README
 
 repository=${1:-Chocolatey}
-account=${2:-shimajima-eiji}
-work_directory=${3:-~/cron}  # ※cronでロギングしているので、変更時は呼び出し側も対応する
+branch=${2:-master}
+account=${3:-shimajima-eiji}
+work_directory=${4:-~/cron} # ※cronでロギングしているので、変更時は呼び出し側も対応する
+
+### main
 
 commit_message="[$(date '+%Y/%m/%d')][CHANGELOG] 最新化"
 github_changes_path="/usr/local/bin/github-changes"
@@ -35,7 +42,7 @@ else
   git pull
 fi
 
-curl -sf https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/update_CHANGELOG.sh | sh -s -- -s ${repository} ${account}
+curl -sf https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/update_CHANGELOG.sh | sh -s -- -s ${repository} ${branch} ${account}
 git add -A
 git commit -a -m "${commit_message}"
 git push

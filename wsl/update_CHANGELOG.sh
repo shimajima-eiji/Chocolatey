@@ -20,6 +20,10 @@ curl -sf https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/
 # 参照
 https://github.com/shimajima-eiji/Github_scout/wiki/【手引】更新履歴（CHANGELOG.md）
 
+# 謝辞
+本来であれば$3をowner、$4をbranchとするのが筋ですが、自分で使う事を想定しているので、$3をbranchとしています。
+ぶっちゃけ横着です、気に入らない場合はforkして書き換えてください
+
 README
 
 github_changes_fullpath=/usr/local/bin/github-changes # うまく行かない場合は、$(which github-changes)を参照する
@@ -52,14 +56,8 @@ while getopts ":f:o:r:s:h" optKey; do
     ;;
   s | '--simple')
     repository=$2
-
-    # 三項演算子が使えない：https://qiita.com/kokorinosoba/items/2f95ffd897b8ba2fe0de
-    if [ "$3" ]; then
-      owner="$3"
-    else
-      owner="shimajima-eiji"
-    fi
-    ;;
+    branch=${3:-master}
+    owner=${4:-shimajima-eiji}
 
   h | '--help')
     help
@@ -73,5 +71,5 @@ if [ ! "$owner" -o ! "$repository" ]; then
   exit 1
 fi
 
-${github_changes_fullpath} -o $owner -r $repository --use-commit-body -t "更新履歴" -z Asia/Tokyo -m "YYYY年M月D日" -n "最終更新" -a
+${github_changes_fullpath} -o ${owner} -r ${repository} -b ${branch} --use-commit-body -t "更新履歴" -z Asia/Tokyo -m "YYYY年M月D日" -n "最終更新" -a
 echo "script completed!"
