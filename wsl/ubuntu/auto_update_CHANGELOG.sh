@@ -43,7 +43,7 @@ else
   git pull
 fi
 
-curl -sf https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/update_CHANGELOG.sh | sh -s -- -s ${repository} ${branch} ${account}
+curl -sf https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/update_CHANGELOG.sh | sh -s -- -s ${repository} ${branch} false ${account}
 git add -A
 git commit -a -m "${commit_message}"
 git push
@@ -69,7 +69,7 @@ if [ "${clone_flg}" = true ]; then
     exit 1
   fi
 
-  curl -sf https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/update_CHANGELOG.sh | sh -s -- -s ${repository} master ${account}
+  curl -sf https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/update_CHANGELOG.sh | sh -s -- -s ${repository} ${branch} true ${account}
   git add -A
   git commit -a -m "${commit_other}"
   git push

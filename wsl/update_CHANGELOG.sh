@@ -57,12 +57,15 @@ while getopts ":f:o:r:s:h" optKey; do
   s | '--simple')
     repository=$2
     branch=${3:-master}
-    cpmaster=${4:-true}
+    filepath=${4:-false}
     owner=${5:-shimajima-eiji}
 
-    if [ "${cpmaster}" -a ! "${branch}" = "master" ]; then
-      mkdir "CHANGELOG"
-      filepath="-f ${branch}.md"
+    if [ "${filepath}" ]; then
+      target="CHANGELOG"
+      mkdir ${target}
+      filepath="${target}/${branch}.md"
+    else
+      filepath="CHANGELOG.md"
     fi
     ;;
 
@@ -78,5 +81,5 @@ if [ ! "$owner" -o ! "$repository" ]; then
   exit 1
 fi
 
-${github_changes_fullpath} -o ${owner} -r ${repository} -b ${branch} --use-commit-body -t "更新履歴" -z Asia/Tokyo -m "YYYY年M月D日" -n "最終更新" -a ${filepath}
+${github_changes_fullpath} -o ${owner} -r ${repository} -b ${branch} --use-commit-body -t "更新履歴" -z Asia/Tokyo -m "YYYY年M月D日" -n "最終更新" -a -f ${filepath}
 echo "script completed!"
