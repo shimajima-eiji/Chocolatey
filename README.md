@@ -27,3 +27,6 @@ https://github.com/shimajima-eiji/Chocolatey/wiki/Chocolateyのインストー�
 
 # インストール後
 https://github.com/shimajima-eiji/Chocolatey/wiki/設定が必要なサードパーティー
+
+# トラブルシューティング
+https://github.com/shimajima-eiji/Chocolatey/wiki/トラブルシューティング
