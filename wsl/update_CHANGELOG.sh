@@ -62,7 +62,7 @@ while getopts ":f:o:r:s:h" optKey; do
 
     if [ "${filepath}" = "true" ]; then
       target="CHANGELOG"
-      mkdir ${target}
+      mkdir -p ${target}
       filepath="${target}/${branch}.md"
     else
       filepath="CHANGELOG.md"
