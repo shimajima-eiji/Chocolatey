@@ -46,7 +46,7 @@ fi
 curl -sf https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/update_CHANGELOG.sh | sh -s -- -s ${repository} ${branch} false ${account}
 git add -A
 git commit -a -m "${commit_message}"
-git push
+# git push
 
 # remove temp dir
 if [ "${clone_flg}" = true ]; then
@@ -57,11 +57,11 @@ if [ "${clone_flg}" = true ]; then
   fi
 
   # cpmaster
-  if [ ! "$cpmaster" -o ! "${branch}" = "master" ]; then
+  if [ ! "$cpmaster" -o "${branch}" = "master" ]; then
     exit 0
   fi
 
-  git clone git@github.com:${account}/${repository}.git
+  git clone -b master git@github.com:${account}/${repository}.git
   cd ${repository}
 
   if [ ! "${repository}" = $(basename $(pwd)) ]; then

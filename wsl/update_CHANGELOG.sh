@@ -60,7 +60,7 @@ while getopts ":f:o:r:s:h" optKey; do
     filepath=${4:-false}
     owner=${5:-shimajima-eiji}
 
-    if [ "${filepath}" ]; then
+    if [ "${filepath}" = "true" ]; then
       target="CHANGELOG"
       mkdir ${target}
       filepath="${target}/${branch}.md"
