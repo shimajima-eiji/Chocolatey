@@ -1,6 +1,16 @@
 ## 更新履歴
 
-### 最終更新 2020年8月11日
+### 最終更新 2020年8月12日
+- [7c86028](https://github.com/shimajima-eiji/Chocolatey/commit/7c86028cdd2a0706c1246a36f69181bff93d1497) [2020/08/12][cron] WSLではcrontabの結果をバックアップできないので、タスクスケジューラを介して適用させる (@shimajima-eiji)
+- [bc442f4](https://github.com/shimajima-eiji/Chocolatey/commit/bc442f4796889c327658e38969d48e522f710e26) Delete トラブルシューティング.md (@shimajima-eiji)
+- [88eaf29](https://github.com/shimajima-eiji/Chocolatey/commit/88eaf29dd20e12549ab867276e48701caefb6f74) [2020/08/12][update_CHANGELOG] 既にCHANGELOGディレクトリが存在している時に不要なエラーメッセージが表示されるのを回避 (@shimajima-eiji)
+- [04781a6](https://github.com/shimajima-eiji/Chocolatey/commit/04781a6f32bf6c2d5511022e1137f82646262fe9) [2020/08/12][update_CHANGELOG] (bugfix)デバッグを解除、サブブランチのCHANGELOGをmasterに適用する際にmaster自体のCHANGELOGもアップデート (@shimajima-eiji)
+- [65b652b](https://github.com/shimajima-eiji/Chocolatey/commit/65b652b15c314dfaf5496cc0c9d8927facec6d38) [2020/08/11][update_CHANGELOG] (bugfix)引数で受けたfalseをtrueと判定してしまう問題とcpmasterの判定誤りを修正 (@shimajima-eiji)
+- [e34e729](https://github.com/shimajima-eiji/Chocolatey/commit/e34e729c168e4fa6656ac52a84d4faecec01fd09) [2020/08/11][update_CHANGELOG] (bugfix)masterブランチ以外でもCHANGELOGの出力先を変更してしまう不具合を解消 (@shimajima-eiji)
+- [e698010](https://github.com/shimajima-eiji/Chocolatey/commit/e698010bc35f00f78f9616478b81049a9bd72896) [2020/08/11][update_CHANGELOG] masterブランチ以外でもCHANGELOGの出力先を変更してしまう不具合を解消 (@shimajima-eiji)
+- [51e4e63](https://github.com/shimajima-eiji/Chocolatey/commit/51e4e6398ed338a65c0425ba5515ea4e9b41908b) [2020/08/11][update_CHANGELOG] 別ブランチのCHANGELOGをmasterにも反映することができる (@shimajima-eiji)
+- [c44fc6c](https://github.com/shimajima-eiji/Chocolatey/commit/c44fc6c52886adf7f11f2738a159858ef820edf2) [2020/08/11][auto_update_CHANGELOG] 修正ミス自体を対応： (@shimajima-eiji)
+- [89483f6](https://github.com/shimajima-eiji/Chocolatey/commit/89483f6e5376c28e1176b935e4ed5725f88a4cdc) [2020/08/11][auto_update_CHANGELOG] branch管理をしている場合に対応 (@shimajima-eiji)
 - [dc1f3ed](https://github.com/shimajima-eiji/Chocolatey/commit/dc1f3ed930a513f9aee5a2084ab70510e9a24845) [2020/08/11][CHANGELOG] 最新化 (@shimajima-eiji)
 - [ee4f3f2](https://github.com/shimajima-eiji/Chocolatey/commit/ee4f3f2fff2629fa8fe6825a36e96adad5287c55) [2020/08/10][CHANGELOG] 最新化 (@shimajima-eiji)
 - [831a6ba](https://github.com/shimajima-eiji/Chocolatey/commit/831a6ba7674f287227ea274938a1cc3e571b1ae0) [2020/08/09][CHANGELOG] 最新化 (@shimajima-eiji)
