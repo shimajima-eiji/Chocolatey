@@ -1,6 +1,9 @@
 ## 更新履歴
 
-### 最終更新 2020年8月12日
+### 最終更新 2020年8月14日
+- [4c01efc](https://github.com/shimajima-eiji/Chocolatey/commit/4c01efc3b6436db62d60e1cbf74a9fcfe8cba21a) Merge branch 'master' of https://github.com/shimajima-eiji/Chocolatey into master (@shimajima-eiji)
+- [e8b4930](https://github.com/shimajima-eiji/Chocolatey/commit/e8b49308ab2d1e55c01afb13d818a89274c019c6) [2020/08/12][chocolatey] 最新化 (@shimajima-eiji)
+- [3bcfc9a](https://github.com/shimajima-eiji/Chocolatey/commit/3bcfc9a6e4d76be46af2491446bb38a48caef3ad) [2020/08/12][CHANGELOG][wip_20191102] 最新化 (@shimajima-eiji)
 - [7c86028](https://github.com/shimajima-eiji/Chocolatey/commit/7c86028cdd2a0706c1246a36f69181bff93d1497) [2020/08/12][cron] WSLではcrontabの結果をバックアップできないので、タスクスケジューラを介して適用させる (@shimajima-eiji)
 - [bc442f4](https://github.com/shimajima-eiji/Chocolatey/commit/bc442f4796889c327658e38969d48e522f710e26) Delete トラブルシューティング.md (@shimajima-eiji)
 - [88eaf29](https://github.com/shimajima-eiji/Chocolatey/commit/88eaf29dd20e12549ab867276e48701caefb6f74) [2020/08/12][update_CHANGELOG] 既にCHANGELOGディレクトリが存在している時に不要なエラーメッセージが表示されるのを回避 (@shimajima-eiji)
