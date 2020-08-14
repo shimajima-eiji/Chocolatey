@@ -1,5 +1,6 @@
 # ~/.gitconfigに設定を追加
 windowsの場合、`%USERPROFILE%¥.gitconfig`
+<br>CMDやPowerShell、ほかtortoiceGitなどを使う場合に呼び出される
 
 ```
 [user]
