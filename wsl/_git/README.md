@@ -1,5 +1,5 @@
 # ~/.gitconfigに設定を追加
-windowsの場合、`%USERPROFILE%\.gitconfig`
+windowsの場合、`%USERPROFILE%¥.gitconfig`
 
 ```
 [user]
