@@ -3,7 +3,9 @@
 while read local_ref local_sha1 remote_ref remote_sha1
 do
   if [[ "${remote_ref##refs/heads/}" = "master" ]]; then
-    echo "masterに直接pushしようとしています。必要であれば.git_template/hooks/pre-pushを削除してください"
+    echo "【WARM: .git/hooks/pre-push】"
+    echo "masterに直接pushしようとしたため処理を中止しました。"
+    echo "必要であれば.git_template/hooks/pre-pushを削除してください。"
     exit 1
   fi
 done
