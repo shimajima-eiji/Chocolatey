@@ -32,7 +32,7 @@
 40 00 * * * curl -sf https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/ubuntu/auto_update_CHANGELOG.sh | sh -s -- Github_scout >>~/cron/cron.log 2>>~/cron/cron.err
 50 00 * * * curl -sf https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/ubuntu/auto_update_CHANGELOG.sh | sh -s -- README >>~/cron/cron.log 2>>~/cron/cron.err
 00 01 * * * curl -sf https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/ubuntu/auto_update_CHANGELOG.sh | sh -s -- Hosting GAS-snippets >>~/cron/cron.log 2>>~/cron/cron.err
-00 01 * * * curl -sf https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/ubuntu/auto_update_CHANGELOG.sh | sh -s -- Hosting GAS-timetrigger >>~/cron/cron.log 2>>~/cron/cron.err
-00 01 * * * curl -sf https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/ubuntu/auto_update_CHANGELOG.sh | sh -s -- Hosting GAS-minimum_wage >>~/cron/cron.log 2>>~/cron/cron.err
-
-
+10 01 * * * curl -sf https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/ubuntu/auto_update_CHANGELOG.sh | sh -s -- Hosting GAS-timetrigger >>~/cron/cron.log 2>>~/cron/cron.err
+20 01 * * * curl -sf https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/ubuntu/auto_update_CHANGELOG.sh | sh -s -- Hosting GAS-minimum_wage >>~/cron/cron.log 2>>~/cron/cron.err
+30 01 * * * curl -sf https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/ubuntu/auto_update_CHANGELOG.sh | sh -s -- profile >>~/cron/cron.log 2>>~/cron/cron.err
+40 01 * * * curl -sf https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/ubuntu/auto_update_CHANGELOG.sh | sh -s -- Article >>~/cron/cron.log 2>>~/cron/cron.err
