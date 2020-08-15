@@ -62,5 +62,6 @@ fi
 owner=shimajima-eiji
 
 ### main
+echo "[DEBUG] github-changes -o ${owner} -r ${repository} -b ${branch} --use-commit-body -t "更新履歴" -z Asia/Tokyo -m "YYYY年M月D日" -n "最終更新" -a -f ${filepath}"
 github-changes -o ${owner} -r ${repository} -b ${branch} --use-commit-body -t "更新履歴" -z Asia/Tokyo -m "YYYY年M月D日" -n "最終更新" -a -f ${filepath}
 echo "script completed!"
