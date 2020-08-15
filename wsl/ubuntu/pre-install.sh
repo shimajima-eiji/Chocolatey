@@ -69,3 +69,6 @@ sudo apt install -y build-essential libbz2-dev libdb-dev libreadline-dev libffi-
 anyenv install pyenv
 # pyenv install ()  # (pyenv install --list)
 complete "pyenvを導入完了" "[TODO] pyenvを使って任意のpythonのインストール"
+
+echo '次のコマンド: `exec $SHELL -l`を実行'
+echo '終了後、必要に応じて[TODO]を実施する'
