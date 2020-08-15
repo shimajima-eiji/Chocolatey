@@ -1,16 +1,4 @@
 # !/bin/sh 
-<<README
-# 本コマンドの実行
-`curl -sf https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/ubuntu/pre-install.sh | source `
-
-# 
-windows: \\wsl$
-VSCode: Remote WSLから実行。デバッガーなどパスが異なる機能を使う拡張機能は別途インストールする必要がある
-
-##npm
-- [github-changes](https://github.com/lalitkapoor/github-changes)
-  - [view](https://github.com/shimajima-eiji/Chocolatey/blob/master/CHANGELOG.md)
-README
 
 sudo apt update
 sudo apt upgrade -y
