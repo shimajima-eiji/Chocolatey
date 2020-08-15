@@ -30,6 +30,12 @@ for branch in ${@:3}; do
   git clone -b ${branch} git@github.com:${account}/${repository}.git
   cd ${repository}
   curl -sf ${sh_url} | sh -s -- ${token} ${repository} ${branch} true
+  if [ $? = 1 ]; then
+    echo "[ERROR] curl result. ${repository};${branch}"
+    cd -
+    rm -rf ${repository}
+    continue
+  fi
   git add -A
   git commit -a -m "${message}"
   git tag -a v${today} -m "当日分の全コミット"
@@ -47,8 +53,12 @@ if [ ${branch_update_flag} = "true" ]; then
   mv -f ../CHANGELOG CHANGELOG
 fi
 curl -sf ${sh_url} | sh -s -- ${token} ${repository} master false
-rm -rf CHANGELOG
-mv ../CHANGELOG CHANGELOG
+if [ $? = 1 ]; then
+  echo "[ERROR] curl result. ${repository}:master"
+  cd -
+  rm -rf ${repository}
+  continue
+fi
 git add -A
 git commit -a -m "${message}"
 git tag -a v${today} -m "当日分の全コミット"
