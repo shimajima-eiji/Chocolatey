@@ -58,7 +58,7 @@ complete "cronの設定を反映完了"
 curl https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/ubuntu/home-.gitconfig >>~/.gitconfig
 curl https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/ubuntu/home-.ssh-config >>~/.ssh/config
 complete "gitのssh利用の設定を反映完了"
-message="${message}\n[TODO] ssh-keygen -t rssで生成後、公開鍵をhttps://github.com/settings/keysに登録する"
+message="${message}\n[TODO] `ssh-keygen -t rss`で生成後、公開鍵をgithubなど( https://github.com/settings/keys )に登録する"
 
 # github-changesを導入
 sudo apt install -y npm
@@ -67,23 +67,20 @@ complete "github-changesを導入完了"
 
 # anyenvを導入。.bash_profileはcurlで取得しているため省略
 git clone https://github.com/riywo/anyenv ~/.anyenv
-# echo 'export PATH="$HOME/.anyenv/bin:$PATH"' >> ${profile_path}
-source ${profile_path}
+export PATH="$HOME/.anyenv/bin:$PATH"
 anyenv --init
-#echo '
-#export PATH="$HOME/.anyenv/bin:$PATH"
-#export PYENV_ROOT="$HOME/.anyenv/envs/pyenv"
-#export PATH="${PYENV_ROOT}/shims:${PYENV_ROOT}/bin:${PATH}"
-#' >> ${profile_path}
+
+export PATH="$HOME/.anyenv/bin:$PATH"
+export PYENV_ROOT="$HOME/.anyenv/envs/pyenv"
+export PATH="${PYENV_ROOT}/shims:${PYENV_ROOT}/bin:${PATH}"
 complete "anyenvを導入完了"
 
 # for pyenv
 ## for python3.7
 sudo apt install -y build-essential libbz2-dev libdb-dev libreadline-dev libffi-dev libgdbm-dev liblzma-dev libncursesw5-dev libsqlite3-dev libssl-dev zlib1g-dev uuid-dev tk-dev
 anyenv install pyenv
-# pyenv install ()  # (pyenv install --list)
 complete "pyenvを導入完了"
-message="${message}\n[TODO] pyenvを使って任意のpythonのインストール"
+message="${message}\n[TODO] pyenvを使って任意のバージョンのpythonのインストール: `pyenv install --list`"
 
 cat <<RECOMMEND
 次に実施すべきコマンド: 
