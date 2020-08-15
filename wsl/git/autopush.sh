@@ -26,25 +26,32 @@ mkdir -p CHANGELOG
 for branch in ${@:3}; do
   git clone -b ${branch} git@github.com:${account}/${repository}.git
   cd ${repository}
+  if [ ! ${$?} = 0 ]; then
+    echo "[SKIP] ${repository}:${branch}"
+    continue
+  fi
   curl -sf ${sh_url} | sh -s -- ${repository} ${branch} true
   git add -A
   git commit -a -m "${message}"
   git tag -a v${today} -m "当日分の全コミット"
-  git push origin v${today}
+  # git push origin v${today}
   cd -
   rm -rf ${repository}
 
   echo "[COMPLETE] ${repository}:${branch}"
-  done
+done
 
-git clone -b ${branch} git@github.com:${account}/${repository}.git
+git clone -b master git@github.com:${account}/${repository}.git
 cd ${repository}
+if [ ! ${$?} = 0 ]; then
+  continue
+fi
 curl -sf ${sh_url} | sh -s -- ${repository} master false
 rm -rf CHANGELOG
 mv ../CHANGELOG CHANGELOG
 git add -A
 git commit -a -m "${message}"
 git tag -a v${today} -m "当日分の全コミット"
-git push origin v${today}
+# git push origin v${today}
 cd -
 rm -rf ${repository}
