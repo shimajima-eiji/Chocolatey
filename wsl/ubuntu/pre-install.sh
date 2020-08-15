@@ -28,7 +28,7 @@ sudo npm install -g github-changes
 # for anyenv
 git clone https://github.com/riywo/anyenv ~/.anyenv
 # echo 'export PATH="$HOME/.anyenv/bin:$PATH"' >> ${profile_path}
-source ~/.bashrc
+source ${profile_path}
 anyenv --init
 
 ## Case: missing path
