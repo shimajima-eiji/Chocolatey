@@ -1,30 +1,28 @@
 # !/bin/sh 
 <<README
-# How to use
-`curl -sf https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/ubuntu/pre-install.sh | sudo sh`
-README
+# 本コマンドの実行
+`curl -sf https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/ubuntu/pre-install.sh | source `
 
-<<__COMMENT
-# Configs
-windows: %HomePath%\AppData\Local\Packages\CanonicalGroupLimited.UbuntuonWindows_*************\LocalState\rootfs
-VSCode: Remote WSL
+# 
+windows: \\wsl$
+VSCode: Remote WSLから実行。デバッガーなどパスが異なる機能を使う拡張機能は別途インストールする必要がある
 
 ##npm
 - [github-changes](https://github.com/lalitkapoor/github-changes)
   - [view](https://github.com/shimajima-eiji/Chocolatey/blob/master/CHANGELOG.md)
-__COMMENT
+README
 
-apt update
-apt upgrade -y
+sudo apt update
+sudo apt upgrade -y
 
 # for Japanese
-apt install -y language-pack-ja manpages-ja
-update-locale LANG=ja_JP.UTF8
-dpkg-reconfigure tzdata  # select your timezone
+sudo apt install -y language-pack-ja manpages-ja
+sudo update-locale LANG=ja_JP.UTF8
+sudo dpkg-reconfigure tzdata  # select your timezone
 
 # for github-changes
-apt install -y npm
-npm install -g github-changes
+sudo apt install -y npm
+sudo npm install -g github-changes
 
 # for anyenv
 git clone https://github.com/riywo/anyenv ~/.anyenv
@@ -47,6 +45,3 @@ exec $SHELL -l
 sudo apt install -y build-essential libbz2-dev libdb-dev libreadline-dev libffi-dev libgdbm-dev liblzma-dev libncursesw5-dev libsqlite3-dev libssl-dev zlib1g-dev uuid-dev tk-dev
 anyenv install pyenv
 pyenv install ()  # (pyenv install --list)
-
-# for github-changes
-npm install -g github-changes
