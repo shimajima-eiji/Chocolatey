@@ -48,7 +48,7 @@ fi
 ### 引数処理
 token=$1
 repository=$2
-if [ ! "${token}" -o ! "$repository" ]; then
+if [ ! "${token}" -o ! "${repository}" ]; then
   help
   exit 1
 fi
