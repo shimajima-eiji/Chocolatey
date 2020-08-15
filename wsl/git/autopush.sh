@@ -38,9 +38,9 @@ for branch in ${@:3}; do
   fi
   git add -A
   git commit -a -m "${message}"
-  git tag -a v${today} -m "当日分の全コミット"
+  #git tag -a v${today} -m "当日分の全コミット"
   rm .git/hooks/pre-push
-  git push origin --tags
+  git push # origin --tags
   cd -
   rm -rf ${repository}
 
@@ -61,8 +61,8 @@ if [ $? = 1 ]; then
 fi
 git add -A
 git commit -a -m "${message}"
-git tag -a v${today} -m "当日分の全コミット"
+#git tag -a v${today} -m "当日分の全コミット"
 rm .git/hooks/pre-push
-git push origin --tags
+git push # origin --tags
 cd -
 rm -rf ${repository}
