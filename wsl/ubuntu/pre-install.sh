@@ -9,22 +9,19 @@ complete() {
   echo $2
 }
 
-echo "curl成功"
-read -p "このスクリプトは「crontab」と「ba(z)sh_profile」と「~/tmp」を上書きするが問題ない事を確認済みである (y/N): " yn
-case "$yn" in
-  [yY]*) echo "コマンドの実行を開始";;
-  *) echo "コマンドを中止"; exit 0;;
-esac
+cat <<ATTENTION
+curl成功
+このスクリプトは「crontab」と「ba(z)sh_profile」と「~/tmp」を上書きする
+ここで処理が止まるので、処理を実行したい場合はsudoパスワードを入力する
+ATTENTION
 
-message=""
-
-# sudoに失敗したら処理を中断させる
-echo "ここで処理が止まるので、sudoパスワードを入力する。失敗したら処理を中止する"
-sudo echo "[MESSAGE] sudoパスワードの入力を確認"
+sudo -k echo "[MESSAGE] sudoパスワードの入力を確認"
 if [ ! $? = 0 ];then
   echo "[ERROR] sudoのパスワードが不正のため処理を終了"
   exit 1
 fi
+
+message=""
 
 # 念のため、カレントディレクトリに移動する
 cd ~/
