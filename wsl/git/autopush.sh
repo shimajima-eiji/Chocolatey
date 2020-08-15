@@ -32,6 +32,7 @@ for branch in ${@:3}; do
   git add -A
   git commit -a -m "${message}"
   git tag -a v${today} -m "当日分の全コミット"
+  rm .git/hooks/pre-push
   git push origin v${today}
   cd -
   rm -rf ${repository}
@@ -41,7 +42,7 @@ done
 
 git clone git@github.com:${account}/${repository}.git
 cd ${repository}
-if [ branch_update_flag ]; then
+if [ ${branch_update_flag} ]; then
   mv -f ../CHANGELOG CHANGELOG
 fi
 curl -sf ${sh_url} | sh -s -- ${repository} master false
@@ -50,6 +51,7 @@ mv ../CHANGELOG CHANGELOG
 git add -A
 git commit -a -m "${message}"
 git tag -a v${today} -m "当日分の全コミット"
+rm .git/hooks/pre-push
 git push origin v${today}
 cd -
 rm -rf ${repository}
