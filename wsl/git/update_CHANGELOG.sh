@@ -29,9 +29,10 @@ README
 help() {
   cat <<help
 Usage: $(basename "$0") [OPTION]...
-  1:(required)    name of the Github repository
-  2:-master       branch
-  3:-CHANGELOG.md filepath
+  1:-token        your's token (require:repo)
+  2:(required)    name of the Github repository
+  3:-master       branch
+  4:-CHANGELOG.md filepath
 help
 }
 
@@ -45,13 +46,14 @@ if [ ! $(which github-changes) ]; then
 fi
 
 ### 引数処理
-repository=$1
-if [ ! "$repository" ]; then
+token=$1
+repository=$2
+if [ ! "${token}" -o ! "$repository" ]; then
   help
   exit 1
 fi
-branch=${2:-master}
-filepath=$3
+branch=${3:-master}
+filepath=$4
 if [ "${filepath}" ]; then
   filepath="CHANGELOG/${branch}.md"
 else
@@ -62,6 +64,8 @@ fi
 owner=shimajima-eiji
 
 ### main
-echo "[DEBUG] github-changes -o ${owner} -r ${repository} -b ${branch} --use-commit-body -t "更新履歴" -z Asia/Tokyo -m "YYYY年M月D日" -n "最終更新" -a -f ${filepath}"
-github-changes -o ${owner} -r ${repository} -b ${branch} --use-commit-body -t "更新履歴" -z Asia/Tokyo -m "YYYY年M月D日" -n "最終更新" -a -f ${filepath}
-echo "script completed!"
+github-changes -o ${owner} -r ${repository} -b ${branch} --use-commit-body -t "更新履歴" -z Asia/Tokyo -m "YYYY年M月D日" -n "最終更新" -a -f tmp -k ${token}
+github_changelog_generator -u ${owner} -p ${repository} -t ${token} -o ${filepath}
+cat tmp >>${filepath}
+rm tmp
+echo "[update_CHANGELOG] script completed!"
