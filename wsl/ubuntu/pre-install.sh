@@ -1,6 +1,6 @@
 # !/bin/sh 
 :<<README
-環境変数は.~/.bash_profileに書くようにしているが、zshを使う場合はリネームすること
+https://github.com/shimajima-eiji/Chocolatey/tree/master/wsl/ubuntu
 README
 
 complete() {
@@ -9,10 +9,15 @@ complete() {
   echo $2
 }
 
-# sudoに失敗したら処理を中断させる
-echo "curl成功。コマンドの実行を開始"
-echo "ここで処理が止まるので、sudoパスワードを入力する。失敗したら処理を中止する"
+echo "curl成功"
+read -p "このスクリプトは「crontab」と「ba(z)sh_profile」と「~/tmp」を上書きするが問題ない事を確認済みである (y/N): " yn
+case "$yn" in
+  [yY]*) echo "コマンドの実行を開始";;
+  *) echo "コマンドを中止"; exit 0";;
+esac
 
+# sudoに失敗したら処理を中断させる
+echo "ここで処理が止まるので、sudoパスワードを入力する。失敗したら処理を中止する"
 sudo echo "[MESSAGE] sudoパスワードの入力を確認"
 if [ ! $? = 0 ];then
   echo "[ERROR] sudoのパスワードが不正のため処理を終了"
@@ -77,5 +82,5 @@ anyenv install pyenv
 # pyenv install ()  # (pyenv install --list)
 complete "pyenvを導入完了" "[TODO] pyenvを使って任意のpythonのインストール"
 
-echo '次のコマンド: `exec $SHELL -l`を実行'
+echo '次のコマンド: `exec $SHELL -l`を実行 or `chsh -s $(which zsh)`でzshに切り替える'
 echo '終了後、必要に応じて[TODO]を実施する'
