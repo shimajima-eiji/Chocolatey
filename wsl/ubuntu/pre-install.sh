@@ -1,12 +1,20 @@
 # !/bin/sh 
+:<<README
+環境変数は.~/.bash_profileに書くようにしているが、zshを使う場合はリネームすること
+README
 
 sudo apt update
 sudo apt upgrade -y
 
-# for Japanese
+# 日本語設定を適用する
 sudo apt install -y language-pack-ja manpages-ja
 sudo update-locale LANG=ja_JP.UTF8
 sudo dpkg-reconfigure tzdata  # select your timezone
+
+# GithubをSSHで使う
+curl https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/ubuntu/home-.gitconfig >>~/.gitconfig
+curl https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/ubuntu/home-.ssh-config >>~/.ssh/config
+sudo curl https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/ubuntu/cron.sh >/var/spool/cron/crontabs/$USER
 
 # for github-changes
 sudo apt install -y npm
@@ -14,7 +22,7 @@ sudo npm install -g github-changes
 
 # for anyenv
 git clone https://github.com/riywo/anyenv ~/.anyenv
-echo 'export PATH="$HOME/.anyenv/bin:$PATH"' >> ~/.bashrc
+# echo 'export PATH="$HOME/.anyenv/bin:$PATH"' >> ~/.bash_profile
 source ~/.bashrc
 anyenv --init
 
