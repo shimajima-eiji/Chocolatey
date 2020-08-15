@@ -13,7 +13,7 @@ echo "curl成功"
 read -p "このスクリプトは「crontab」と「ba(z)sh_profile」と「~/tmp」を上書きするが問題ない事を確認済みである (y/N): " yn
 case "$yn" in
   [yY]*) echo "コマンドの実行を開始";;
-  *) echo "コマンドを中止"; exit 0";;
+  *) echo "コマンドを中止"; exit 0;;
 esac
 
 # sudoに失敗したら処理を中断させる
