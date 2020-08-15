@@ -39,10 +39,6 @@ done
 
 git clone git@github.com:${account}/${repository}.git
 cd ${repository}
-if [ ! ${$?} = 0 ]; then
-  echo "[SKIP] ${repository}:master"
-  exit 1
-fi
 curl -sf ${sh_url} | sh -s -- ${repository} master false
 rm -rf CHANGELOG
 mv ../CHANGELOG CHANGELOG
