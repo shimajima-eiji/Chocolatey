@@ -1,18 +1,21 @@
-# 初期設定
-## 各ディストリビューション
+# 使い方
+- windowsから見たパス:
+  - \\wsl$
+- VSCodeを使う場合:
+  1. Remote WSLを入れる
+  1. ターミナルをWSLで開き、`code ~/`
+  1. WSLユーザーでVSCodeが起動する
+  1. デバッガーなどWindowsとパスが異なる機能を使う拡張機能は別途設定・インストールを実施する
+    - Settings Syncを使用している場合、Windows環境を上書きしないように注意
+    - serviceなどは親ユーザーから実行する。WSLユーザーで実施するとパーミッションで弾かれる
+
+# インストールコマンド
 ```
-cd ~/
-curl https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/ubuntu/home-.gitconfig >>~/.gitconfig
-curl https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/ubuntu/home-.ssh-config >>~/.ssh/config
-#sudo curl https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/ubuntu/cron.sh >>/var/spool/cron/crontabs/$USER
-
-# ssh-keygen -t rsaで作成したファイルを https://github.com/settings/keys に登録しておく
-
-sudo service cron start
+curl -sf https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/ubuntu/pre-install.sh | sh
 ```
 
-crontabの設定は、`sudo (editor) /var/spool/cron/crontabs/$USER`で実施することを推奨。
-<br>(crontab -eの隣にrキーがあり、誤って削除してしまう可能性が高いため)
+実行前に注意を促されるので、問題がなければsudoパスワードを入力する。
+<br>実行の途中でタイムゾーンの設定ウィザードが起動する。
 
 # CHANGELOG.mdについて
 [Github_scoutのwikiを参照](https://github.com/shimajima-eiji/Github_scout/wiki/【手引】更新履歴（CHANGELOG.md）)
