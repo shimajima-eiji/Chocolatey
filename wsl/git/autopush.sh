@@ -24,13 +24,8 @@ message="[${today}][CHANGELOG] 最新化"
 
 mkdir -p CHANGELOG
 for branch in ${@:3}; do
-  echo "OK loop"
-  git clone -b ${branch:-master} git@github.com:${account}/${repository}.git
+  git clone -b ${branch} git@github.com:${account}/${repository}.git
   cd ${repository}
-  if [ ! ${$?} = 0 ]; then
-    echo "[SKIP] ${repository}:${branch}"
-    continue
-  fi
   curl -sf ${sh_url} | sh -s -- ${repository} ${branch} true
   git add -A
   git commit -a -m "${message}"
@@ -42,12 +37,11 @@ for branch in ${@:3}; do
   echo "[COMPLETE] ${repository}:${branch}"
 done
 
-echo "OK loopend"
-git clone -b master git@github.com:${account}/${repository}.git
-echo "OK clone"
+git clone git@github.com:${account}/${repository}.git
 cd ${repository}
 if [ ! ${$?} = 0 ]; then
-  continue
+  echo "[SKIP] ${repository}:master"
+  exit 1
 fi
 curl -sf ${sh_url} | sh -s -- ${repository} master false
 rm -rf CHANGELOG
