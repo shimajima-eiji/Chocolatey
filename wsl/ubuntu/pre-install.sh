@@ -1,3 +1,9 @@
+# !/bin/sh 
+<<README
+# How to use
+`curl -sf https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/ubuntu/pre-install.sh | sudo sh`
+README
+
 <<__COMMENT
 # Configs
 windows: %HomePath%\AppData\Local\Packages\CanonicalGroupLimited.UbuntuonWindows_*************\LocalState\rootfs
@@ -14,7 +20,7 @@ apt upgrade -y
 # for Japanese
 apt install -y language-pack-ja manpages-ja
 update-locale LANG=ja_JP.UTF8
-dpkg-reconfigure tzdata
+dpkg-reconfigure tzdata  # select your timezone
 
 # for github-changes
 apt install -y npm
