@@ -16,6 +16,8 @@ case "$yn" in
   *) echo "コマンドを中止"; exit 0;;
 esac
 
+message=""
+
 # sudoに失敗したら処理を中断させる
 echo "ここで処理が止まるので、sudoパスワードを入力する。失敗したら処理を中止する"
 sudo echo "[MESSAGE] sudoパスワードの入力を確認"
@@ -56,7 +58,8 @@ complete "cronの設定を反映完了"
 # GithubをSSHで使う
 curl https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/ubuntu/home-.gitconfig >>~/.gitconfig
 curl https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/ubuntu/home-.ssh-config >>~/.ssh/config
-complete "gitのssh利用の設定を反映完了" "[TODO] ssh-keygen -t rssで生成後、公開鍵をhttps://github.com/settings/keysに登録する"
+complete "gitのssh利用の設定を反映完了"
+message="${message}\n[TODO] ssh-keygen -t rssで生成後、公開鍵をhttps://github.com/settings/keysに登録する"
 
 # github-changesを導入
 sudo apt install -y npm
@@ -80,7 +83,15 @@ complete "anyenvを導入完了"
 sudo apt install -y build-essential libbz2-dev libdb-dev libreadline-dev libffi-dev libgdbm-dev liblzma-dev libncursesw5-dev libsqlite3-dev libssl-dev zlib1g-dev uuid-dev tk-dev
 anyenv install pyenv
 # pyenv install ()  # (pyenv install --list)
-complete "pyenvを導入完了" "[TODO] pyenvを使って任意のpythonのインストール"
+complete "pyenvを導入完了"
+message="${message}\n[TODO] pyenvを使って任意のpythonのインストール"
 
-echo '次のコマンド: `exec $SHELL -l`を実行 or `chsh -s $(which zsh)`でzshに切り替える'
-echo '終了後、必要に応じて[TODO]を実施する'
+cat <<RECOMMEND
+次に実施すべきコマンド: 
+`exec $SHELL -l`
+zshを使いたい場合は`chsh -s $(which zsh)`
+を先に実行する。
+
+終了後、必要に応じて[TODO]を実施する
+RECOMMEND
+echo "#{message}"
