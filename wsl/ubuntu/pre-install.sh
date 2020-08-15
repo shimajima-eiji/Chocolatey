@@ -12,7 +12,7 @@ complete() {
 cat <<ATTENTION
 curl成功
 このスクリプトは「crontab」と「ba(z)sh_profile」と「~/tmp」を上書きする
-ここで処理が止まるので、処理を実行したい場合はsudoパスワードを入力する。
+ここで処理が止まるので、処理を実行したい場合はsudoパスワードを入力する（何度か入力を確認されることがある）
 処理を中断したい場合は、適当に入力するか「Ctrl+C」などで処理を終了させること
 ATTENTION
 
@@ -93,4 +93,4 @@ zshを使いたい場合は`chsh -s $(which zsh)`
 
 終了後、必要に応じて[TODO]を実施する
 RECOMMEND
-echo "#{message}"
+echo "${message}"
