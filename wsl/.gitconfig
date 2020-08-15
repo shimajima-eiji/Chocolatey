@@ -1,0 +1,10 @@
+[user]
+  email = (your email)
+  name = (your name)
+
+[url "github:"]
+  InsteadOf = https://github.com/
+  InsteadOf = git@github.com:
+
+[init]
+  templatedir = (Chocolatey/wsl/_gitのパス）
