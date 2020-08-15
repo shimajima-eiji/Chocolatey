@@ -53,12 +53,7 @@ if [ ! "${token}" -o ! "$repository" ]; then
   exit 1
 fi
 branch=${3:-master}
-filepath=$4
-if [ "${filepath}" ]; then
-  filepath="CHANGELOG/${branch}.md"
-else
-  filepath="CHANGELOG.md"
-fi
+filepath=${4:-CHANGELOG.md}
 
 ### 定数
 owner=shimajima-eiji
