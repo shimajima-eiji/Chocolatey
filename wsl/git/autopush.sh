@@ -5,9 +5,10 @@
 README
 
 ### 引数処理
-repository=${1:-Chocolatey}
-if [ ! "${repository}" ]; then
-  echo '[ERROR] $1:repositoryは必須'
+token=${1}
+repository=${2}
+if [ ! "${repository}" -o ! "${token}" ]; then
+  echo '[ERROR] $1:repository と $2:token(repo) は必須'
   exit 1
 fi
 
@@ -28,7 +29,7 @@ for branch in ${@:3}; do
   branch_update_flag="true"
   git clone -b ${branch} git@github.com:${account}/${repository}.git
   cd ${repository}
-  curl -sf ${sh_url} | sh -s -- ${repository} ${branch} true
+  curl -sf ${sh_url} | sh -s -- ${token} ${repository} ${branch} true
   git add -A
   git commit -a -m "${message}"
   git tag -a v${today} -m "当日分の全コミット"
@@ -45,7 +46,7 @@ cd ${repository}
 if [ ${branch_update_flag} = "true" ]; then
   mv -f ../CHANGELOG CHANGELOG
 fi
-curl -sf ${sh_url} | sh -s -- ${repository} master false
+curl -sf ${sh_url} | sh -s -- ${token} ${repository} master false
 rm -rf CHANGELOG
 mv ../CHANGELOG CHANGELOG
 git add -A
