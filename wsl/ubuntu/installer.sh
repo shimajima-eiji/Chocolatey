@@ -61,7 +61,7 @@ curl -o- -L https://yarnpkg.com/install.sh | bash
 # GithubをSSHで使う
 curl ${url}/.gitconfig >~/.gitconfig
 mkdir -p ~/.ssh
-curl ${url}/.ssh/-config >~/.ssh/config
+curl ${url}/.ssh/config >~/.ssh/config
 complete "gitのssh利用の設定を反映完了"
 message="${message}\n[TODO] $(ssh-keygen -t rss)で生成後、公開鍵をgithubなど( https://github.com/settings/keys )に登録する"
 
