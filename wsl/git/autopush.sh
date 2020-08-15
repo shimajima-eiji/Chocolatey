@@ -24,7 +24,7 @@ message="[${today}][CHANGELOG] 最新化"
 
 mkdir -p CHANGELOG
 for branch in ${@:3}; do
-  git clone -b ${branch} git@github.com:${account}/${repository}.git
+  git clone -b ${branch:-master} git@github.com:${account}/${repository}.git
   cd ${repository}
   if [ ! ${$?} = 0 ]; then
     echo "[SKIP] ${repository}:${branch}"
