@@ -1,6 +1,6 @@
 [user]
-  email = (your email)
   name = (your name)
+  email = (your email)
 
 [url "github:"]
   InsteadOf = https://github.com/
