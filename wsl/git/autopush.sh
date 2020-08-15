@@ -26,14 +26,16 @@ mkdir -p CHANGELOG
 for branch in ${@:3}; do
   git clone -b ${branch} git@github.com:${account}/${repository}.git
   cd ${repository}
+  curl -sf ${sh_url} | sh -s -- ${repository} ${branch} true
   git add -A
   git commit -a -m "${message}"
   git tag -a v${today} -m "当日分の全コミット"
   git push origin v${today}
   cd -
   rm -rf ${repository}
-  curl -sf ${sh_url} | sh -s -- ${repository} ${branch} true
-done
+
+  echo "[COMPLETE] ${repository}:${branch}"
+  done
 
 git clone -b ${branch} git@github.com:${account}/${repository}.git
 cd ${repository}
