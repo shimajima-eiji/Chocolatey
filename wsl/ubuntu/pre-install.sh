@@ -2,6 +2,11 @@
 :<<README
 環境変数は.~/.bash_profileに書くようにしているが、zshを使う場合はリネームすること
 README
+profile_path="~/.bash_profile"
+if [ "$(echo $SHELL)" = "zsh" ]; then
+  profile_path="~/.zsh_profile"
+fi
+curl https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/ubuntu/.bash_profile >${profile_path}
 
 sudo apt update
 sudo apt upgrade -y
@@ -22,17 +27,17 @@ sudo npm install -g github-changes
 
 # for anyenv
 git clone https://github.com/riywo/anyenv ~/.anyenv
-# echo 'export PATH="$HOME/.anyenv/bin:$PATH"' >> ~/.bash_profile
+# echo 'export PATH="$HOME/.anyenv/bin:$PATH"' >> ${profile_path}
 source ~/.bashrc
 anyenv --init
 
 ## Case: missing path
-echo '
-export PATH="$HOME/.anyenv/bin:$PATH"
-export PYENV_ROOT="$HOME/.anyenv/envs/pyenv"
-export PATH="${PYENV_ROOT}/shims:${PYENV_ROOT}/bin:${PATH}"
-' >> ~/.$(basename $SHELL)_profile  # 現在ログイン中のshellに書く。bashだと$SHELLは/bin/bash
 
+#echo '
+#export PATH="$HOME/.anyenv/bin:$PATH"
+#export PYENV_ROOT="$HOME/.anyenv/envs/pyenv"
+#export PATH="${PYENV_ROOT}/shims:${PYENV_ROOT}/bin:${PATH}"
+#' >> ${profile_path}
 exec $SHELL -l
 
 # for pyenv
