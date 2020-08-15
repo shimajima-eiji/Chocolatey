@@ -56,6 +56,7 @@ complete "cronの設定を反映完了"
 
 # GithubをSSHで使う
 curl https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/ubuntu/home-.gitconfig >>~/.gitconfig
+mkdir -p ~/.ssh
 curl https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/ubuntu/home-.ssh-config >>~/.ssh/config
 complete "gitのssh利用の設定を反映完了"
 message="${message}\n[TODO] `ssh-keygen -t rss`で生成後、公開鍵をgithubなど( https://github.com/settings/keys )に登録する"
