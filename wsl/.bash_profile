@@ -1,3 +1,6 @@
+# Github token(require repo: for CHANGELOG)
+export GITHUB_TOKEN=(TOKEN)
+
 # yarn
 export PATH="~/.yarn/bin:${PATH}"
 

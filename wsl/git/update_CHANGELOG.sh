@@ -56,7 +56,7 @@ branch=${3:-master}
 filepath=${4:-CHANGELOG.md}
 
 ### 定数
-owner=shimajima-eiji
+owner=$(git config user.name)
 
 ### main
 github-changes -o ${owner} -r ${repository} -b ${branch} --use-commit-body -t "更新履歴" -z Asia/Tokyo -m "YYYY年M月D日" -n "最終更新" -a -f tmp -k ${token}

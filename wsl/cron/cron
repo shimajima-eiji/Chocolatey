@@ -10,13 +10,12 @@ PATH=/usr/bin:/bin:/usr/local/bin
 00 00 * * * rm ~/cron/cron.err
 
 # 実行
-00 00 * * * crontab -l >~/cron/cron.sh
+00 00 * * * crontab -l >~/cron/cron
 
-10 00 * * * curl -sf https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/git/autpush.sh | sh -s -- Personal >>~/cron/cron.log 2>>~/cron/cron.err
-20 00 * * * curl -sf https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/git/autpush.sh | sh -s -- Chocolatey >>~/cron/cron.log 2>>~/cron/cron.err
-30 00 * * * curl -sf https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/git/autpush.sh | sh -s -- Article >>~/cron/cron.log 2>>~/cron/cron.err
-40 00 * * * curl -sf https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/git/autpush.sh | sh -s -- Github_scout >>~/cron/cron.log 2>>~/cron/cron.err
-50 00 * * * curl -sf https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/git/autpush.sh | sh -s -- README >>~/cron/cron.log 2>>~/cron/cron.err
-00 01 * * * curl -sf https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/git/autpush.sh | sh -s -- Hosting GAS-snippets GAS-timetrigger GAS-minimum_wage >>~/cron/cron.log 2>>~/cron/cron.err
-10 01 * * * curl -sf https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/git/autpush.sh | sh -s -- profile >>~/cron/cron.log 2>>~/cron/cron.err
-20 01 * * * curl -sf https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/git/autpush.sh | sh -s -- Article >>~/cron/cron.log 2>>~/cron/cron.err
+10 00 * * * curl -sf https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/git/autopush.sh | bash -s -l -- Personal >>~/cron/cron.log 2>>~/cron/cron.err
+20 00 * * * curl -sf https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/git/autopush.sh | bash -s -l -- Chocolatey >>~/cron/cron.log 2>>~/cron/cron.err
+30 00 * * * curl -sf https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/git/autopush.sh | bash -s -l -- Article >>~/cron/cron.log 2>>~/cron/cron.err
+40 00 * * * curl -sf https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/git/autopush.sh | bash -s -l -- Github_scout >>~/cron/cron.log 2>>~/cron/cron.err
+50 00 * * * curl -sf https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/git/autopush.sh | bash -s -l -- README >>~/cron/cron.log 2>>~/cron/cron.err
+00 01 * * * curl -sf https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/git/autopush.sh | bash -s -l -- profile >>~/cron/cron.log 2>>~/cron/cron.err
+10 01 * * * curl -sf https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/git/autopush.sh | bash -s -l -- Hosting GAS-snippets GAS-timetrigger GAS-minimum_wage >>~/cron/cron.log 2>>~/cron/cron.err
