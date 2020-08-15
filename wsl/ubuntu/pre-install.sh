@@ -19,6 +19,9 @@ if [ ! $? = 0 ];then
   exit 1
 fi
 
+# 念のため、カレントディレクトリに移動する
+cd ~/
+
 # 最新化
 sudo apt update
 sudo apt upgrade -y
@@ -40,7 +43,8 @@ complete "$日本語の対応完了"
 
 # cronを設定する
 sudo service cron start
-sudo curl https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/ubuntu/cron.sh >/var/spool/cron/crontabs/$USER
+curl https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/ubuntu/cron >tmp
+sudo mv tmp /var/spool/cron/crontabs/$USER
 crontab -l
 complete "cronの設定を反映完了"
 
