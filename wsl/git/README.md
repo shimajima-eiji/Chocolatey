@@ -57,3 +57,6 @@ Host github github.com
 ```
 
 `curl https://github.com/shimajima-eiji/Chocolatey/blob/master/wsl/.ssh/config` >>~/.ssh/config
+
+# CHANGELOG.mdの運用
+[Github_scoutのwikiを参照](https://github.com/shimajima-eiji/Github_scout/wiki/【手引】更新履歴（CHANGELOG.md）)

@@ -26,60 +26,41 @@ https://github.com/shimajima-eiji/Github_scout/wiki/【手引】更新履歴（C
 
 README
 
-github_changes_fullpath=/usr/local/bin/github-changes # うまく行かない場合は、$(which github-changes)を参照する
-
 help() {
-  cat <<EOM
+  cat <<help
 Usage: $(basename "$0") [OPTION]...
-  -h, --help          Display help
-  -o, --owner         (required) owner of the Github repository
-  -r, --repository    (required) name of the Github repository
-EOM
+  1:(required)    name of the Github repository
+  2:-master       branch
+  3:-CHANGELOG.md filepath
+help
 }
 
-while getopts ":f:o:r:s:h" optKey; do
-  case "$optKey" in
-  o)
-    owner="${OPTARG}"
-    ;;
-  r)
-    repository="${OPTARG}"
-    ;;
-  f | '--free')
-    p=$(ps --pid $$ -o command | tail -1)
-    if echo "$p" | grep '^bash '; then
-      github-changes ${@:2}
-    else
-      echo 'This option is required Bash'
-    fi
-    exit 1
-    ;;
-  s | '--simple')
-    repository=$2
-    branch=${3:-master}
-    filepath=${4:-false}
-    owner=${5:-shimajima-eiji}
-
-    if [ "${filepath}" = "true" ]; then
-      target="CHANGELOG"
-      mkdir -p ${target}
-      filepath="${target}/${branch}.md"
-    else
-      filepath="CHANGELOG.md"
-    fi
-    ;;
-
-  h | '--help')
-    help
-    exit 1
-    ;;
-  esac
-done
-
-if [ ! "$owner" -o ! "$repository" ]; then
-  ${github_changes_fullpath} -h
+if [ ! $(which github-changes) ]; then
+  help
+  exit 1
+fi
+if [ ! $(which github-changes) ]; then
+  help
   exit 1
 fi
 
-${github_changes_fullpath} -o ${owner} -r ${repository} -b ${branch} --use-commit-body -t "更新履歴" -z Asia/Tokyo -m "YYYY年M月D日" -n "最終更新" -a -f ${filepath}
+### 引数処理
+repository=$1
+if [ ! "$repository" ]; then
+  help
+  exit 1
+fi
+branch=${2:-master}
+filepath=$3
+if [ "${filepath}" ]; then
+  filepath="CHANGELOG/${branch}.md"
+else
+  filepath="CHANGELOG.md"
+fi
+
+### 定数
+owner=shimajima-eiji
+
+### main
+github-changes -o ${owner} -r ${repository} -b ${branch} --use-commit-body -t "更新履歴" -z Asia/Tokyo -m "YYYY年M月D日" -n "最終更新" -a -f ${filepath}
 echo "script completed!"

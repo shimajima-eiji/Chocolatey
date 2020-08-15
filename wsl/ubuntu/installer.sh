@@ -55,6 +55,9 @@ sudo mv tmp /var/spool/cron/crontabs/$USER
 crontab -l
 complete "cronの設定を反映完了"
 
+# 可能な限りmacとの環境際をなくすため、yarnを入れる: export PATH
+curl -o- -L https://yarnpkg.com/install.sh | bash
+
 # GithubをSSHで使う
 curl ${url}/.gitconfig >~/.gitconfig
 mkdir -p ~/.ssh
@@ -67,7 +70,11 @@ sudo apt install -y npm
 sudo npm install -g github-changes
 complete "github-changesを導入完了"
 
-# anyenvを導入。.bash_profileはcurlで取得しているため省略
+# github-changelog-generatorを導入
+sudo apt install ruby gem
+sudo gem install github_changelog_generator
+
+# anyenvを導入。: export PATH
 git clone https://github.com/riywo/anyenv ~/.anyenv
 export PATH="$HOME/.anyenv/bin:$PATH"
 anyenv --init
@@ -77,7 +84,7 @@ export PYENV_ROOT="$HOME/.anyenv/envs/pyenv"
 export PATH="${PYENV_ROOT}/shims:${PYENV_ROOT}/bin:${PATH}"
 complete "anyenvを導入完了"
 
-# for pyenv
+# for pyenv: export PATH
 ## for python3.7
 sudo apt install -y build-essential libbz2-dev libdb-dev libreadline-dev libffi-dev libgdbm-dev liblzma-dev libncursesw5-dev libsqlite3-dev libssl-dev zlib1g-dev uuid-dev tk-dev
 anyenv install pyenv
