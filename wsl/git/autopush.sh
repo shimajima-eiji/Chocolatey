@@ -24,6 +24,7 @@ message="[${today}][CHANGELOG] 最新化"
 
 mkdir -p CHANGELOG
 for branch in ${@:3}; do
+  echo "OK loop"
   git clone -b ${branch:-master} git@github.com:${account}/${repository}.git
   cd ${repository}
   if [ ! ${$?} = 0 ]; then
@@ -41,7 +42,9 @@ for branch in ${@:3}; do
   echo "[COMPLETE] ${repository}:${branch}"
 done
 
+echo "OK loopend"
 git clone -b master git@github.com:${account}/${repository}.git
+echo "OK clone"
 cd ${repository}
 if [ ! ${$?} = 0 ]; then
   continue
