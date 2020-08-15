@@ -15,7 +15,8 @@ curl成功
 ここで処理が止まるので、処理を実行したい場合はsudoパスワードを入力する
 ATTENTION
 
-sudo -k echo "[MESSAGE] sudoパスワードの入力を確認"
+sudo -k 
+sudo echo "[MESSAGE] sudoパスワードの入力を確認"
 if [ ! $? = 0 ];then
   echo "[ERROR] sudoのパスワードが不正のため処理を終了"
   exit 1
