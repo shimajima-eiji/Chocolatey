@@ -6,7 +6,7 @@ README
 
 ### 引数処理
 repository=${1:-Chocolatey}
-if [ "${repository}" ]; then
+if [ ! "${repository}" ]; then
   echo '[ERROR] $1:repositoryは必須'
   exit 1
 fi
