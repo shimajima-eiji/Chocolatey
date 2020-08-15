@@ -29,7 +29,7 @@ for branch in ${@:3}; do
   branch_update_flag="true"
   git clone -b ${branch} git@github.com:${account}/${repository}.git
   cd ${repository}
-  curl -sf ${sh_url} | sh -s -- ${token} ${repository} ${branch} true
+  curl -sf ${sh_url} | sh -s -- ${token} ${repository} ${branch}
   if [ $? = 1 ]; then
     echo "[ERROR] curl result. ${repository};${branch}"
     cd -
@@ -38,12 +38,13 @@ for branch in ${@:3}; do
   fi
   git add -A
   git commit -a -m "${message}"
-  #git tag -a v${today} -m "当日分の全コミット"
+  git tag -a v${today} -m "当日分の全コミット"
   rm .git/hooks/pre-push
-  git push # origin --tags
+  git push origin --tags
   cd -
   rm -rf ${repository}
 
+  curl -sf ${sh_url} | sh -s -- ${token} ${repository} ${branch} ../CHANGELOG/${branch}.md
   echo "[COMPLETE] ${repository}:${branch}"
 done
 
@@ -52,7 +53,7 @@ cd ${repository}
 if [ ${branch_update_flag} = "true" ]; then
   mv -f ../CHANGELOG CHANGELOG
 fi
-curl -sf ${sh_url} | sh -s -- ${token} ${repository} master false
+curl -sf ${sh_url} | sh -s -- ${token} ${repository} master
 if [ $? = 1 ]; then
   echo "[ERROR] curl result. ${repository}:master"
   cd -
@@ -61,8 +62,8 @@ if [ $? = 1 ]; then
 fi
 git add -A
 git commit -a -m "${message}"
-#git tag -a v${today} -m "当日分の全コミット"
+git tag -a v${today} -m "当日分の全コミット"
 rm .git/hooks/pre-push
-git push # origin --tags
+git push origin --tags
 cd -
 rm -rf ${repository}
