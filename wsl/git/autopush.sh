@@ -31,6 +31,7 @@ for branch in ${@:2}; do
   git clone -b ${branch} git@github.com:${account}/${repository}.git
   cd ${repository}
   curl -sf ${sh_url} | sh -s -- ${GITHUB_TOKEN} ${repository} ${branch}
+  cp CHANGELOG.md ../CHANGELOG/${branch}.md
   if [ $? = 1 ]; then
     echo "[ERROR] curl result. ${repository};${branch}"
     cd -
@@ -46,14 +47,14 @@ for branch in ${@:2}; do
   cd -
   rm -rf ${repository}
 
-  curl -sf ${sh_url} | sh -s -- ${GITHUB_TOKEN} ${repository} ${branch} ../CHANGELOG/${branch}.md
   echo "[COMPLETE] ${branch} のautopushが完了"
 done
 
 git clone git@github.com:${account}/${repository}.git
 cd ${repository}
 if [ ${branch_update_flag} = "true" ]; then
-  mv -rf ../CHANGELOG CHANGELOG
+  mv -f ../CHANGELOG/* CHANGELOG
+  rm -rf ../CHANGELOG
 fi
 curl -sf ${sh_url} | sh -s -- ${GITHUB_TOKEN} ${repository} master
 if [ $? = 1 ]; then
