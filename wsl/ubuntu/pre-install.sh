@@ -10,9 +10,12 @@ complete() {
 }
 
 # sudoに失敗したら処理を中断させる
-sudo echo "[MESSAGE] curl success! start script..."
+echo "curl成功。コマンドの実行を開始"
+echo "ここで処理が止まるので、sudoパスワードを入力する。失敗したら処理を中止する"
+
+sudo echo "[MESSAGE] sudoパスワードの入力を確認"
 if [ ! $? = 0 ];then
-  echo "[ERROR] missing sudo"
+  echo "[ERROR] sudoのパスワードが不正のため処理を終了"
   exit 1
 fi
 
