@@ -36,7 +36,7 @@ complete "最新化を完了"
 # .bash_profileの登録先
 profile_path="~/.bash_profile"
 if [ "$(echo $SHELL)" = "/usr/bin/zsh" ]; then
-  profile_path="~/.zsh_profile"
+  profile_path="~/.zprofile"
 fi
 curl https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/ubuntu/.bash_profile >${profile_path}
 complete "${profile_pash}を書き換え完了"
