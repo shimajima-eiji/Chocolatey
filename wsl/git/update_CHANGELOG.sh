@@ -1,10 +1,10 @@
 #!/bin/bash
 <<README
 # 使い方
-curl -sf https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/update_CHANGELOG.sh | sh -s -- （ここにオプション）
+curl -sf https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/update_CHANGELOG.sh | bash -s -- （ここにオプション）
 
 e.g.:
-curl -sf https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/update_CHANGELOG.sh | sh -s -- -s Chocolatey
+curl -sf https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/update_CHANGELOG.sh | bash -s -- -s Chocolatey
 
 引数ごとに異なる振る舞いをします。
 特にsオプションとfオプションです。
@@ -46,13 +46,19 @@ if [ ! $(which github-changes) ]; then
 fi
 
 ### 引数処理
-token=$1
-repository=$2
+token=${1:-${GITHUB_TOKEN}}
+git branch >/dev/null 2>&1
+if [ $? = 0 ]; then
+  repository=$(basename $(git rev-parse --show-toplevel))
+else
+  repository=$2
+fi
+
 if [ ! "${token}" -o ! "${repository}" ]; then
   help
   exit 1
 fi
-branch=${3:-master}
+branch=${3:-$(git rev-parse --abbrev-ref @)}
 filepath=${4:-CHANGELOG.md}
 
 ### 定数
