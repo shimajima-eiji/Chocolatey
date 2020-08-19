@@ -18,4 +18,4 @@ PATH=/usr/bin:/bin:/usr/local/bin
 40 00 * * * curl -sf https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/git/autopush.sh | bash -s -l -- Github_scout >>~/cron/cron.log 2>>~/cron/cron.err
 50 00 * * * curl -sf https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/git/autopush.sh | bash -s -l -- README >>~/cron/cron.log 2>>~/cron/cron.err
 00 01 * * * curl -sf https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/git/autopush.sh | bash -s -l -- profile >>~/cron/cron.log 2>>~/cron/cron.err
-10 01 * * * curl -sf https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/git/autopush.sh | bash -s -l -- Hosting GAS-snippets GAS-timetrigger GAS-minimum_wage >>~/cron/cron.log 2>>~/cron/cron.err
+10 01 * * * curl -sf https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/git/autopush.sh | bash -s -l -- Hosting GAS-snippets GAS-timetrigger GAS-minimum_wage microCMS-tutorial >>~/cron/cron.log 2>>~/cron/cron.err

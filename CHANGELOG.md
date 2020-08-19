@@ -1,34 +1,34 @@
 # Changelog
 
-## [Unreleased](https://github.com/shimajima-eiji/Chocolatey/tree/HEAD)
+## [v2020/08/17](https://github.com/shimajima-eiji/chocolatey/tree/v2020/08/17) (2020-08-16)
 
-[Full Changelog](https://github.com/shimajima-eiji/Chocolatey/compare/v2020/08/16...HEAD)
+[Full Changelog](https://github.com/shimajima-eiji/chocolatey/compare/v2020/08/16...v2020/08/17)
 
 **Closed issues:**
 
 - \[update\_CHANGELOG\] PRやIssuesも考慮したい [\#15](https://github.com/shimajima-eiji/Chocolatey/issues/15)
 - \[update\_CHANGELOG\] masterブランチ以外も一括で更新できるようにする [\#14](https://github.com/shimajima-eiji/Chocolatey/issues/14)
 
-## [v2020/08/16](https://github.com/shimajima-eiji/Chocolatey/tree/v2020/08/16) (2020-08-15)
+## [v2020/08/16](https://github.com/shimajima-eiji/chocolatey/tree/v2020/08/16) (2020-08-15)
 
-[Full Changelog](https://github.com/shimajima-eiji/Chocolatey/compare/v2020/08/15...v2020/08/16)
+[Full Changelog](https://github.com/shimajima-eiji/chocolatey/compare/v2020/08/15...v2020/08/16)
 
-## [v2020/08/15](https://github.com/shimajima-eiji/Chocolatey/tree/v2020/08/15) (2020-08-15)
+## [v2020/08/15](https://github.com/shimajima-eiji/chocolatey/tree/v2020/08/15) (2020-08-15)
 
-[Full Changelog](https://github.com/shimajima-eiji/Chocolatey/compare/2020/08/14...v2020/08/15)
+[Full Changelog](https://github.com/shimajima-eiji/chocolatey/compare/2020/08/14...v2020/08/15)
 
 **Closed issues:**
 
 - \[Github運用\] 直接masterにpushできないようにする [\#18](https://github.com/shimajima-eiji/Chocolatey/issues/18)
 - \[update\_CHANGELOG\] Github Projectsが反映されるらしい？ [\#17](https://github.com/shimajima-eiji/Chocolatey/issues/17)
 
-## [2020/08/14](https://github.com/shimajima-eiji/Chocolatey/tree/2020/08/14) (2020-08-13)
+## [2020/08/14](https://github.com/shimajima-eiji/chocolatey/tree/2020/08/14) (2020-08-13)
 
-[Full Changelog](https://github.com/shimajima-eiji/Chocolatey/compare/2020/08/12...2020/08/14)
+[Full Changelog](https://github.com/shimajima-eiji/chocolatey/compare/2020/08/12...2020/08/14)
 
-## [2020/08/12](https://github.com/shimajima-eiji/Chocolatey/tree/2020/08/12) (2020-08-11)
+## [2020/08/12](https://github.com/shimajima-eiji/chocolatey/tree/2020/08/12) (2020-08-11)
 
-[Full Changelog](https://github.com/shimajima-eiji/Chocolatey/compare/6c669fa49d99dedcb47871c6b64433cfbd2f6152...2020/08/12)
+[Full Changelog](https://github.com/shimajima-eiji/chocolatey/compare/6c669fa49d99dedcb47871c6b64433cfbd2f6152...2020/08/12)
 
 **Closed issues:**
 
@@ -51,6 +51,10 @@
 ## 更新履歴
 
 ### 最終更新 2020年8月17日
+- [8cc6b13](https://github.com/shimajima-eiji/Chocolatey/commit/8cc6b13b6e074f2a31dfd91b2d8de2ab30c30ea2) Update update_CHANGELOG.sh (@shimajima-eiji)
+
+### v2020/08/17 2020年8月17日
+- [88b51a5](https://github.com/shimajima-eiji/Chocolatey/commit/88b51a5caa4e03e4f9cc42dae7187a4bf61c9205) [2020/08/17][CHANGELOG] 最新化 (@shimajima-eiji)
 - [ea192dc](https://github.com/shimajima-eiji/Chocolatey/commit/ea192dc8eb0978d7229e701a2e94b1e1af3d963e) [2020/08/16][lib] 最新化 (@shimajima-eiji)
 - [5c0841f](https://github.com/shimajima-eiji/Chocolatey/commit/5c0841f329ef54029aa3cd071e0f978cad156938) [2020/08/16][cinst] C:\ProgramData\chocolatey以下で直接やりとりできるように修正 (@shimajima-eiji)
 - [80ba46e](https://github.com/shimajima-eiji/Chocolatey/commit/80ba46e284d2ab9a5ffe9f62ffaf6b0b517aab75) [2020/08/16][tablacus] rename cinst->lib (@shimajima-eiji)
@@ -221,7 +225,7 @@
 - [484478b](https://github.com/shimajima-eiji/Chocolatey/commit/484478b12632d75bc7886fd2933ea30ce8826ecd) Create トラブルシューティング.md (@shimajima-eiji)
 - [ecb6a49](https://github.com/shimajima-eiji/Chocolatey/commit/ecb6a492c2f1073611d89689e2f1016cf15952f4) update to latest (@shimajima-eiji)
 - [a4701d6](https://github.com/shimajima-eiji/Chocolatey/commit/a4701d6d221d4e531ce390070a8ef0f8facbe434) Update WSL.sh (@shimajima-eiji)
-- [#10](https://github.com/shimajima-eiji/Chocolatey/pull/10) [WIP] TortoiseGitでCHANGELOGをタグ管理させたい、試験的に導入。ついでに最新版に (@shimajima-eiji)
+- [#10](https://github.com/shimajima-eiji/chocolatey/pull/10) [WIP] TortoiseGitでCHANGELOGをタグ管理させたい、試験的に導入。ついでに最新版に (@shimajima-eiji)
 - [5be8b99](https://github.com/shimajima-eiji/Chocolatey/commit/5be8b99b7563defb200ba53c604ff78d41d8c42f) [WIP] TortoiseGitでCHANGELOGをタグ管理させたい、試験的に導入。ついでに最新版に (@shimajima-eiji)
 - [34a6249](https://github.com/shimajima-eiji/Chocolatey/commit/34a6249997c5d71cac0903c57c6ef05bf14c9310) Update README.md (@shimajima-eiji)
 - [c341c78](https://github.com/shimajima-eiji/Chocolatey/commit/c341c78e1787f0585516318db558bb39e087d871) Update WSL.sh (@shimajima-eiji)
@@ -234,10 +238,10 @@
 - [c2bb1b7](https://github.com/shimajima-eiji/Chocolatey/commit/c2bb1b7231eb249521b5251e9c7369768de11f80) [TablacusExplorer] update the current date (@shimajima-eiji)
 - [d9d8ad1](https://github.com/shimajima-eiji/Chocolatey/commit/d9d8ad18f1c39dc50daa0b46adaeee08bcbfe663) Merge branch 'master' of https://github.com/shimajima-eiji/WinSettings (@shimajima-eiji)
 - [f57b405](https://github.com/shimajima-eiji/Chocolatey/commit/f57b4052fd998c2a182e3df17a5cb5f8e34815aa) [TablacusExplorer] (@shimajima-eiji)
-- [#7](https://github.com/shimajima-eiji/Chocolatey/pull/7) fix #6 (@shimajima-eiji)
+- [#7](https://github.com/shimajima-eiji/chocolatey/pull/7) fix #6 (@shimajima-eiji)
 - [7c82dd6](https://github.com/shimajima-eiji/Chocolatey/commit/7c82dd6be8f866a7d3df34271d81f23375f3d952) add WSL (@shimajima-eiji)
 - [1ed51f3](https://github.com/shimajima-eiji/Chocolatey/commit/1ed51f3c524e5dd39906c0cd22d8ff9843c99eaa) [nowork] changed by update for 'settings sync' (@shimajima-eiji)
-- [#5](https://github.com/shimajima-eiji/Chocolatey/pull/5) #3, #4 and add config for divert windows environment (@shimajima-eiji)
+- [#5](https://github.com/shimajima-eiji/chocolatey/pull/5) #3, #4 and add config for divert windows environment (@shimajima-eiji)
 - [c08ef29](https://github.com/shimajima-eiji/Chocolatey/commit/c08ef2959882a72223273e2397361a2c96c77489) [update] add chocoletey, delete files for VSCode is no longer needed. (@shimajima-eiji)
 - [64a4570](https://github.com/shimajima-eiji/Chocolatey/commit/64a4570b802331fda2822316c28c143919415c57) [add] index.md, gitignore (@shimajima-eiji)
 - [0e51a23](https://github.com/shimajima-eiji/Chocolatey/commit/0e51a234eb50b5a12c2cb97f5a158fe79a6b8b5b) [update] saving to addons for TE (@shimajima-eiji)
