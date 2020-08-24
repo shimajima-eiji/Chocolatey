@@ -1,6 +1,14 @@
 # !/bin/sh
 : <<README
-https://github.com/shimajima-eiji/Chocolatey/tree/master/wsl/ubuntu/README.md
+# インストールコマンド
+```
+curl https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/ubuntu/installer.sh | sh
+```
+
+実行前に注意を促されるので、問題がなければsudoパスワードを入力する。
+実行の途中でタイムゾーンの設定ウィザードが起動する。
+
+[その他](https://github.com/shimajima-eiji/Chocolatey/tree/master/wsl/ubuntu/README.md)
 
 # 運用ルール
 taskにメッセージを入れて、処理の最初と最後にstart/successを挟む
