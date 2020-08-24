@@ -28,9 +28,16 @@ success() {
   output "完了" $1 $2
 }
 
+export_add() {
+  grep -q "$1" $2
+  if [ $? = 1 ]; then
+    echo "$1" >>$2
+  fi
+}
+
 cat <<ATTENTION
 curl成功
-このスクリプトは「crontab」と「ba(z)sh_profile」と「\${HOME}/tmp」を上書きする
+このスクリプトは「crontab」と「\${HOME}/.profile」と「\${HOME}/tmp」を上書きする
 ここで処理が止まるので、処理を実行したい場合はsudoパスワードを入力する（何度か入力を確認されることがある）
 処理を中断したい場合は、適当に入力するか「Ctrl+C」などで処理を終了させること
 
@@ -57,7 +64,6 @@ success ${task}
 
 task=".パス情報などを格納するprofileファイル名を設定"
 profile_path="${HOME}/.profile"
-echo "# $(date '+[%Y/%m/%d]')" >>${profile_path}
 success "${task}: ${profile_path}"
 
 task="日本語設定"
@@ -85,11 +91,11 @@ export INFOPATH="/home/linuxbrew/.linuxbrew/share/info:$INFOPATH"
 export LDFLAGS="-L/home/linuxbrew/.linuxbrew/opt/isl@0.18/lib"
 export CPPFLAGS="-I/home/linuxbrew/.linuxbrew/opt/isl@0.18/include"
 
-echo 'export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"' >>${profile_path}
-echo 'export MANPATH="/home/linuxbrew/.linuxbrew/share/man:$MANPATH"' >>${profile_path}
-echo 'export INFOPATH="/home/linuxbrew/.linuxbrew/share/info:$INFOPATH"' >>${profile_path}
-echo 'export LDFLAGS="-L/home/linuxbrew/.linuxbrew/opt/isl@0.18/lib"' >>${profile_path}
-echo 'export CPPFLAGS="-I/home/linuxbrew/.linuxbrew/opt/isl@0.18/include"' >>${profile_path}
+export_add 'export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"' ${profile_path}
+export_add 'export MANPATH="/home/linuxbrew/.linuxbrew/share/man:$MANPATH"' ${profile_path}
+export_add 'export INFOPATH="/home/linuxbrew/.linuxbrew/share/info:$INFOPATH"' ${profile_path}
+export_add 'export LDFLAGS="-L/home/linuxbrew/.linuxbrew/opt/isl@0.18/lib"' ${profile_path}
+export_add 'export CPPFLAGS="-I/home/linuxbrew/.linuxbrew/opt/isl@0.18/include"' ${profile_path}
 
 echo "" | brew
 brew install gcc
@@ -127,7 +133,7 @@ task="pyenv"
 start ${task}
 ## for python3.7
 sudo apt install -y build-essential libbz2-dev libdb-dev libreadline-dev libffi-dev libgdbm-dev liblzma-dev libncursesw5-dev libsqlite3-dev libssl-dev zlib1g-dev uuid-dev tk-dev
-anyenv install pyenv
+echo y | anyenv install pyenv
 todo="${todo}\n[TODO] pyenvを使って任意のバージョンのpythonのインストール: $(pyenv install --list)"
 success "pyenvを導入完了"
 
@@ -136,7 +142,7 @@ start ${task}
 curl ${url}/.gitconfig >${HOME}/.gitconfig
 mkdir -p ${HOME}/.ssh
 curl ${url}/.ssh/config >${HOME}/.ssh/config
-todo="${todo}\n[TODO] \$(ssh-keygen -t rss)で生成後、公開鍵をgithubなど( https://github.com/settings/keys )に登録する"
+todo="${todo}\n[TODO] 1. \$(ssh-keygen -t rss)で生成後、公開鍵をgithubなど( https://github.com/settings/keys )に登録する\n       2. ${HOME}/.ssh/configと${HOME}/.gitconfigを設定する"
 success "${task}"
 
 echo "${profile_path} の追記事項"
@@ -144,10 +150,11 @@ cat ${profile_path}
 
 cat <<RECOMMEND
 
-次に実施すべきコマンド:
-\$(exec \$SHELL -l)
-zshを使いたい場合は\$(chsh -s \$(which zsh))
-を先に実行する。
+実行完了
+
+# 次に実施すべきコマンド
+- zshを使う場合のみ: \$(chsh -s \$(which zsh))
+- パスを通す: \$(exec \$SHELL -l)
 
 終了後、必要に応じて[TODO]を実施する
 
