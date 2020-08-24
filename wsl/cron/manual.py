@@ -4,7 +4,8 @@ cronで日常的に実施しているコマンドが実行されていない事�
 ログイン中のユーザーの`crontab -l`の内容を時間順にソートして上からコマンドを実施する。
 
 # 使い方
-`curl https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/cron/manual.py | python`
+python <(curl https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/cron/manual.py 2>/dev/null)
+この場合、bashかzshで動作確認。
 
 0時0分からcronが動いていない事を想定しているので、たとえば10時まで動いていたような場合は本スクリプトを取得して
 `lists["date"] <= today]`の行を`(lists["date"] <= today & lists["date"] >= (datetime))` のように書き換える

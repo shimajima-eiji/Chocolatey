@@ -1,7 +1,7 @@
 # !/bin/bash -l
 <<README
 すぐ使えるように引数に初期値を設定している。
-自分で使う場合はforkしてこれとupdate_CHANGELOG.shの定数をを書き換えてください
+自分で使う場合はforkしてこれとupdate_CHANGELOG.shの定数を書き換える
 README
 
 ### 引数処理
@@ -21,7 +21,7 @@ mkdir -p ${current}
 
 ### main
 cd ${current}
-message="[${today}][CHANGELOG] 最新化"
+message="[${today}][CHANGELOG][jp2en] 最新化"
 branch_update_flag="false"
 
 mkdir -p CHANGELOG
@@ -38,6 +38,7 @@ for branch in ${@:2}; do
     rm -rf ${repository}
     continue
   fi
+  curl https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/git/translate.py | python
   git add -A
   git commit -a -m "${message}"
   git tag -a v${today} -m "当日分の全コミット"
