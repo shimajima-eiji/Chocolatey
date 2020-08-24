@@ -43,7 +43,8 @@ for path in $(find -name "*.md" -not -name "*_en.md" -size +1c); do
 
   echo "[START]: ${path}"
   output="$(dirname ${path})/$(basename ${path%.*}_en.md)"
-  echo "[日本語]($(echo ${path} | cut -c 2-))" >${output}
+  echo "## [日本語]($(echo ${path} | cut -c 2-))" >${output}
+  echo "" >>${output}
 
   while read line; do
     text=$(encode "${line}" | tr -d "\r" | tr -d "\n")
@@ -53,8 +54,7 @@ for path in $(find -name "*.md" -not -name "*_en.md" -size +1c); do
     else
       result=${line}
     fi
-    echo ${result} | tee -a ${output}
-    echo ""
+    echo ${result} >>${output}
   done <${path}
 
   echo "[COMPLETE]: ${path} to ${output}"
