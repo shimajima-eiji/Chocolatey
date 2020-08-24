@@ -12,7 +12,10 @@ python <(curl https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master
 カッコ（）が最初と最後につくようになるので注意する
 
 # 注意点
-`pip install pandas`
+予め実施しておく
+
+- `pip install pandas`
+
 """
 
 # python3

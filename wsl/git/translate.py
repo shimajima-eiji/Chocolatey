@@ -1,6 +1,12 @@
 """
 # 使い方
 curl https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/git/translate.py 2>/dev/null | python ${string}
+
+# 注意点
+予め実施しておく
+
+- `pip install requests`
+
 """
 
 import requests
