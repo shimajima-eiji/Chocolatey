@@ -31,7 +31,7 @@ encode() {
   echo "${text}"
 }
 
-script=$(curl https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/git/translate.py)
+script=$(curl https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/git/translate.py 2>/dev/null)
 
 cd $(git rev-parse --show-toplevel)
 echo "作業ディレクトリ: $(pwd -P)"
@@ -54,7 +54,7 @@ for path in $(find -name "*.md" -not -name "*_en.md" -size +1c); do
     else
       result=${line}
     fi
-    echo ${result} >>${output}
+    echo ${result} | tee -a ${output}
   done <${path}
 
   echo "[COMPLETE]: ${path} to ${output}"
