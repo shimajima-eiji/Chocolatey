@@ -1,7 +1,7 @@
+"""
 # 使い方
-# curl https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/git/translate.py | python ${string}
-# 注意
-# 本スクリプトはshell curlで呼び出しているので"""でのコメントアウトをするとエラーになるため使えない
+`curl https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/git/translate.py | python ${string}`
+"""
 
 import requests
 import sys
