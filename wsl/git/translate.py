@@ -1,6 +1,6 @@
 """
 # 使い方
-curl https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/git/translate.py | python ${string}
+curl https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/git/translate.py 2>/dev/null | python ${string}
 """
 
 import requests
