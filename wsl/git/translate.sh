@@ -31,7 +31,7 @@ encode() {
   echo "${text}"
 }
 
-script=$(curl https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/ubuntu/translate.py)
+script=$(curl https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/git/translate.py)
 
 cd $(git rev-parse --show-toplevel)
 echo "作業ディレクトリ: $(pwd -P)"
