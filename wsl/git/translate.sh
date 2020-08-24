@@ -3,7 +3,7 @@
 # 使い方
 ## 本スクリプト
 gitリポジトリをcloneしたディレクトリ以下で実施する
-curl https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/git/translate.sh
+curl https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/git/translate.sh 2>/dev/null | bash
 
 ## 翻訳API
 curl -L "https://script.google.com/macros/s/AKfycbzA5CyJFa8MQubeEL266bcfOqPcQpqBaH0Ta34nBBREH2IV5ss/exec?text=##%20Change%20Log&source=ja&target=en"
