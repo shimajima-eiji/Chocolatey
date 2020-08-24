@@ -2,6 +2,12 @@
 <<README
 すぐ使えるように引数に初期値を設定している。
 自分で使う場合はforkしてこれとupdate_CHANGELOG.shの定数を書き換える
+
+# 使い方
+curl https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/git/autopush.sh 2>/dev/null | bash
+
+GITHUB_TOKENを環境変数として登録しておく必要があるためbashを強制する
+
 README
 
 ### 引数処理
@@ -24,6 +30,7 @@ cd ${current}
 message="[${today}][CHANGELOG][jp2en] 最新化"
 branch_update_flag="false"
 
+script=$(curl https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/git/translate.sh 2>/dev/null)
 mkdir -p CHANGELOG
 for branch in ${@:2}; do
   echo "[INFO] ${branch} のautopushを実行"
@@ -38,7 +45,7 @@ for branch in ${@:2}; do
     rm -rf ${repository}
     continue
   fi
-  curl https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/git/translate.py | python
+  bash <(echo ${script}) # [TODO] ここで異常な動作を起こすかも知れない
   git add -A
   git commit -a -m "${message}"
   git tag -a v${today} -m "当日分の全コミット"
