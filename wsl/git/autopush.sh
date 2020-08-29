@@ -4,7 +4,7 @@
 自分で使う場合はforkしてこれとupdate_CHANGELOG.shの定数を書き換える
 
 # 使い方
-curl https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/git/autopush.sh 2>/dev/null | bash
+curl https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/git/autopush.sh 2>/dev/null | bash -s -l -- (リポジトリ名)
 
 GITHUB_TOKENを環境変数として登録しておく必要があるためbashを強制する
 
