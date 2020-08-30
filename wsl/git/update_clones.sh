@@ -13,21 +13,33 @@ sh -s -- ＄(find ＄(wslpath "your path") -type d -not -path "*/node_modules/*"
 
 README
 
+debug=false
+output() {
+  if [ "$1" = "true" ]; then
+    echo "$2"
+  fi
+}
+
 pathes=$@
 
 for path in ${pathes}; do
   if [ ! "$(echo ${path} | cut -c1)" = "/" ]; then
-    echo "[SKIP] 誤作動を防止するため、入力はフルパスで設定すること: ${path}"
+    output ${debug} "[SKIP] 誤作動を防止するため、入力はフルパスで設定すること: ${path}"
     continue
   elif [ ! -d "${path}" ]; then
-    echo "[SKIP] 指定されたパスはディレクトリではない: ${path}"
+    output ${debug} "[SKIP] 指定されたパスはディレクトリではない: ${path}"
     continue
   fi
 
   cd ${path}
+  if [ ! -d "${path}/.git" ]; then
+    output ${debug} "[SKIP] リポジトリのルートディレクトリではない： ${path}"
+    continue
+  fi
+
   git branch >/dev/null 2>&1
   if [ ! $? = 0 ]; then
-    echo "[SKIP] 指定されたパスはcloneされたディレクトリではない: ${path}"
+    output ${debug} "[SKIP] 指定されたパスはcloneされたディレクトリではない: ${path}"
     continue
   fi
 
