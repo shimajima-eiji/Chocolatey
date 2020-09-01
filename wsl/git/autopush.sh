@@ -30,7 +30,6 @@ cd ${current}
 message="[${today}][CHANGELOG][jp2en] 最新化"
 branch_update_flag="false"
 
-script=$(curl https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/git/translate.sh 2>/dev/null)
 mkdir -p CHANGELOG
 for branch in ${@:2}; do
   echo "[INFO] ${branch} のautopushを実行"
@@ -45,7 +44,8 @@ for branch in ${@:2}; do
     rm -rf ${repository}
     continue
   fi
-  bash <(echo ${script}) # [TODO] ここで異常な動作を起こすかも知れない
+  curl https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/git/translate.sh 2>/dev/null | bash
+
   git add -A
   git commit -a -m "${message}"
   git tag -a v${today} -m "当日分の全コミット"
