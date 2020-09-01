@@ -1,4 +1,8 @@
 #!/bin/sh
+<<README
+cloneしたディレクトリパスを引数で与えると、対象以下のディレクトリ全てにgit pullを実施する
+README
+
 pull()
 {
   before=$1
@@ -14,7 +18,7 @@ pull()
   git rev-parse --show-toplevel
 }
 
-path="(your path)"
+path="${1:-(your path)}"
 # 単一実行の場合
 before=$(pull "" "${path}")
 
