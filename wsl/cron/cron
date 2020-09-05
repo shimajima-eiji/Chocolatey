@@ -2,8 +2,9 @@
 # curl https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/cron/cron > ~/cron
 # sudo cp ~/cron /var/spool/cron/crontab/$USER
 
-# 定義
+# 定義。
 PATH=/usr/bin:/bin:/usr/local/bin
+changelog=https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/git/autopush.sh
 
 # ログ初期化
 00 00 * * * rm ~/cron/cron.log
@@ -12,11 +13,13 @@ PATH=/usr/bin:/bin:/usr/local/bin
 # 実行
 00 00 * * * crontab -l >~/cron/cron
 
-01 00 * * * curl -sf https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/git/autopush.sh | bash -s -l -- shimajima-eiji >>~/cron/cron.log 2>>~/cron/cron.err
-05 00 * * * curl -sf https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/git/autopush.sh | bash -s -l -- shimajima-eiji.github.io >>~/cron/cron.log 2>>~/cron/cron.err
-10 00 * * * curl -sf https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/git/autopush.sh | bash -s -l -- Personal >>~/cron/cron.log 2>>~/cron/cron.err
-20 00 * * * curl -sf https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/git/autopush.sh | bash -s -l -- Chocolatey >>~/cron/cron.log 2>>~/cron/cron.err
-30 00 * * * curl -sf https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/git/autopush.sh | bash -s -l -- Article >>~/cron/cron.log 2>>~/cron/cron.err
-40 00 * * * curl -sf https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/git/autopush.sh | bash -s -l -- Github_scout >>~/cron/cron.log 2>>~/cron/cron.err
-50 00 * * * curl -sf https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/git/autopush.sh | bash -s -l -- profile >>~/cron/cron.log 2>>~/cron/cron.err
-00 01 * * * curl -sf https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/git/autopush.sh | bash -s -l -- Hosting GAS-snippets GAS-timetrigger GAS-minimum_wage GAS-translateAPI microCMS-tutorial >>~/cron/cron.log 2>>~/cron/cron.err
+01 00 * * * curl ${changelog} | bash -s -l -- shimajima-eiji >>~/cron/cron.log 2>>~/cron/cron.err
+05 00 * * * curl ${changelog} | bash -s -l -- shimajima-eiji.github.io >>~/cron/cron.log 2>>~/cron/cron.err
+10 00 * * * curl ${changelog} | bash -s -l -- Personal >>~/cron/cron.log 2>>~/cron/cron.err
+20 00 * * * curl ${changelog} | bash -s -l -- Chocolatey >>~/cron/cron.log 2>>~/cron/cron.err
+30 00 * * * curl ${changelog} | bash -s -l -- Article >>~/cron/cron.log 2>>~/cron/cron.err
+40 00 * * * curl ${changelog} | bash -s -l -- Github_scout >>~/cron/cron.log 2>>~/cron/cron.err
+50 00 * * * curl ${changelog} | bash -s -l -- profile >>~/cron/cron.log 2>>~/cron/cron.err
+00 01 * * * curl ${changelog} | bash -s -l -- Hosting GAS-snippets GAS-timetrigger GAS-minimum_wage GAS-translateAPI microCMS-tutorial >>~/cron/cron.log 2>>~/cron/cron.err
+00 02 * * * sh ~/cron/pulls.sh >>~/cron/cron.log 2>>~/cron/cron.err
+
