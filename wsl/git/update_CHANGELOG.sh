@@ -46,20 +46,20 @@ if [ ! $(which github-changes) ]; then
 fi
 
 ### 引数処理
-token=${GITHUB_TOKEN}
+token=${1:-${GITHUB_TOKEN}}
 git branch >/dev/null 2>&1
 if [ $? = 0 ]; then
   repository=$(basename $(git rev-parse --show-toplevel))
 else
-  repository=$1
+  repository=$2
 fi
 
 if [ ! "${token}" -o ! "${repository}" ]; then
   help
   exit 1
 fi
-branch=${2:-$(git rev-parse --abbrev-ref @)}
-filepath=${3:-CHANGELOG.md}
+branch=${3:-$(git rev-parse --abbrev-ref @)}
+filepath=${4:-CHANGELOG.md}
 
 ### 定数
 owner=$(git config user.name)
