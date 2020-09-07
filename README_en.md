@@ -1,7 +1,7 @@
 ## [日本語](/README.md)
 
 # Chocolatey
-Repository for managing the version of the package that was inserted with cinst.
+A repository for managing the version of the package itself inserted with cinst.
 <br>[For guidance on chocolatey, refer to the explanation site](https://shimajima-eiji.github.io/resume/tech/chocolatey)
 <br>The target is the installed package itself.
 
