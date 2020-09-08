@@ -21,6 +21,9 @@
   - 拡張機能があるからそっちがおすすめ。重い場合はWebパネルにしよう
     - サイト翻訳:[Google翻訳](https://chrome.google.com/webstore/detail/google-translate/aapbdbdomjkkjkaonfhkkikfgjllcleb?hl=ja
     - ドラッグ翻訳:[DeepL翻訳](https://chrome.google.com/webstore/detail/なぞり翻訳英→和-for-deepl翻訳/begokompmfdepmbdbemfahbeapcabeaa/related?hl=ja)
+    
+## 拡張機能
+- [Google Apps Script GitHub アシスタント](https://chrome.google.com/webstore/detail/google-apps-script-github/lfjcgcmkmjjlieihflfhjopckgpelofo/related?hl=ja)
 
 # トラブルシューティング
 ## メモリバカ食い問題
