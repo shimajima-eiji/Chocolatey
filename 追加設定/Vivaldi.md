@@ -25,11 +25,10 @@
 # 拡張機能
 - セキュリティ。IPアドレスを隠したいだけならVPN Free。匿名性が必要ならOnion Browser Button
   - [VPN Free - Betternet Unlimited VPN Proxy](https://chrome.google.com/webstore/detail/vpn-free-betternet-unlimi/gjknjjomckknofjidppipffbpoekiipm)
-  - [Onion Browser Button](https://chrome.google.com/webstore/detail/onion-browser-button/fockhhgebmfjljjmjhbdgibcmofjbpca?hl=en)
-    - [設定方法](https://qiita.com/___xxx_/items/b2a89082abd86b3e66e2)
+  - [Onion Browser Button](https://chrome.google.com/webstore/detail/onion-browser-button/fockhhgebmfjljjmjhbdgibcmofjbpca?hl=en)（[設定方法](https://qiita.com/___xxx_/items/b2a89082abd86b3e66e2)）
 - 翻訳。複数用意をする事が望ましいので、基本はDeepLで必要に応じてGoogleを使う想定とした。
   - [なぞり翻訳(英→和) for DeepL翻訳](https://chrome.google.com/webstore/detail/なぞり翻訳英→和-for-deepl翻訳/begokompmfdepmbdbemfahbeapcabeaa?hl=ja)
-  - [Google翻訳](https://chrome.google.com/webstore/detail/google-translate/aapbdbdomjkkjkaonfhkkikfgjllcleb?hl=ja)
+  - [Google翻訳](https://chrome.google.com/webstore/detail/google-translate/aapbdbdomjkkjkaonfhkkikfgjllcleb?hl=ja): 初期設定時はドラッグ時にアイコンがちらついて鬱陶しいので消しておく
 - 開発支援
   - [Google Apps Script GitHub アシスタント](https://chrome.google.com/webstore/detail/google-apps-script-github/lfjcgcmkmjjlieihflfhjopckgpelofo/related?hl=ja): GAS Webエディタを使うならGithub連携に必須
   
