@@ -18,18 +18,20 @@
   - [tor接続確認](https://check.torproject.org/)
 
 ## 候補
-- 翻訳。複数持っておくと、どちらかがイケてる翻訳をしてくれるかも知れない。
+- 翻訳。複数持っておくとベター。拡張機能（後述）があるならそっちがおすすめ。重い場合はWebパネルを使う
   - [Google翻訳](https://translate.google.co.jp/?hl=ja)
   - [DeepL翻訳](https://www.deepl.com/ja/translator)
-  - 拡張機能があるからそっちがおすすめ。重い場合はWebパネルにしよう
-    - サイト翻訳:[Google翻訳](https://chrome.google.com/webstore/detail/google-translate/aapbdbdomjkkjkaonfhkkikfgjllcleb?hl=ja
-    - ドラッグ翻訳:[DeepL翻訳](https://chrome.google.com/webstore/detail/なぞり翻訳英→和-for-deepl翻訳/begokompmfdepmbdbemfahbeapcabeaa/related?hl=ja)
     
-## 拡張機能
-- [Google Apps Script GitHub アシスタント](https://chrome.google.com/webstore/detail/google-apps-script-github/lfjcgcmkmjjlieihflfhjopckgpelofo/related?hl=ja): GAS Webエディタを使うならGithub連携に必須
-- [VPN Free - Betternet Unlimited VPN Proxy](https://chrome.google.com/webstore/detail/vpn-free-betternet-unlimi/gjknjjomckknofjidppipffbpoekiipm): IPアドレスを隠したいだけならこっち
-- [Onion Browser Button](https://chrome.google.com/webstore/detail/onion-browser-button/fockhhgebmfjljjmjhbdgibcmofjbpca?hl=en): 匿名性を高めたいならこっち
-  - [設定方法](https://qiita.com/___xxx_/items/b2a89082abd86b3e66e2)
+# 拡張機能
+- セキュリティ。IPアドレスを隠したいだけならVPN Free。匿名性が必要ならOnion Browser Button
+  - [VPN Free - Betternet Unlimited VPN Proxy](https://chrome.google.com/webstore/detail/vpn-free-betternet-unlimi/gjknjjomckknofjidppipffbpoekiipm)
+  - [Onion Browser Button](https://chrome.google.com/webstore/detail/onion-browser-button/fockhhgebmfjljjmjhbdgibcmofjbpca?hl=en)
+    - [設定方法](https://qiita.com/___xxx_/items/b2a89082abd86b3e66e2)
+- 翻訳。複数用意をする事が望ましいので、基本はDeepLで必要に応じてGoogleを使う想定とした。
+  - [なぞり翻訳(英→和) for DeepL翻訳](https://chrome.google.com/webstore/detail/なぞり翻訳英→和-for-deepl翻訳/begokompmfdepmbdbemfahbeapcabeaa?hl=ja)
+  - [Google翻訳](https://chrome.google.com/webstore/detail/google-translate/aapbdbdomjkkjkaonfhkkikfgjllcleb?hl=ja)
+- 開発支援
+  - [Google Apps Script GitHub アシスタント](https://chrome.google.com/webstore/detail/google-apps-script-github/lfjcgcmkmjjlieihflfhjopckgpelofo/related?hl=ja): GAS Webエディタを使うならGithub連携に必須
   
 # トラブルシューティング
 ## メモリバカ食い問題
