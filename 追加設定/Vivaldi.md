@@ -13,6 +13,9 @@
   - [GDrive](https://drive.google.com/drive/my-drive)
 - 地図サービス。よく使う場所を指定して登録すると開いた瞬時に確認できる。現在地周辺はスマホでよくね？という気がしないでもない。
   - [GoogleMap](https://www.google.co.jp/maps/?hl=ja)
+- よく紛失するもの
+  - apps(chrome://apps/)
+  - [tor接続確認](https://check.torproject.org/)
 
 ## 候補
 - 翻訳。複数持っておくと、どちらかがイケてる翻訳をしてくれるかも知れない。
@@ -24,7 +27,10 @@
     
 ## 拡張機能
 - [Google Apps Script GitHub アシスタント](https://chrome.google.com/webstore/detail/google-apps-script-github/lfjcgcmkmjjlieihflfhjopckgpelofo/related?hl=ja): GAS Webエディタを使うならGithub連携に必須
-
+- [VPN Free - Betternet Unlimited VPN Proxy](https://chrome.google.com/webstore/detail/vpn-free-betternet-unlimi/gjknjjomckknofjidppipffbpoekiipm): IPアドレスを隠したいだけならこっち
+- [Onion Browser Button](https://chrome.google.com/webstore/detail/onion-browser-button/fockhhgebmfjljjmjhbdgibcmofjbpca?hl=en): 匿名性を高めたいならこっち
+  - [設定方法](https://qiita.com/___xxx_/items/b2a89082abd86b3e66e2)
+  
 # トラブルシューティング
 ## メモリバカ食い問題
 これはvivaldiの問題ではなく、使い方の問題である事を念頭に置く。荒い使い方をしているとIE(Edge)でもFirefoxでもchromeでもメモリ消費量は変わらない。
