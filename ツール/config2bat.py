@@ -1,5 +1,5 @@
 """
-for Version3
+for Python Version3
 """
 def echo(message):
   print(message)
@@ -38,8 +38,8 @@ if __name__ == '__main__':
     return "cinst %s\n" % line.split('"')[1]
 
   files = {
-    'base': "%s/chocolatey.config" % getPath(),
-    'result': "%s/chocolatey.bat" % getPath()
+    'base': "%s/chocolatey.config" % getPath().parent,
+    'result': "%s/cinst.bat" % getPath()
   }
   with open(files['base'], "r") as data:
     with open(files['result'], "w") as target:
