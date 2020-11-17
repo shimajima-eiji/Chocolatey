@@ -3,15 +3,6 @@
 <br>[chocolateyの手引は解説サイトを参照](https://shimajima-eiji.github.io/resume/tech/chocolatey)し、
 <br>ここではインストールしたパッケージ自体を対象にする。
 
-## 追記
-PowerShellを管理者権限で開いて
-
-```
-Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
-```
-
-その後、`cinst.exe chocolatey.config`とすると環境が整う。
-
 # ディレクトリ解説
 管理者権限（ユーザーアカウント制御）が必要なので上書きして保存する運用にする。
 <br>`C:\ProgramData\chocolatey`にリポジトリを置く場合、`.\config\chocolatey.config`を誤って変更しないように注意。

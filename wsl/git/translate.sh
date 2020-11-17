@@ -27,28 +27,23 @@ fi
 
 encode() {
   # 調べたいものは echo "(何か)" | nkf -WwMQ | tr = % で
-  text=$(echo "${1}" | sed "s| |%20|g")
+  text=$(echo "${1}" | sed "s| |%20|g" | sed "s|#|%23|g")
   echo "${text}"
 }
 
-script=$(curl https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/git/translate.py 2>/dev/null)
-
-cd $(git rev-parse --show-toplevel)
-echo "作業ディレクトリ: $(pwd -P)"
-for path in $(find -name "*.md" -not -name "*_en.md" -size +1c); do
-  git diff --name-only | grep $(echo ${path} | cut -c 3-) >/dev/null
-  if [ $? = 1 ]; then # 変更がないものは翻訳しない
-    continue
-  fi
+run() {
+  path=$1
+  output=$2
 
   echo "[START]: ${path}"
-  output="$(dirname ${path})/$(basename ${path%.*}_en.md)"
   echo "## [日本語]($(echo ${path} | cut -c 2-))" >${output}
   echo "" >>${output}
+  script=$(curl https://raw.githubusercontent.com/shimajima-eiji/Chocolatey/master/wsl/git/translate.py 2>/dev/null)
 
   while read line; do
     text=$(encode "${line}" | tr -d "\r" | tr -d "\n")
-    result=$(python <(echo "${script}") "${text}" "ja" "en")
+    result= $(python ~/chocolatey/wsl/git/translate.py "${text}" "ja" "en" | tr -d "\n")
+    echo "${result}"
     if [ "$(echo ${result} | jq -r .code)" = 200 ]; then
       result=$(echo ${result} | jq -r .text)
     else
@@ -58,4 +53,21 @@ for path in $(find -name "*.md" -not -name "*_en.md" -size +1c); do
   done <${path}
 
   echo "[COMPLETE]: ${path} to ${output}"
+}
+
+cd $(git rev-parse --show-toplevel)
+echo "作業ディレクトリ: $(pwd -P)"
+for path in $(find $(pwd -P) -name "*.md" -not -name "*_en.md" -size +1c); do
+  output="$(dirname ${path})/$(basename ${path%.*}_en.md)"
+  if [ ! -f "${output}" ]; then
+    run ${path} ${output}
+    continue
+  fi
+
+  git diff --name-only | grep $(echo ${path} | cut -c 3-) >/dev/null
+  if [ $? = 0 ]; then # 変更がないものは翻訳しない
+    run ${path} ${output}
+    continue
+  fi
+
 done
