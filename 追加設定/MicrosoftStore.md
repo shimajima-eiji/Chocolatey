@@ -1,0 +1,7 @@
+- [SafeinCloud](https://www.microsoft.com/store/productId/9NLXL1B6J7LW)
+  - ブラウザにも拡張機能を入れよう
+- [Xbox Game Bar](https://www.microsoft.com/store/productId/9NZKPSTSNW4P)
+  - 「Windowsキー」＋「G」で録画できる
+- [LINE](https://www.microsoft.com/store/productId/9WZDNCRFJ2G6)
+- [日本語ローカルエクスペリエンス](https://www.microsoft.com/store/productId/9N1W692FV4S1)
+  - これがないとWindowsの日本語化が消える。よくわからないけど消してはいけないもの
