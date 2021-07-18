@@ -1,9 +1,11 @@
+# pip自体のインストールは`apt install python3-pip`
+
 from pathlib import Path
 from datetime import datetime
 import shutil
 import sys
 import re
-from PIL import Image
+from PIL import Image  # need pip install pillow
 from PIL.ExifTags import TAGS
 
 class ExifImage:
@@ -121,6 +123,7 @@ if __name__ == "__main__":
       year = path.parent.parent.name
       month = path.parent.name
 
+      print(year + ": check")
       # 既に整理済みのディレクトリは除外
       if year.isdecimal() and month.isdecimal():
         year = int(year)
@@ -158,17 +161,17 @@ if __name__ == "__main__":
   # 実行
   rootdir = Path("/mnt/k")
 
-  fromdir = rootdir / "Amazon Drive/画像整理/Noomu"
+  fromdir = rootdir / "Amazon Drive/Pictures/Noomu"
   targetdir = rootdir / "Amazon Drive/画像整理/Noomu"
   moviedir = rootdir / "動画(Googleフォト用)/movie"
   main(fromdir, targetdir, moviedir)
 
-  fromdir = rootdir / "Amazon Drive/画像整理/SO-03K"
+  fromdir = rootdir / "Amazon Drive/Pictures/SO-03K"
   targetdir = rootdir / "Amazon Drive/画像整理/SO-03K"
   moviedir = rootdir / "動画(Googleフォト用)/同期"
   main(fromdir, targetdir, moviedir)
 
-  fromdir = rootdir / "Amazon Drive/画像整理/Pixel 3a"
+  fromdir = rootdir / "Amazon Drive/Pictures/Pixel 3a"
   targetdir = rootdir / "Amazon Drive/画像整理/Pixel 3a"
   moviedir = rootdir / "動画(Googleフォト用)/同期"
   main(fromdir, targetdir, moviedir)
