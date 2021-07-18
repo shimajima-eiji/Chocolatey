@@ -81,3 +81,8 @@ Webパネルではなく、[設定→検索エンジンの設定](vivaldi://sett
 
 たとえば、広告ブロッカーやサイトセキュリティは強力だがその性質上メモリをバカ食いする。
 カードゲームと同じで、入れれば入れるだけ良いという事はない。ブラウザを起動する度に固まったり遅く感じる場合は、こういったツールが本当に必要か考え直そう。
+
+- [Nano Adblocker](https://chrome.google.com/webstore/detail/nano-adblocker/gabbbocakeomblphkmmnoamkioajlkfo?hl=ja)
+- [DuckDuckGo Privacy Essentials](https://chrome.google.com/webstore/detail/duckduckgo-privacy-essent/bkdgflcldnnnapblkhphbgpggdiikppg?hl=ja)
+- [Avast Online Security](https://chrome.google.com/webstore/detail/avast-online-security/gomekmidlodglbbmalcneegieacbdmki?hl=ja)
+- jsoff(ダウンロード先行方不明)
