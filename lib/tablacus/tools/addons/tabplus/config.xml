@@ -1,9 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <TablacusExplorer>
   <General>
-    <Version>1.87</Version>
-    <MinVersion>2021.6.17</MinVersion>
-    <pubDate>Sun, 27 Jun 2021 00:00:00 GMT</pubDate>
+    <Version>1.96</Version>
+    <MinVersion>2022.6.27</MinVersion>
+    <pubDate>Mon, 18 Jul 2022 00:00:00 GMT</pubDate>
     <Options>Common:0:0</Options>
     <Level>2</Level>
     <Creator>Gaku</Creator>
@@ -14,6 +13,9 @@
     <Name>Tab plus</Name>
     <Description>Tab plus</Description>
   </en>
+  <fr>
+    <Name>Tab+</Name>
+  </fr>
   <ja>
     <Name>タブプラス</Name>
   </ja>
