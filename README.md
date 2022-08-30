@@ -21,6 +21,11 @@
 - [追加設定](https://github.com/shimajima-eiji/Chocolatey/tree/master/追加設定)
   - インストール後に設定が必要なものは`パッケージ.md`を、サードパーティーサービスは`WebService.md`に集約している。
 
+## 2022/08/30 追記
+- 当初Tablacus Explorerを使っていたが、Tablacus自体に不具合や運用不備があり、またchocolateyはシステムフォルダ以下にファイルを置くため、権限関連でGitの運用（特にPullで新規ファイルを追加するなど）が煩わしかったので廃止
+- TeamViewerのアップデート・再インストールにも失敗するので、ChocolateyでTeamViewerを管理しないように変更
+- 本リポジトリのWikiを廃止。別サイトに移行中
+
 # インストール手引き
 作業としては
 
@@ -29,12 +34,4 @@
 1. 本リポジトリを`C:\ProgramData\chocolatey`に格納
 1. 必要に応じて追加設定など
 
-だけ順番があり、以降は順不同で実施できる。解説は後述の通り。
-
-https://github.com/shimajima-eiji/Chocolatey/wiki/Chocolateyのインストール・アップグレード
-
-# インストール後
-https://github.com/shimajima-eiji/Chocolatey/wiki/設定が必要なサードパーティー
-
-# トラブルシューティング
-https://github.com/shimajima-eiji/Chocolatey/wiki/トラブルシューティング
+だけ順番があり、以降は順不同で実施できる。解説は別途（移行中）。
